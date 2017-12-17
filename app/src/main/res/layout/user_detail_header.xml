@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="240dp">
+
+    <ImageButton
+        android:id="@+id/user_photo"
+        android:src="@drawable/ic_user_photo"
+        android:scaleType="centerCrop"
+        android:background="#00000000"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:text="小嗒"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/user_sex"
+            android:src="@drawable/ic_man"
+            android:layout_marginStart="3dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/user_occupation"
+        android:layout_marginTop="10dp"
+        android:text="互联网-app设计"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/user_signature"
+        android:layout_marginTop="10dp"
+        android:text="还没有个性签名，介绍一下自己吧"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

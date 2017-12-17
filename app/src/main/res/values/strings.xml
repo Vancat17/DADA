@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">搭伙</string>
+    <string name="navigation_drawer_open">打开导航</string>
+    <string name="navigation_drawer_close">关闭导航</string>
+    <string name="action_settings">设置</string>
+
+
+    <!--个人页-->
+    <string name="action_stroke">行程</string>
+    <string name="action_like">收藏</string>
+    <string name="action_wallet">钱包</string>
+    <string name="action_service">客服</string>
+    <string name="action_setting">设置</string>
+    <string name="user_name">小嗒</string>
+    <string name="user_level">普通会员</string>
+    <string name="todo">TODO</string>
+
+
+</resources>

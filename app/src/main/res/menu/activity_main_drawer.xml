@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_stroke"
+            android:icon="@drawable/ic_menu_stroke"
+            android:title="@string/action_stroke" />
+        <item
+            android:id="@+id/nav_like"
+            android:icon="@drawable/ic_menu_like"
+            android:title="@string/action_like" />
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/ic_menu_wallet"
+            android:title="@string/action_wallet" />
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/ic_menu_service"
+            android:title="@string/action_service" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="@string/action_settings"/>
+    </group>
+
+    <!--<item andrtestitle="社交">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--andrtestitle="分享" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--andrtestitle="发送" />-->
+        <!--</menu>-->
+    <!--</item>-->
+</menu>
