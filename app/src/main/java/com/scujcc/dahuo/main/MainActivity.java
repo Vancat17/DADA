@@ -23,6 +23,11 @@ import android.widget.Toast;
 
 import com.scujcc.dahuo.R;
 import com.scujcc.dahuo.content.SimplePagerAdapter;
+import com.scujcc.dahuo.function.LikeActivity;
+import com.scujcc.dahuo.function.ServiceActivity;
+import com.scujcc.dahuo.function.SettingActivity;
+import com.scujcc.dahuo.function.StrokeActivity;
+import com.scujcc.dahuo.function.WalletActivity;
 import com.scujcc.dahuo.message.MessageActivity;
 import com.scujcc.dahuo.user.UserDetailActivity;
 
@@ -122,19 +127,24 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.nav_stroke) {
-
+            Intent intent = new Intent(MainActivity.this, StrokeActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_like) {
-
+            Intent intent = new Intent(MainActivity.this, LikeActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_wallet) {
-
+            Intent intent = new Intent(MainActivity.this, WalletActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_service) {
-
+            Intent intent = new Intent(MainActivity.this, ServiceActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_setting) {
-
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+            startActivity(intent);
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);

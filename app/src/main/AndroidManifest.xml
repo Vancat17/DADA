@@ -19,15 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".user.UserDetailActivity"/>
-        <activity android:name=".message.MessageActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".user.UserDetailEditActivity"/>
-        <activity android:name=".TestActivity">
-
-        </activity>
-
+        <activity android:name=".user.UserDetailActivity" />
+        <activity
+            android:name=".message.MessageActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity android:name=".user.UserDetailEditActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".function.StrokeActivity" />
+        <activity android:name=".function.LikeActivity" />
+        <activity android:name=".function.WalletActivity" />
+        <activity android:name=".function.ServiceActivity" />
+        <activity android:name=".function.SettingActivity"></activity>
     </application>
 
 </manifest>

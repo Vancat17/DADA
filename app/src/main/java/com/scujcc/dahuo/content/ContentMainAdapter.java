@@ -1,6 +1,7 @@
 package com.scujcc.dahuo.content;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scujcc.dahuo.R;
+import com.scujcc.dahuo.TestActivity;
 
 import java.util.List;
 
@@ -37,6 +39,7 @@ public class ContentMainAdapter extends RecyclerView.Adapter<ContentMainAdapter.
         }
 
 
+
     }
 
     public class BannerHolder extends IndexHolder {
@@ -47,7 +50,7 @@ public class ContentMainAdapter extends RecyclerView.Adapter<ContentMainAdapter.
         }
     }
 
-    public class ContentHolder extends IndexHolder {
+    public class ContentHolder extends IndexHolder implements View.OnClickListener{
 
         @BindView(R.id.user_photo)
         ShapedImageView mUserPhoto;
@@ -69,7 +72,15 @@ public class ContentMainAdapter extends RecyclerView.Adapter<ContentMainAdapter.
         public ContentHolder(View itemView) {
 
             super(itemView);
+            itemView.setOnClickListener(this);
             ButterKnife.bind(this, itemView);
+        }
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(v.getContext(), TestActivity.class);
+            v.getContext().startActivity(intent);
+
+
         }
     }
 

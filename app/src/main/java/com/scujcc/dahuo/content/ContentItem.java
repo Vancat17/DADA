@@ -19,7 +19,6 @@ public class ContentItem {
     private int nowNum;
     private int tolNum;
 
-
     public ContentItem(int photoId, String name, int vip, String startTime, String topic, String content, int nowNum, int tolNum) {
         this.photoId = photoId;
         this.name = name;
@@ -35,7 +34,7 @@ public class ContentItem {
     public int getPhotoId() {
         return photoId;
     }
-
+    
     public void setPhotoId(int photoId) {
         this.photoId = photoId;
     }
