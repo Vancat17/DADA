@@ -1,6 +1,8 @@
 package com.scujcc.dahuo;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -18,6 +20,11 @@ import butterknife.ButterKnife;
 public class TestActivity extends Activity {
     @BindView(R.id.back_button)
     Button mBackButton;
+
+    public static Intent newIntent(Context packageContext) {
+        Intent intent = new Intent(packageContext, TestActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
