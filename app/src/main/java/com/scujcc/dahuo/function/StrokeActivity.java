@@ -10,6 +10,7 @@ public class StrokeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("我的行程");
         setContentView(R.layout.user_activity_stroke);
     }
 }
