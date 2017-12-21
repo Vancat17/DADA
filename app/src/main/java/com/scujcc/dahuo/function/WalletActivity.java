@@ -13,11 +13,11 @@ public class WalletActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("我的钱包");
         setContentView(R.layout.user_activity_wallet);
     }
 
     public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.IndexHolder> {
-
 
         /**
          * 此部分待优化, 暂时无解

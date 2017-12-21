@@ -10,6 +10,7 @@ public class LikeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("我的收藏");
         setContentView(R.layout.user_activity_like);
     }
 }

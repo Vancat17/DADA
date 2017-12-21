@@ -10,6 +10,7 @@ public class ServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("客服中心");
         setContentView(R.layout.user_activity_service);
     }
 }
