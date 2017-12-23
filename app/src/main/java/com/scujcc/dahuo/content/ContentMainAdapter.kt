@@ -12,8 +12,6 @@ import android.widget.TextView
 import com.scujcc.dahuo.R
 import com.scujcc.dahuo.TestActivity
 
-import butterknife.BindView
-import butterknife.ButterKnife
 import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
 
 /**

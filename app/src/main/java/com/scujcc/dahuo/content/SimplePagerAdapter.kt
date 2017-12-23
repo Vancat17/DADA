@@ -28,6 +28,4 @@ class SimplePagerAdapter(fm: FragmentManager, private val context: Context) : Fr
     companion object {
         private val mTitles = arrayOf("全部", "约饭", "运动", "游戏", "拼团", "约街", "待续")
     }
-
-
 }
