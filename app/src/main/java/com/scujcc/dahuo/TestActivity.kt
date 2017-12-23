@@ -1,8 +1,6 @@
 package com.scujcc.dahuo
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.test.*
 
@@ -17,15 +15,8 @@ class TestActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.test)
-        backButton.setOnClickListener {
+        back_button.setOnClickListener {
             finish()
-        }
-    }
-
-    companion object {
-
-        fun newIntent(packageContext: Context): Intent {
-            return Intent(packageContext, TestActivity::class.java)
         }
     }
 }

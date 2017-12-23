@@ -15,6 +15,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,20 +23,26 @@
         <activity
             android:name=".message.MessageActivity"
             android:parentActivityName=".main.MainActivity" />
-        <activity android:name=".user.UserDetailEditActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".function.StrokeActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".function.LikeActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".function.WalletActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".function.ServiceActivity"
-            android:parentActivityName=".main.MainActivity"/>
-        <activity android:name=".function.SettingActivity"
-            android:parentActivityName=".main.MainActivity"/>
+        <activity
+            android:name=".user.UserDetailEditActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".function.StrokeActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".function.LikeActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".function.WalletActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".function.ServiceActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".function.SettingActivity"
+            android:parentActivityName=".main.MainActivity" />
         <activity android:name=".TestActivity" />
-
+        <activity android:name=".function.LocationActivity"></activity>
     </application>
 
 </manifest>

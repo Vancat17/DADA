@@ -6,7 +6,7 @@
     android:layout_height="240dp">
 
     <ImageButton
-        android:id="@+id/user_photo"
+        android:id="@+id/deuser_photo"
         android:src="@drawable/ic_user_photo"
         android:scaleType="centerCrop"
         android:background="#00000000"

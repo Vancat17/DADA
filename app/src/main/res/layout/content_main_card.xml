@@ -12,29 +12,29 @@
         android:layout_height="match_parent">
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-            android:id="@+id/user_photo"
+            android:id="@+id/content_user_photo"
             app:shape_mode="circle"
             android:src="@drawable/ic_user_photo"
             android:layout_width="60dp"
             android:layout_height="60dp" />
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/content_user_name"
             android:text="昵称"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/user_photo"
+            android:layout_toEndOf="@id/content_user_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:id="@+id/user_vip"
+            android:id="@+id/content_user_vip"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/user_name"
             android:layout_width="20dp"
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/start_time"
+            android:id="@+id/content_start_time"
             android:text="明天8:00开始"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:id="@+id/content_topic"
             android:layout_margin="10dp"
             android:layout_below="@id/user_name"
-            android:layout_toEndOf="@id/user_photo"
+            android:layout_toEndOf="@id/content_user_photo"
             android:text="约羽毛球"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -52,7 +52,7 @@
         <TextView
             android:id="@+id/content_text"
             android:layout_margin="10dp"
-            android:layout_below="@id/user_photo"
+            android:layout_below="@id/content_user_photo"
             android:text="JOJOJ承诺大家快来为保持冷静和单位参加的，不是沉积物 充电宝是吃看的vcvcdkscdbsdbkncdscbnvwdhjcvwbdlbcjhldbchjdsbcjdsbcnsd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

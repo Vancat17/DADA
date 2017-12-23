@@ -7,7 +7,7 @@
     android:orientation="horizontal">
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/back_button"
         android:text="测试页面   点此关闭"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

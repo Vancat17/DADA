@@ -10,8 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.scujcc.dahuo.R
-import com.scujcc.dahuo.R.id.contentMainRecyle
-import kotlinx.android.synthetic.main.content_main_recycle.*
 
 import java.util.ArrayList
 
@@ -37,7 +35,7 @@ class PageFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.content_main_recycle, container, false)
-        mContentMainRecyle = view.findViewById(R.id.contentMainRecyle);
+        mContentMainRecyle = view.findViewById(R.id.content_main_recyle)
         addData()
         mContentMainRecyle.setHasFixedSize(true)
         mContentMainRecyle.layoutManager = LinearLayoutManager(activity)

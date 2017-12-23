@@ -6,13 +6,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 
 import com.scujcc.dahuo.R
 import com.scujcc.dahuo.TestActivity
 
-import cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+import kotlinx.android.synthetic.main.content_main_card.view.*
 
 /**
  * Created by  范朝波 on 2017/12/17.
@@ -28,26 +26,9 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
 
     inner class ContentHolder(itemView: View) : IndexHolder(itemView), View.OnClickListener {
 
-        internal var mUserPhoto: ShapedImageView
-        internal var mUserName: TextView
-        internal var mUserVip: ImageView
-        internal var mStartTime: TextView
-        internal var mContentTopic: TextView
-        internal var mContentText: TextView
-        internal var mContentImage: ImageView
-        internal var mContentTolNum: TextView
-
         init {
             itemView.setOnClickListener(this)
 
-            mUserPhoto = itemView.findViewById(R.id.user_photo)
-            mUserName = itemView.findViewById(R.id.user_name)
-            mUserVip = itemView.findViewById(R.id.user_vip)
-            mStartTime = itemView.findViewById(R.id.start_time)
-            mContentTopic = itemView.findViewById(R.id.content_topic)
-            mContentText = itemView.findViewById(R.id.content_text)
-            mContentTolNum = itemView.findViewById(R.id.content_tolNum)
-            mContentImage = itemView.findViewById(R.id.content_image)
         }
 
         override fun onClick(v: View) {
@@ -90,14 +71,14 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
             else -> {
                 val contentHolder = holder as ContentHolder
                 val pos = if (position - ITEM_EXTRA > 0) position - ITEM_EXTRA else 0
-                contentHolder.mUserPhoto.setImageResource(mContentItems[pos].photoId)
-                contentHolder.mUserName.text = mContentItems[pos].name
+                contentHolder.itemView.content_user_photo.setImageResource(mContentItems[pos].photoId)
+                contentHolder.itemView.content_user_name.text = mContentItems[pos].name
                 //          p7      contentHolder.mUserVip.
-                contentHolder.mStartTime.text = mContentItems[pos].startTime
-                contentHolder.mContentTopic.text = mContentItems[pos].topic
-                contentHolder.mContentText.text = mContentItems[pos].content
+                contentHolder.itemView.content_start_time.text = mContentItems[pos].startTime
+                contentHolder.itemView.content_topic.text = mContentItems[pos].topic
+                contentHolder.itemView.content_text.text = mContentItems[pos].content
                 //                contentHolder.mContentImage.setImageResource(mContentItems.get(pos).get);
-                contentHolder.mContentTolNum.text = mContentItems[pos].nowNum.toString() + "/" + mContentItems[position].nowNum
+                contentHolder.itemView.content_tolNum.text = mContentItems[pos].nowNum.toString() + "/" + mContentItems[position].nowNum
             }
         }
     }

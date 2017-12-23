@@ -12,7 +12,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageButton
-        android:id="@+id/imageView"
+        android:id="@+id/user_imageview"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
@@ -31,7 +31,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/user_vip_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_level" />

@@ -12,7 +12,7 @@
         android:layout_height="64dp">
 
         <Button
-            android:id="@+id/change_cancel"
+            android:id="@+id/detail_change_cancel"
             android:text="取消"
             android:paddingStart="6dp"
             android:background="#00000000"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <Button
-            android:id="@+id/change_done"
+            android:id="@+id/detail_change_done"
             android:text="完成"
             android:background="#00000000"
             android:paddingEnd="6dp"
@@ -44,7 +44,7 @@
         android:layout_height="80dp">
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-            android:id="@+id/user_photo"
+            android:id="@+id/detail_user_photo"
             app:shape_mode="circle"
             android:layout_margin="10dp"
             android:src="@drawable/ic_user_photo"
@@ -52,7 +52,7 @@
             android:layout_height="60dp" />
 
         <TextView
-            android:id="@+id/change_photo"
+            android:id="@+id/detail_change_photo"
             android:text="修改头像"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/change_name"
+            android:id="@+id/detail_change_name"
             android:text="小嗒"
             android:textColor="@android:color/black"
             android:layout_marginStart="10dp"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/change_sex"
+            android:id="@+id/detail_change_sex"
             android:text="男"
             android:background="#00000000"
             android:layout_marginStart="10dp"
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/change_age"
+            android:id="@+id/detail_change_age"
             android:text="几零后"
             android:textColor="#838686"
             android:background="#00000000"
@@ -161,7 +161,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/change_job"
+            android:id="@+id/detail_change_job"
             android:text="计算机"
             android:background="#00000000"
             android:layout_marginStart="10dp"
@@ -189,7 +189,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/change_company"
+            android:id="@+id/detail_change_company"
             android:hint="添加所在公司"
             android:background="@null"
             android:textCursorDrawable="@null"
@@ -217,7 +217,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/change_sign"
+            android:id="@+id/detail_change_sign"
             android:hint="还未填写个性签名，简单介绍一下自己吧"
             android:background="@null"
             android:textCursorDrawable="@null"

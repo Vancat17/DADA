@@ -8,14 +8,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 
 import com.scujcc.dahuo.R
 
 import java.util.ArrayList
 
 import kotlinx.android.synthetic.main.user_detail_activity.*
+import kotlinx.android.synthetic.main.user_detail_function.view.*
 
 /**
  * Created by  范朝波 on 2017/12/16.
@@ -58,13 +57,7 @@ class UserDetailActivity : Activity() {
 
         inner class HeaderHolder(itemView: View) : IndexHolder(itemView)
 
-        inner class FunctionHolder(itemView: View) : IndexHolder(itemView) {
-
-            val mCvImage: ImageView = itemView.findViewById(R.id.cv_image)
-            val mCvTitle: TextView = itemView.findViewById(R.id.cv_title)
-            val mCvSubtitle: TextView = itemView.findViewById(R.id.cv_subtitle)
-
-        }
+        inner class FunctionHolder(itemView: View) : IndexHolder(itemView)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndexHolder {
 
@@ -91,9 +84,9 @@ class UserDetailActivity : Activity() {
                     val functionHolder = holder as FunctionHolder
 
                     val pos = if (position - 1 > 0) position - 1 else 0
-                    functionHolder.mCvTitle.text = mItems[pos].title
-                    functionHolder.mCvSubtitle.text = mItems[pos].subTitle
-                    functionHolder.mCvImage.setImageResource(mItems[pos].imageId)
+                    functionHolder.itemView.detail_function_title.text = mItems[pos].title
+                    functionHolder.itemView.detail_function_subtitle.text = mItems[pos].subTitle
+                    functionHolder.itemView.detail_function_image.setImageResource(mItems[pos].imageId)
                 }
             }
         }

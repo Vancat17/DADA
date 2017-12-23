@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -25,10 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <!--<ImageView-->
-                    <!--android:src="@drawable/ic_menu_add"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content" />-->
                 <Button
                     android:id="@+id/main_location"
                     android:text="四川大学锦城学院"
@@ -50,7 +46,7 @@
     <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/main_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"

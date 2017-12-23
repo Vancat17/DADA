@@ -10,22 +10,22 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/cv_image"
+            android:id="@+id/detail_function_image"
             android:src="@drawable/ic_user_photo"
             android:layout_centerVertical="true"
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:contentDescription="@string/todo" />
         <TextView
-            android:id="@+id/cv_title"
+            android:id="@+id/detail_function_title"
             android:paddingStart="10dp"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/cv_image"
+            android:layout_toEndOf="@id/detail_function_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlSymmetry" />
         <TextView
-            android:id="@+id/cv_subtitle"
+            android:id="@+id/detail_function_subtitle"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
