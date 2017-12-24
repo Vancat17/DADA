@@ -46,11 +46,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         main_fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-//            view ->
-//            Snackbar.make(view, "先放着，过会儿再做", Snackbar.LENGTH_LONG)
-//                    .setAction("添加", null).show()
+//            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+//            startActivity(intent)
+            view ->
+            Snackbar.make(view, "先放着，过会儿再做", Snackbar.LENGTH_LONG)
+                    .setAction("添加", null).show()
+
         }
 
 

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.scujcc.dahuo.R
-import com.scujcc.dahuo.TestActivity
 import kotlinx.android.synthetic.main.content_main_card.view.*
 
 
@@ -34,7 +33,6 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
         override fun onClick(v: View) {
             val intent = Intent(v.context, ContentDetailActivity::class.java)
             v.context.startActivity(intent)
-
 
         }
     }
