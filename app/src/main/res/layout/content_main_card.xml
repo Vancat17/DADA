@@ -1,75 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/cardview_dark_background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-            android:id="@+id/content_user_photo"
-            app:shape_mode="circle"
-            android:src="@drawable/ic_user_photo"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:id="@+id/activity_image"
+            app:shape_mode="round_rect"
+            app:round_radius="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/download2"
+            android:layout_width="120dp"
+            android:layout_height="90dp" />
 
         <TextView
-            android:id="@+id/content_user_name"
-            android:text="昵称"
+            android:id="@+id/activity_sender"
+            android:text="搭拉@王尼玛"
+            android:textSize="8sp"
+            android:textColor="@android:color/white"
+            android:layout_alignEnd="@id/activity_image"
+            android:layout_alignBottom="@id/activity_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/activity_topic"
+            android:text="9号拼车回泸州"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/content_user_photo"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/activity_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/activity_tag"
+            android:text="拼车"
+            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/border_line_while"
+            android:layout_marginStart="10dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_below="@id/activity_topic"
+            android:layout_toEndOf="@id/activity_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:id="@+id/content_user_vip"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/user_name"
-            android:layout_width="20dp"
+            android:id="@+id/time_icon"
+            android:src="@drawable/ic_time"
+            android:layout_toEndOf="@id/activity_image"
+            android:layout_below="@id/activity_tag"
+            android:layout_width="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/content_start_time"
-            android:text="明天8:00开始"
-            android:layout_alignParentEnd="true"
+            android:id="@+id/activity_time"
+            android:text="12月8日上午10点"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/activity_tag"
+            android:layout_toEndOf="@id/time_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/content_topic"
-            android:layout_margin="10dp"
-            android:layout_below="@id/user_name"
-            android:layout_toEndOf="@id/content_user_photo"
-            android:text="约羽毛球"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/content_text"
-            android:layout_margin="10dp"
-            android:layout_below="@id/content_user_photo"
-            android:text="JOJOJ承诺大家快来为保持冷静和单位参加的，不是沉积物 充电宝是吃看的vcvcdkscdbsdbkncdscbnvwdhjcvwbdlbcjhldbchjdsbcjdsbcnsd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <ImageView
-            android:id="@+id/content_image"
-            android:layout_below="@id/content_text"
-            android:src="@drawable/ic_user_photo"
-            android:layout_width="match_parent"
+            android:id="@+id/location_icon"
+            android:src="@drawable/ic_location"
+            android:layout_below="@id/time_icon"
+            android:layout_toEndOf="@id/activity_image"
+            android:layout_width="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:id="@+id/activity_location"
+            android:text="四川大学锦城学院"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_below="@id/activity_time"
+            android:layout_toEndOf="@id/location_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/activity_num"
+            android:text="人数: 1/4"
+            android:textSize="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/activity_price"
+            android:textColor="@color/colorPrimary"
+            android:text="¥23"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/activity_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/content_tolNum"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/content_image"
-            android:text="当前人数: 1/4"
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_content"
+            android:text="周五一起来玩吧"
+            android:textSize="12sp"
+            android:layout_below="@id/activity_image"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>

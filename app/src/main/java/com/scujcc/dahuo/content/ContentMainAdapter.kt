@@ -9,8 +9,8 @@ import android.view.ViewGroup
 
 import com.scujcc.dahuo.R
 import com.scujcc.dahuo.TestActivity
-
 import kotlinx.android.synthetic.main.content_main_card.view.*
+
 
 /**
  * Created by  范朝波 on 2017/12/17.
@@ -32,7 +32,7 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
         }
 
         override fun onClick(v: View) {
-            val intent = Intent(v.context, TestActivity::class.java)
+            val intent = Intent(v.context, ContentDetailActivity::class.java)
             v.context.startActivity(intent)
 
 
@@ -71,14 +71,19 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
             else -> {
                 val contentHolder = holder as ContentHolder
                 val pos = if (position - ITEM_EXTRA > 0) position - ITEM_EXTRA else 0
-                contentHolder.itemView.content_user_photo.setImageResource(mContentItems[pos].photoId)
-                contentHolder.itemView.content_user_name.text = mContentItems[pos].name
-                //          p7      contentHolder.mUserVip.
-                contentHolder.itemView.content_start_time.text = mContentItems[pos].startTime
-                contentHolder.itemView.content_topic.text = mContentItems[pos].topic
-                contentHolder.itemView.content_text.text = mContentItems[pos].content
-                //                contentHolder.mContentImage.setImageResource(mContentItems.get(pos).get);
-                contentHolder.itemView.content_tolNum.text = mContentItems[pos].nowNum.toString() + "/" + mContentItems[position].nowNum
+                contentHolder.itemView.activity_image.setImageResource(mContentItems[pos].imageId)
+                contentHolder.itemView.activity_sender.text = mContentItems[pos].sender
+                contentHolder.itemView.activity_topic.text = mContentItems[pos].topic
+                contentHolder.itemView.activity_tag.text = mContentItems[pos].tag
+                contentHolder.itemView.activity_time.text = mContentItems[pos].time
+                contentHolder.itemView.activity_location.text = mContentItems[pos].locaticon
+                contentHolder.itemView.activity_num.text = (mContentItems[pos].num - 1).toString() + "/" + mContentItems[pos].num.toString()
+                if (mContentItems[pos].price == 0) {
+                    contentHolder.itemView.activity_price.text = "免费"
+                } else {
+                    contentHolder.itemView.activity_price.text = "¥" + mContentItems[pos].price.toString()
+                }
+                contentHolder.itemView.activity_content.text = mContentItems[pos].content
             }
         }
     }

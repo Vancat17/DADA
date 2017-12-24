@@ -20,6 +20,7 @@ import com.scujcc.dahuo.message.MessageActivity
 import com.scujcc.dahuo.user.UserDetailActivity
 
 import com.scujcc.dahuo.function.*
+import com.scujcc.dahuo.user.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -44,10 +45,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
-        main_fab.setOnClickListener { view ->
-            Snackbar.make(view, "先放着，过会儿再做", Snackbar.LENGTH_LONG)
-                    .setAction("添加", null).show()
+        main_fab.setOnClickListener {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+//            view ->
+//            Snackbar.make(view, "先放着，过会儿再做", Snackbar.LENGTH_LONG)
+//                    .setAction("添加", null).show()
         }
+
 
         val toggle = ActionBarDrawerToggle(
                 this, drawerLayout, main_toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)

@@ -6,7 +6,7 @@ package com.scujcc.dahuo.content
  * QQ号    ：1136836811
  */
 
-class ContentItem(var photoId: Int, var name: String?, var vip: Int, var startTime: String?, var topic: String?, var content: String?, var nowNum: Int, var tolNum: Int) {
+class ContentItem(var imageId: Int, var sender: String?, var topic: String?, var tag: String?, var time: String?, var locaticon: String?, var num: Int,var price: Int, var content: String?) {
 
     private val mContentItems: List<ContentItem>? = null
 }
