@@ -9,7 +9,7 @@
     <ImageButton
         android:id="@+id/back_button"
         android:src="@drawable/ic_back_nomal"
-        android:background="#FFFFFF"
+        android:background="@color/colorTransparent"
         android:layout_width="40dp"
         android:layout_height="40dp" />
 
@@ -34,7 +34,7 @@
         <EditText
             android:id="@+id/user_password"
             android:hint="请输入密码"
-            android:layout_toLeftOf="@id/look_password"
+            android:layout_toStartOf="@id/look_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -56,7 +56,7 @@
         <Button
             android:id="@+id/register_button"
             android:text="注册"
-            android:background="#FFFFFF"
+            android:background="@color/colorTransparent"
             android:textAlignment="textStart"
             android:layout_width="54dp"
             android:layout_height="match_parent" />
@@ -64,7 +64,7 @@
         <Button
             android:id="@+id/forget_button"
             android:text="忘记密码"
-            android:background="#FFFFFF"
+            android:background="@color/colorTransparent"
             android:layout_alignParentEnd="true"
             android:textAlignment="textEnd"
             android:layout_width="64dp"
@@ -78,7 +78,7 @@
 
         <View
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="@color/colorBlack"
             android:layout_width="0dp"
             android:layout_height="1dp"/>
 
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content" />
         <View
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="@color/colorBlack"
             android:layout_width="0dp"
             android:layout_height="1dp"/>
     </LinearLayout>

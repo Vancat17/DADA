@@ -32,13 +32,13 @@ class UserDetailActivity : Activity() {
         setContentView(R.layout.user_detail_activity)
 
         initializeData()
-        rv_user_detail!!.setHasFixedSize(true)
-        rv_user_detail!!.layoutManager = LinearLayoutManager(applicationContext)
-        rv_user_detail!!.adapter = Adapter(this.mFunctionItems!!)
+        rv_user_detail.setHasFixedSize(true)
+        rv_user_detail.layoutManager = LinearLayoutManager(applicationContext)
+        rv_user_detail.adapter = Adapter(this.mFunctionItems!!)
 
-        back_button!!.setOnClickListener { finish() }
+        back_button.setOnClickListener { finish() }
 
-        back_button!!.setOnClickListener {
+        edit_button.setOnClickListener {
             val intent = Intent(this@UserDetailActivity, UserDetailEditActivity::class.java)
             startActivity(intent)
         }

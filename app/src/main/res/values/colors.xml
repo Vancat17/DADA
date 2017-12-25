@@ -5,7 +5,11 @@
     <color name="colorPrimaryDark">#FF8811</color>
     <color name="colorAccent">#FF4081</color>
 
-    <!--<color name="colorPrimary">#3F51B5</color>-->
-    <!--<color name="colorPrimaryDark">#303F9F</color>-->
-    <!--<color name="colorAccent">#FF4081</color>-->
+    <!--自定义颜色-->
+    <color name="colorBlack">#000000</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDarkGray">#7B7B7B</color>
+    <color name="colorLightGrey">#D6D7D7</color>
+
 </resources>

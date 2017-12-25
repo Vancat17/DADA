@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(main_toolbar)
 
-        main_location.setOnClickListener {
-            val intent = Intent(this@MainActivity, LocationActivity::class.java)
-            startActivity(intent)
-        }
+//        main_location.setOnClickListener {
+//            val intent = Intent(this@MainActivity, LocationActivity::class.java)
+//            startActivity(intent)
+//        }
 
         main_fab.setOnClickListener {
 //            val intent = Intent(this@MainActivity, LoginActivity::class.java)
