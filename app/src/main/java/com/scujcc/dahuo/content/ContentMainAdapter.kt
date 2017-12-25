@@ -32,11 +32,11 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
 
         override fun onClick(v: View) {
             val intent = Intent(v.context, ContentDetailActivity::class.java)
+            intent.putExtra("SER", mContentItems[adapterPosition])
             v.context.startActivity(intent)
 
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndexHolder {
 
         val holder: IndexHolder

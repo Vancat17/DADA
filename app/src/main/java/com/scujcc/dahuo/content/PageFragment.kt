@@ -33,7 +33,6 @@ class PageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = LayoutInflater.from(activity).inflate(R.layout.content_main_recycler,container,false)
         addData()
-
         view.content_main_recycler.setHasFixedSize(true)
         view.content_main_recycler.layoutManager = LinearLayoutManager(activity)
         view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
@@ -64,7 +63,6 @@ class PageFragment : Fragment() {
 
         private val ARG_CONTENT_PAGE = "ARG_CONTENT_PAGE"
 
-
         fun newInstance(page: Int): PageFragment {
             val args = Bundle()
             args.putInt(ARG_CONTENT_PAGE, page)
@@ -74,4 +72,3 @@ class PageFragment : Fragment() {
         }
     }
 }
-

@@ -37,8 +37,8 @@
             android:layout_height="match_parent"
             tools:ignore="RtlSymmetry" />
 
-
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp">
@@ -226,8 +226,7 @@
             android:textSize="14sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/defaultText"
-            />
+            style="@style/defaultText"/>
     </LinearLayout>
 
 </LinearLayout>

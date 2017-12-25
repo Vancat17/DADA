@@ -42,7 +42,7 @@
             android:name=".function.SettingActivity"
             android:parentActivityName=".main.MainActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".function.LocationActivity" />
+        <activity android:name=".function.SearchActivity" />
         <activity android:name=".content.ContentDetailActivity" />
         <activity android:name=".user.LoginActivity"></activity>
     </application>
