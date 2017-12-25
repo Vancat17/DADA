@@ -15,6 +15,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 
 import com.scujcc.dada.R
+import com.scujcc.dada.add.AddActivity
 import com.scujcc.dada.content.SimplePagerAdapter
 import com.scujcc.dada.message.MessageActivity
 import com.scujcc.dada.user.UserDetailActivity
@@ -45,10 +46,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
-        main_fab.setOnClickListener { view ->
-            Snackbar.make(view, "先放着，过会儿再做", Snackbar.LENGTH_LONG)
-                    .setAction("添加", null).show()
-
+        main_fab.setOnClickListener {
+            val intent = Intent(this@MainActivity, AddActivity::class.java)
+            startActivity(intent)
         }
 
         val toggle = ActionBarDrawerToggle(

@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.Toast
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.content_detail.*
@@ -18,17 +17,18 @@ class ContentDetailActivity : Activity() {
 
         val contentItem = intent.getSerializableExtra("SER") as ContentItem
 
-        Log.w("TEST", contentItem.topic)
         content_detail_recycler.setHasFixedSize(true)
         content_detail_recycler.layoutManager = LinearLayoutManager(applicationContext)
-        content_detail_recycler.adapter = ContentDetailAdapter()
+        content_detail_recycler.adapter = ContentDetailAdapter(contentItem)
 
         buttonClick()
 
         content_detail_recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                detail_toolbar.setBackgroundColor(Color.YELLOW)
+
+                detail_toolbar.setBackgroundColor(Color.WHITE)
             }
         })
     }
