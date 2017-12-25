@@ -1,4 +1,4 @@
-package com.scujcc.dahuo;
+package com.scujcc.dada;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.scujcc.dahuo", appContext.getPackageName());
+        assertEquals("com.scujcc.dada", appContext.getPackageName());
     }
 }

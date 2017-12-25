@@ -1,10 +1,9 @@
-package com.scujcc.dahuo.main
+package com.scujcc.dada.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -15,13 +14,12 @@ import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.Toast
 
-import com.scujcc.dahuo.R
-import com.scujcc.dahuo.R.id.drawerLayout
-import com.scujcc.dahuo.content.SimplePagerAdapter
-import com.scujcc.dahuo.message.MessageActivity
-import com.scujcc.dahuo.user.UserDetailActivity
+import com.scujcc.dada.R
+import com.scujcc.dada.content.SimplePagerAdapter
+import com.scujcc.dada.message.MessageActivity
+import com.scujcc.dada.user.UserDetailActivity
 
-import com.scujcc.dahuo.function.*
+import com.scujcc.dada.function.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -52,7 +50,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .setAction("添加", null).show()
 
         }
-
 
         val toggle = ActionBarDrawerToggle(
                 this, drawerLayout, main_toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)

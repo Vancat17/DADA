@@ -1,4 +1,4 @@
-package com.scujcc.dahuo.content
+package com.scujcc.dada.content
 
 import android.content.Context
 import android.support.v4.app.Fragment

@@ -1,4 +1,4 @@
-package com.scujcc.dahuo.function
+package com.scujcc.dada.function
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 
 class WalletActivity : AppCompatActivity() {
 

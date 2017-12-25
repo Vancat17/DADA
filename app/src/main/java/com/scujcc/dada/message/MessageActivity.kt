@@ -1,9 +1,9 @@
-package com.scujcc.dahuo.message
+package com.scujcc.dada.message
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 
 /**
  * Created by  范朝波 on 2017/12/16.

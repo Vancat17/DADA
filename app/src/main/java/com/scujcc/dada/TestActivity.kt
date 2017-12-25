@@ -1,9 +1,8 @@
-package com.scujcc.dahuo.user
+package com.scujcc.dada
 
 import android.app.Activity
 import android.os.Bundle
-import com.scujcc.dahuo.R
-
+import kotlinx.android.synthetic.main.test.*
 
 /**
  * Created by  范朝波 on 2017/12/16.
@@ -11,11 +10,13 @@ import com.scujcc.dahuo.R
  * QQ号    ：1136836811
  */
 
-class UserDetailEditActivity : Activity() {
+class TestActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_detail_edit)
+        setContentView(R.layout.test)
+        back_button.setOnClickListener {
+            finish()
+        }
     }
-
 }

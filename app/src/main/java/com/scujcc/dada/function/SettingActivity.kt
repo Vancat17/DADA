@@ -1,9 +1,9 @@
-package com.scujcc.dahuo.function
+package com.scujcc.dada.function
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 
 class SettingActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.scujcc.dahuo.content
+package com.scujcc.dada.content
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.content_main_card.view.*
 
 

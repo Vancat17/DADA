@@ -1,4 +1,4 @@
-package com.scujcc.dahuo.content
+package com.scujcc.dada.content
 
 import android.app.Activity
 import android.graphics.Color
@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.content_detail.*
 
 class ContentDetailActivity : Activity() {

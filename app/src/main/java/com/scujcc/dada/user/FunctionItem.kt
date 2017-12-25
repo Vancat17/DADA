@@ -1,4 +1,4 @@
-package com.scujcc.dahuo.user
+package com.scujcc.dada.user
 
 /**
  * Created by  范朝波 on 2017/12/16.

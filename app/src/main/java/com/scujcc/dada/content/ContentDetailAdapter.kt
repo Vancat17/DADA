@@ -1,10 +1,10 @@
-package com.scujcc.dahuo.content
+package com.scujcc.dada.content
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 
 /**
  * Created by  范朝波 on 2017/12/24.

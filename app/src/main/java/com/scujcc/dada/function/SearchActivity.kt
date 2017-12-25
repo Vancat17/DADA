@@ -1,8 +1,8 @@
-package com.scujcc.dahuo.function
+package com.scujcc.dada.function
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.scujcc.dahuo.R
+import com.scujcc.dada.R
 
 class SearchActivity : AppCompatActivity() {
 
