@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.scujcc.dada.FCBRandom
 
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.content_main_recycler.view.*
@@ -46,17 +47,10 @@ class PageFragment : Fragment() {
     }
 
     private fun addData() {
-        mContentItems!!.add(ContentItem(R.drawable.download2, "阿花", "晚上去打篮球", "篮球", "12月20日 上午10:30", "四川大学锦城学院", 3, 0, "一起回家吧 节约大把的钱"))
-        mContentItems!!.add(ContentItem(R.drawable.download4, "小嗒", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 4, 100, "一起回家吧 节约大把的钱"))
-        mContentItems!!.add(ContentItem(R.drawable.download3, "露葵", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 7, 100, "一起回家吧 节约大把的钱"))
-        mContentItems!!.add(ContentItem(R.drawable.download5, "抠破", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 2, 100, "一起回家吧 节约大把的钱"))
-        mContentItems!!.add(ContentItem(R.drawable.download3, "蓝莓", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 4, 100, "一起回家吧 节约大把的钱"))
-        mContentItems!!.add(ContentItem(R.drawable.download2, "命令", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 5, 100, "一起回家吧 节约大把的钱"))
-//        mContentItems!!.add(ContentItem(R.drawable.download5, "面积", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 1, 100, "一起回家吧 节约大把的钱"))
-//        mContentItems!!.add(ContentItem(R.drawable.download4, "哦怕", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 9, 100, "一起回家吧 节约大把的钱"))
-//        mContentItems!!.add(ContentItem(R.drawable.download2, "突然", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 8, 100, "一起回家吧 节约大把的钱"))
-//        mContentItems!!.add(ContentItem(R.drawable.download3, "都是", "拼滴滴回泸州", "拼车", "12月20日 上午10:30", "四川大学锦城学院", 5, 100, "一起回家吧 节约大把的钱"))
 
+        for (i in 0..9) {
+            mContentItems!!.add(ContentItem(FCBRandom.randomImage(), FCBRandom.randomSender(), FCBRandom.randomTopic(), FCBRandom.randomTag(), "12月20日 上午10:30", "四川大学锦城学院", FCBRandom.randomPeopleNum(), FCBRandom.randomPrice(), FCBRandom.randomContent()))
+        }
     }
 
     companion object {

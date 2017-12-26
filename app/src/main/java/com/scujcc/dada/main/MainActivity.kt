@@ -1,18 +1,21 @@
 package com.scujcc.dada.main
 
 import android.content.Intent
+import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 
 import android.widget.ImageButton
 import android.widget.Toast
+import com.scujcc.dada.FCBRandom
 
 import com.scujcc.dada.R
 import com.scujcc.dada.add.AddActivity
@@ -37,7 +40,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         setSupportActionBar(main_toolbar)
 
