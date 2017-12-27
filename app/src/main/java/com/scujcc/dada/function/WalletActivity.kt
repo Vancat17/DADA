@@ -29,7 +29,6 @@ class WalletActivity : AppCompatActivity() {
 
         inner class ThreeHolder(itemView: View) : IndexHolder(itemView)
 
-
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalletAdapter.IndexHolder? {
             return null
         }
@@ -41,7 +40,5 @@ class WalletActivity : AppCompatActivity() {
         override fun getItemCount(): Int {
             return 0
         }
-
-
     }
 }

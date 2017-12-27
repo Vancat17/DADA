@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+            android:id="@+id/recommend_image"
+            app:shape_mode="round_rect"
+            app:round_radius="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/download2"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/recommend_topic"
+            android:text="拼车回泸州"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/recommend_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/time_icon"
+            android:src="@drawable/ic_time"
+            android:layout_toEndOf="@id/recommend_image"
+            android:layout_below="@id/recommend_topic"
+            android:layout_width="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/activity_time"
+            android:text="12月8日上午10点"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/recommend_topic"
+            android:layout_toEndOf="@id/time_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:id="@+id/location_icon"
+            android:src="@drawable/ic_location"
+            android:layout_below="@id/time_icon"
+            android:layout_toEndOf="@id/recommend_image"
+            android:layout_width="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/recommend_location"
+            android:text="四川大学锦城学院"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_below="@id/activity_time"
+            android:layout_toEndOf="@id/location_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/activity_price"
+            android:textColor="@color/colorPrimary"
+            android:text="¥23"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/activity_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

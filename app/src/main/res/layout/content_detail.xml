@@ -6,35 +6,13 @@
     tools:context="com.scujcc.dada.content.ContentDetailActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/content_detail_recycler"
+        android:id="@+id/detail_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
 
-    <RelativeLayout
-        android:id="@+id/detail_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageButton
-            android:id="@+id/back_button"
-            android:src="@drawable/ic_back"
-            android:background="#00000000"
-            android:layout_margin="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:id="@+id/share_button"
-            android:layout_margin="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_share"
-            android:background="#00000000"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-    </RelativeLayout>
-
+    <include layout="@layout/toolbar_header"/>
 
     <LinearLayout
         android:layout_alignParentBottom="true"

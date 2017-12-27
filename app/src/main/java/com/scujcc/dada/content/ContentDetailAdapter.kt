@@ -17,44 +17,52 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
 
     open inner class IndexHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    inner class HeaderHolder(itemView: View) : IndexHolder(itemView)
+    inner class DetailHolder(itemView: View) : IndexHolder(itemView)
 
-    inner class IntroductionHolder(itemView: View) : IndexHolder(itemView)
+    inner class RecommendHolder(itemView: View) : IndexHolder(itemView)
+
+    /**
+     * 为了节约首页内存的开销 到详情页从服务器拉取详情内容
+     */
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: IndexHolder, position: Int) {
-        when (getItemViewType(position)) {
-            HEADER_TYPE -> {
-                var headerHolder = holder as HeaderHolder
-                headerHolder.itemView.detail_image.setImageResource(item.imageId)
-                headerHolder.itemView.sender_name.text = "搭搭@" + item.sender
-                headerHolder.itemView.detail_topic.text = item.topic
-                headerHolder.itemView.detail_price.text = "¥" + item.price
-                headerHolder.itemView.detail_people_num.text = "人数: " + (item.num - 1) + "/" + item.num
-                headerHolder.itemView.activity_tag.text = item.tag
 
+        when (position) {
+            0 -> {
+                val detailHolder = holder as DetailHolder
+                detailHolder.itemView.detail_image.setImageResource(item.imageId)
+                detailHolder.itemView.detail_topic.text = item.topic
+                detailHolder.itemView.sender_name.text = item.sender
+                detailHolder.itemView.detail_price.text = "¥" + item.price
+                detailHolder.itemView.detail_people_num.text = "当前人数" + (item.num - 1) + "/" + item.num
+                detailHolder.itemView.activity_tag.text = item.tag
+                detailHolder.itemView.detail_detail.text = "本周末(9号)考完试 组团一起打滴滴回泸州 \n 就在学校上车 一个人太贵了，多几个人便宜点"
+                detailHolder.itemView.price_detail.text = "我一个人的话 需要156元 \n 两个人 248/2 只要124一个人\n 三个人 310/3 只要103一个人"
             }
             else -> {
+
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return 20
+        return 10
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): IndexHolder {
+
         val holder: IndexHolder
         val view: View
         when (viewType) {
 
-            HEADER_TYPE -> {
+            DETAIL_TYPE -> {
                 view = LayoutInflater.from(parent!!.context).inflate(R.layout.content_detail_header, parent, false)
-                holder = HeaderHolder(view)
+                holder = DetailHolder(view)
             }
             else -> {
-                view = LayoutInflater.from(parent!!.context).inflate(R.layout.content_detail_content, parent, false)
-                holder = IntroductionHolder(view)
+                view = LayoutInflater.from(parent!!.context).inflate(R.layout.recommend_card, parent, false)
+                holder = RecommendHolder(view)
             }
         }
         return holder
@@ -62,16 +70,14 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            0 -> HEADER_TYPE
-            else -> DEFAULT_TYPE
+            0 -> DETAIL_TYPE
+            else -> RECOMMEND_TYPE
         }
-//        return DEFAULT_TYPE
     }
 
     companion object {
 
-        private val HEADER_TYPE = 1
-        private val DEFAULT_TYPE = 2
-        private val ITEM_EXTRA = 0
+        private val DETAIL_TYPE = 1
+        private val RECOMMEND_TYPE = 2
     }
 }

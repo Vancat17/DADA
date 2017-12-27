@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.scujcc.dada.add.AddActivity">
-
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/add_toolbar"
@@ -20,25 +18,133 @@
             android:layout_height="40dp" />
 
         <TextView
-            android:text="发布新团"
+            android:text="发布"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/add_recycler"
+    <ScrollView
         android:layout_below="@id/add_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/add_topic"
+                android:hint="标题 关键词都是朋友喜欢搜索的"
+                android:textSize="14sp"
+                android:layout_margin="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:background="@color/colorTransparent"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <View
+                android:background="@color/colorLightGrey"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <EditText
+                android:id="@+id/add_content"
+                android:hint="描述一下该团的细节和注意事项"
+                android:textSize="14sp"
+                android:layout_margin="10dp"
+                android:focusable="true"
+                android:minLines="6"
+                android:gravity="top"
+                android:focusableInTouchMode="true"
+                android:background="@color/colorTransparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--ViewPager更好-->
+            <RadioGroup
+                android:id="@+id/add_image"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <ImageButton
+                    android:src="@drawable/ic_camera"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorLightGrey"
+                    android:scaleType="center"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <ImageButton
+                    android:src="@drawable/ic_camera"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorLightGrey"
+                    android:scaleType="center"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <ImageButton
+                    android:src="@drawable/ic_camera"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorLightGrey"
+                    android:scaleType="center"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:src="@drawable/ic_location"
+                    android:padding="12dp"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:text="四川 成都 四川大学锦城学院"
+                    android:textSize="12sp"
+                    android:background="@color/colorTransparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_price"
+                android:text="价格"
+                android:textAlignment="textStart"
+                android:padding="10dp"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="44dp" />
+
+            <Button
+                android:id="@+id/add_tag"
+                android:text="分类"
+                android:textAlignment="textStart"
+                android:padding="10dp"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorWhite"
+                android:layout_below="@id/add_price"
+                android:layout_width="match_parent"
+                android:layout_height="44dp" />
+        </LinearLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/add_button"
-        android:text="发布新团"
-        android:textColor="@color/colorWhite"
+        android:text="确定发布"
         android:layout_alignParentBottom="true"
+        android:textColor="@color/colorWhite"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="40dp" />

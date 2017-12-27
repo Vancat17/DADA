@@ -12,6 +12,7 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,33 +20,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user.UserDetailActivity" />
+
+        <activity android:name=".user.UserDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".message.MessageActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".user.UserDetailEditActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".function.StrokeActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".function.LikeActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".function.WalletActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".function.ServiceActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".function.SettingActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".main.MainActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".function.SearchActivity" />
-        <activity android:name=".content.ContentDetailActivity" />
-        <activity android:name=".user.LoginActivity" />
-        <activity android:name=".add.AddActivity"></activity>
+        <activity android:name=".TestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".function.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".content.ContentDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".user.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".add.AddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
