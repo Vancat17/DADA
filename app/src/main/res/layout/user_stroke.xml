@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.scujcc.dada.function.StrokeActivity">
+    tools:context="com.scujcc.dada.function.stroke.StrokeActivity">
 
     <LinearLayout
+        android:id="@+id/no_stroke"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ImageView
             android:src="@drawable/ic_stroke_not"

@@ -1,21 +1,16 @@
 package com.scujcc.dada.main
 
 import android.content.Intent
-import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 
-import android.widget.ImageButton
 import android.widget.Toast
-import com.scujcc.dada.FCBRandom
 
 import com.scujcc.dada.R
 import com.scujcc.dada.add.AddActivity
@@ -24,9 +19,12 @@ import com.scujcc.dada.message.MessageActivity
 import com.scujcc.dada.user.UserDetailActivity
 
 import com.scujcc.dada.function.*
+import com.scujcc.dada.function.settings.SettingActivity
+import com.scujcc.dada.function.stroke.StrokeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,8 +32,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var pagerAdapter: SimplePagerAdapter? = null
 
 
-    //点两次返回键退出程序
-    private var mExitTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +57,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        val mHeaderView = headView.findViewById<ImageButton>(R.id.user_imageview)
-        mHeaderView.setOnClickListener {
+
+        headView.user_image.setOnClickListener {
             val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
             startActivity(intent)
         }
@@ -130,6 +126,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    //点两次返回键退出程序
+    private var mExitTime: Long = 0
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

@@ -14,7 +14,7 @@
         <ImageButton
             android:id="@+id/back_button"
             android:background="#00000000"
-            android:src="@drawable/ic_back_nomal"
+            android:src="@drawable/ic_back_circle"
             android:scaleType="fitStart"
             android:layout_width="50dp"
             android:layout_height="30dp" />

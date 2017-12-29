@@ -7,29 +7,30 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:background="@color/colorLightGrey"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="64dp">
 
         <Button
             android:id="@+id/detail_change_cancel"
-            android:text="取消"
+            android:text="@string/edit_cancel"
             android:paddingStart="6dp"
             android:background="@color/colorTransparent"
             android:layout_width="44dp"
             android:layout_height="match_parent"
             tools:ignore="RtlSymmetry" />
         <TextView
-            android:text="编辑资料"
+            android:text="@string/edit_title"
             android:gravity="center"
             android:textSize="18sp"
             android:textColor="@color/colorBlack"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:ignore="RelativeOverlap" />
         <Button
             android:id="@+id/detail_change_done"
-            android:text="完成"
+            android:text="@string/edit_done"
             android:background="@color/colorTransparent"
             android:paddingEnd="6dp"
             android:layout_alignParentEnd="true"
@@ -47,13 +48,15 @@
             android:id="@+id/detail_user_photo"
             app:shape_mode="circle"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_user_photo"
+            android:src="@drawable/images"
+            android:scaleType="centerCrop"
             android:layout_width="60dp"
             android:layout_height="60dp" />
 
-        <TextView
+        <Button
             android:id="@+id/detail_change_photo"
-            android:text="修改头像"
+            android:text="@string/edit_change_photo"
+            android:background="@color/colorTransparent"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -72,19 +75,22 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="性别"
+            android:text="@string/edit_name"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <EditText
             android:id="@+id/detail_change_name"
-            android:text="小嗒"
-            android:textColor="@color/colorBlack"
+            android:text="@string/edit_user_name"
+            android:textSize="15sp"
+            android:background="@color/colorTransparent"
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
     </LinearLayout>
     <View
         android:layout_margin="10dp"
@@ -98,14 +104,14 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="性别"
+            android:text="@string/sex"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/detail_change_sex"
-            android:text="男"
+            android:text="@string/edit_sex"
             android:background="#00000000"
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
@@ -126,14 +132,14 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="年龄"
+            android:text="@string/age"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/detail_change_age"
-            android:text="几零后"
+            android:text="@string/edit_age"
             android:textColor="@color/colorLightGrey"
             android:background="@color/colorTransparent"
             android:layout_marginStart="10dp"
@@ -155,14 +161,14 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="行业"
+            android:text="@string/job"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/detail_change_job"
-            android:text="计算机"
+            android:text="@string/edit_job"
             android:background="#00000000"
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
@@ -183,14 +189,14 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="公司"
+            android:text="@string/company"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/detail_change_company"
-            android:hint="添加所在公司"
+            android:hint="@string/edit_company"
             android:background="@null"
             android:textCursorDrawable="@null"
             android:textSize="14sp"
@@ -211,22 +217,21 @@
         android:layout_height="35dp">
 
         <TextView
-            android:text="个性签名"
+            android:text="@string/sign"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/detail_change_sign"
-            android:hint="还未填写个性签名，简单介绍一下自己吧"
+            android:hint="@string/edit_sign_hint"
             android:background="@null"
             android:textCursorDrawable="@null"
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
             android:textSize="14sp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/defaultText"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 </LinearLayout>

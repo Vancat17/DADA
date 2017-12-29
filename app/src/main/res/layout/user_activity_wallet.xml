@@ -3,13 +3,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.scujcc.dada.function.WalletActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/wallet_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+   <android.support.v7.widget.CardView
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_marginTop="10dp"
+       app:cardCornerRadius="6dp"
+       android:layout_width="match_parent"
+       android:layout_height="130dp">
 
-    </android.support.v7.widget.RecyclerView>
+       <LinearLayout
+           android:background="@color/colorPrimary"
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <TextView
+               android:id="@+id/currency"
+               android:text="嗒币"
+               android:textColor="@color/colorWhite"
+               android:gravity="center_vertical"
+               android:layout_marginStart="10dp"
+               android:layout_weight="7"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp" />
+
+           <TextView
+               android:id="@+id/currency_num"
+               android:text="0"
+               android:textSize="16sp"
+               android:textColor="@color/colorWhite"
+               android:gravity="center_vertical"
+               android:layout_marginStart="10dp"
+               android:layout_weight="7"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp" />
+
+           <LinearLayout
+               android:layout_weight="6"
+               android:background="@color/colorWhite"
+               android:layout_width="match_parent"
+               android:layout_height="0dp">
+
+               <Button
+                   android:id="@+id/recharge_button"
+                   android:layout_weight="1"
+                   android:text="充值"
+                   android:textColor="@color/colorDarkGray"
+                   android:background="@color/colorTransparent"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent" />
+               <View
+                   android:layout_margin="10dp"
+                   android:background="@color/colorDarkGray"
+                   android:layout_width="1dp"
+                   android:layout_height="match_parent"/>
+               <Button
+                   android:id="@+id/detail_button"
+                   android:layout_weight="1"
+                   android:text="明细"
+                   android:background="@color/colorTransparent"
+                   android:textColor="@color/colorDarkGray"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent" />
+           </LinearLayout>
+       </LinearLayout>
+
+   </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/money"
+                android:text="零钱"
+                android:textColor="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="7"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/money_num"
+                android:text="0"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="7"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_weight="6"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <Button
+                    android:id="@+id/withdraw_button"
+                    android:layout_weight="1"
+                    android:text="提现"
+                    android:textColor="@color/colorDarkGray"
+                    android:background="@color/colorTransparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <View
+                    android:layout_margin="10dp"
+                    android:background="@color/colorDarkGray"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"/>
+                <Button
+                    android:id="@+id/money_detail_button"
+                    android:layout_weight="1"
+                    android:text="明细"
+                    android:background="@color/colorTransparent"
+                    android:textColor="@color/colorDarkGray"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/coupon"
+                android:text="优惠券"
+                android:textColor="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="7"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/coupon_num"
+                android:text="0张"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="7"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_weight="6"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <Button
+                    android:id="@+id/coupon_detail_button"
+                    android:layout_weight="1"
+                    android:text="详情"
+                    android:textColor="@color/colorDarkGray"
+                    android:background="@color/colorTransparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <View
+                    android:layout_margin="10dp"
+                    android:background="@color/colorDarkGray"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"/>
+                <Button
+                    android:id="@+id/coupon_button"
+                    android:layout_weight="1"
+                    android:text="使用记录"
+                    android:background="@color/colorTransparent"
+                    android:textColor="@color/colorDarkGray"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 </LinearLayout>

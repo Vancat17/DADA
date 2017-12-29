@@ -1,13 +1,13 @@
-package com.scujcc.dada.function
+package com.scujcc.dada.pay
 
 import android.app.Activity
 import android.os.Bundle
 import com.scujcc.dada.R
 
-class SearchActivity : Activity() {
+class PayActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_activity)
+        setContentView(R.layout.pay_activity)
     }
 }

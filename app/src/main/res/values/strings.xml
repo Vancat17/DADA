@@ -16,4 +16,22 @@
     <string name="todo">TODO</string>
 
 
+    <string name="memo">备注:</string>
+    <string name="name">姓名:</string>
+    <string name="edit_cancel">取消</string>
+    <string name="edit_title">编辑资料</string>
+    <string name="edit_done">完成</string>
+    <string name="edit_change_photo">修改头像</string>
+    <string name="edit_name">昵称</string>
+    <string name="edit_user_name">小嗒</string>
+    <string name="sex">性别</string>
+    <string name="edit_sex">男</string>
+    <string name="age">年龄</string>
+    <string name="edit_age">几零后</string>
+    <string name="job">行业</string>
+    <string name="edit_job">计算机</string>
+    <string name="company">公司</string>
+    <string name="edit_company">添加所在公司</string>
+    <string name="sign">个性签名</string>
+    <string name="edit_sign_hint">还未填写个性签名，简单介绍一下自己吧</string>
 </resources>

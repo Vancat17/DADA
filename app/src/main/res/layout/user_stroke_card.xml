@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/stroke_time"
+            android:text="10月20日 8:30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/stroke_topic"
+            android:text="打篮球"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@id/stroke_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/location_image"
+            android:src="@drawable/ic_location"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/stroke_topic"
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/stroke_location"
+            android:text="四川大学锦城学院"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="4dp"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            android:layout_below="@id/stroke_topic"
+            android:layout_toEndOf="@id/location_image"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
+        <TextView
+            android:id="@+id/stroke_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/stroke_is_done"
+            android:text="已完成"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:src="@drawable/ic_next"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

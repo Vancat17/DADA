@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="center"
     android:layout_height="240dp">
 
-    <ImageButton
-        android:id="@+id/deuser_photo"
-        android:src="@drawable/ic_user_photo"
+    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+        android:id="@+id/detail_user_photo"
+        app:shape_mode="circle"
+        android:src="@drawable/images"
         android:scaleType="centerCrop"
-        android:background="#00000000"
+        android:background="@color/colorTransparent"
         android:layout_width="80dp"
         android:layout_height="80dp" />
 
@@ -24,7 +26,7 @@
             android:id="@+id/user_name"
             android:text="小嗒"
             android:textSize="20sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

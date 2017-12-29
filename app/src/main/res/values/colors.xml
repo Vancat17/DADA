@@ -12,4 +12,6 @@
     <color name="colorDarkGray">#7B7B7B</color>
     <color name="colorLightGrey">#D6D7D7</color>
 
+    <color name="divider">#E5E5E5</color>
+
 </resources>

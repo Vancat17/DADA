@@ -68,12 +68,13 @@
             android:layout_toEndOf="@id/activity_tag"
             android:src="@drawable/ic_location"
             android:layout_margin="10dp"
-            android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_width="14dp"
+            android:layout_height="14dp" />
 
         <TextView
             android:id="@+id/detail_location"
             android:text="成都 四川大学锦城学院"
+            android:textSize="12sp"
             android:layout_below="@id/detail_topic"
             android:layout_toEndOf="@id/location_icon"
             android:padding="10dp"
@@ -85,8 +86,9 @@
             android:src="@drawable/ic_people_num"
             android:layout_below="@id/detail_topic"
             android:layout_toEndOf="@id/detail_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
 
         <TextView
             android:id="@+id/detail_people_num"
@@ -98,6 +100,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@id/sender_button"
+            android:background="@color/colorLightGrey"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView

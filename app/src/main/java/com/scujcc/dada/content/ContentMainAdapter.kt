@@ -17,13 +17,9 @@ import kotlinx.android.synthetic.main.content_main_card.view.*
  * QQ号    ：1136836811
  */
 
-class ContentMainAdapter(private val mContentItems: List<ContentItem>) : RecyclerView.Adapter<ContentMainAdapter.IndexHolder>() {
+class ContentMainAdapter(private val mContentItems: List<ContentItem>) : RecyclerView.Adapter<ContentMainAdapter.ContentHolder>() {
 
-    open inner class IndexHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-    inner class BannerHolder(itemView: View) : IndexHolder(itemView)
-
-    inner class ContentHolder(itemView: View) : IndexHolder(itemView), View.OnClickListener {
+    inner class ContentHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         init {
             itemView.setOnClickListener(this)
@@ -37,51 +33,35 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
 
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndexHolder {
 
-        val holder: IndexHolder
-        val view: View
-        when (viewType) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentHolder {
 
-            BANNER_TYPE -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.content_main_card, parent, false)
-                holder = ContentHolder(view)
-            }
-            NULL_TYPE -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.content_main_card, parent, false)
-                holder = ContentHolder(view)
-            }
-            else -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.content_main_card, parent, false)
-                holder = ContentHolder(view)
-            }
-        }
-        return holder
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.content_main_card, parent, false)
+        return ContentHolder(view)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: IndexHolder, position: Int) {
+    override fun onBindViewHolder(holder: ContentHolder, position: Int) {
         when (getItemViewType(position)) {
             BANNER_TYPE -> {
             }
             NULL_TYPE -> {
             }
             else -> {
-                val contentHolder = holder as ContentHolder
                 val pos = if (position - ITEM_EXTRA > 0) position - ITEM_EXTRA else 0
-                contentHolder.itemView.activity_image.setImageResource(mContentItems[pos].imageId)
-                contentHolder.itemView.activity_sender.text = mContentItems[pos].sender
-                contentHolder.itemView.activity_topic.text = mContentItems[pos].topic
-                contentHolder.itemView.activity_tag.text = mContentItems[pos].tag
-                contentHolder.itemView.activity_time.text = mContentItems[pos].time
-                contentHolder.itemView.activity_location.text = mContentItems[pos].locaticon
-                contentHolder.itemView.activity_num.text = (mContentItems[pos].num - 1).toString() + "/" + mContentItems[pos].num.toString()
+                holder.itemView.activity_image.setImageResource(mContentItems[pos].imageId)
+                holder.itemView.activity_sender.text = mContentItems[pos].sender
+                holder.itemView.activity_topic.text = mContentItems[pos].topic
+                holder.itemView.activity_tag.text = mContentItems[pos].tag
+                holder.itemView.activity_time.text = mContentItems[pos].time
+                holder.itemView.activity_location.text = mContentItems[pos].locaticon
+                holder.itemView.activity_num.text = (mContentItems[pos].num - 1).toString() + "/" + mContentItems[pos].num.toString()
                 if (mContentItems[pos].price == 0) {
-                    contentHolder.itemView.activity_price.text = "免费"
+                    holder.itemView.activity_price.text = "免费"
                 } else {
-                    contentHolder.itemView.activity_price.text = "¥" + mContentItems[pos].price.toString()
+                    holder.itemView.activity_price.text = "¥" + mContentItems[pos].price.toString()
                 }
-                contentHolder.itemView.activity_content.text = mContentItems[pos].content
+                holder.itemView.activity_content.text = mContentItems[pos].content
             }
         }
     }
@@ -91,14 +71,6 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
     }
 
     override fun getItemViewType(position: Int): Int {
-        //        switch (position) {
-        //            case 0:
-        //                return BANNER_TYPE;
-        //            case 1:
-        //                return NULL_TYPE;
-        //            default:
-        //                return DEFAULT_TYPE;
-        //        }
 
         return DEFAULT_TYPE
     }

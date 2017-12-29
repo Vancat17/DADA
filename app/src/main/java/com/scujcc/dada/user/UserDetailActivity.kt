@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.scujcc.dada.R
 
@@ -57,7 +58,16 @@ class UserDetailActivity : Activity() {
 
         inner class HeaderHolder(itemView: View) : IndexHolder(itemView)
 
-        inner class FunctionHolder(itemView: View) : IndexHolder(itemView)
+        inner class FunctionHolder(itemView: View) : IndexHolder(itemView), View.OnClickListener {
+
+            init {
+                itemView.setOnClickListener(this)
+            }
+            override fun onClick(v: View?) {
+                Toast.makeText(v!!.context, "HHH", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndexHolder {
 

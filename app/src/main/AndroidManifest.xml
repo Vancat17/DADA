@@ -20,48 +20,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".user.UserDetailActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".user.UserDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".message.MessageActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".user.UserDetailEditActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".function.StrokeActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:name=".function.stroke.StrokeActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".function.LikeActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".function.WalletActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".function.ServiceActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".function.SettingActivity"
+            android:name=".function.settings.SettingActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".function.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".content.ContentDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".add.AddActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity" />
-        <activity android:name=".TestActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".function.SearchActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".content.ContentDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".user.LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".add.AddActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".message.ChatActivity" />
+        <activity android:name=".pay.PayActivity" />
+        <activity android:name=".function.stroke.StrokeDetailActivity"></activity>
     </application>
 
 </manifest>
