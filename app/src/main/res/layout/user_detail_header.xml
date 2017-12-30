@@ -7,7 +7,7 @@
     android:layout_height="240dp">
 
     <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-        android:id="@+id/detail_user_photo"
+        android:id="@+id/user_photo"
         app:shape_mode="circle"
         android:src="@drawable/images"
         android:scaleType="centerCrop"
@@ -39,7 +39,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/user_occupation"
+        android:id="@+id/user_job"
         android:layout_marginTop="10dp"
         android:text="互联网-app设计"
         android:layout_width="wrap_content"

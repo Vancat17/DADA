@@ -80,63 +80,75 @@
         android:layout_width="match_parent"
         android:layout_height="130dp">
 
-        <LinearLayout
-            android:background="@color/colorPrimary"
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/money"
-                android:text="零钱"
-                android:textColor="@color/colorWhite"
-                android:gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="7"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp" />
-
-            <TextView
-                android:id="@+id/money_num"
-                android:text="0"
-                android:textSize="16sp"
-                android:textColor="@color/colorWhite"
-                android:gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="7"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp" />
-
             <LinearLayout
-                android:layout_weight="6"
-                android:background="@color/colorWhite"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/money"
+                    android:text="零钱"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp" />
 
-                <Button
-                    android:id="@+id/withdraw_button"
-                    android:layout_weight="1"
-                    android:text="提现"
-                    android:textColor="@color/colorDarkGray"
-                    android:background="@color/colorTransparent"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-                <View
-                    android:layout_margin="10dp"
-                    android:background="@color/colorDarkGray"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"/>
-                <Button
-                    android:id="@+id/money_detail_button"
-                    android:layout_weight="1"
-                    android:text="明细"
-                    android:background="@color/colorTransparent"
-                    android:textColor="@color/colorDarkGray"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/money_num"
+                    android:text="0"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_weight="6"
+                    android:background="@color/colorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <Button
+                        android:id="@+id/withdraw_button"
+                        android:layout_weight="1"
+                        android:text="提现"
+                        android:textColor="@color/colorDarkGray"
+                        android:background="@color/colorTransparent"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+                    <View
+                        android:layout_margin="10dp"
+                        android:background="@color/colorDarkGray"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"/>
+                    <Button
+                        android:id="@+id/money_detail_button"
+                        android:layout_weight="1"
+                        android:text="明细"
+                        android:background="@color/colorTransparent"
+                        android:textColor="@color/colorDarkGray"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
             </LinearLayout>
-        </LinearLayout>
 
+            <ImageView
+                android:src="@drawable/ic_wallet_two"
+                android:layout_alignParentEnd="true"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
+
     <android.support.v7.widget.CardView
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

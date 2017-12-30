@@ -8,7 +8,7 @@ import java.io.Serializable
  * QQ号    ：1136836811
  */
 
-class ContentItem(var imageId: Int, var sender: String?, var topic: String?, var tag: String?, var time: String?, var locaticon: String?, var num: Int,var price: Int, var content: String?) : Serializable {
+class ContentItem(var imageId: Int, var sender: String?, var topic: String?, var tag: String?, var time: String?, var locaticon: String?, var num: Int, var price: Int, var content: String?, var isLiked: Boolean) : Serializable {
 
     private val mContentItems: List<ContentItem>? = null
 }

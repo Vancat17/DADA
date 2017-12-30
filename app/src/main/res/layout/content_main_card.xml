@@ -18,7 +18,7 @@
             app:shape_mode="round_rect"
             app:round_radius="6dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/download2"
+            android:src="@drawable/ic_default_image"
             android:layout_width="120dp"
             android:layout_height="90dp" />
 

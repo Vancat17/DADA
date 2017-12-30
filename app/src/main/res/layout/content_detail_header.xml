@@ -100,14 +100,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_above="@id/sender_button"
-            android:background="@color/colorLightGrey"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"/>
 
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/line_small"/>
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/sender_image"
@@ -153,11 +152,12 @@
         <Button
             android:id="@+id/sender_button"
             android:background="@color/colorTransparent"
-            android:layout_below="@id/activity_tag"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
     </RelativeLayout>
+
+    <include layout="@layout/line_big"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -213,6 +213,7 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
 
+    <include layout="@layout/line_big"/>
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"

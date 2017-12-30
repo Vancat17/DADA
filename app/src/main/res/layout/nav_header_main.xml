@@ -19,7 +19,7 @@
         app:shape_mode="circle"
         android:layout_marginTop="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/images" />
+        android:src="@drawable/ic_user_photo" />
 
     <TextView
         android:id="@+id/user_name"

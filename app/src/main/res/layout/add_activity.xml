@@ -15,11 +15,14 @@
             android:id="@+id/back_button"
             android:src="@drawable/ic_back"
             android:background="@color/colorTransparent"
+            android:layout_margin="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
         <TextView
             android:text="发布"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/colorBlack"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -107,7 +110,7 @@
                     android:layout_height="match_parent" />
 
                 <Button
-                    android:text="四川 成都 四川大学锦城学院"
+                    android:text="四川大学锦城学院"
                     android:textSize="12sp"
                     android:background="@color/colorTransparent"
                     android:layout_width="wrap_content"
@@ -119,6 +122,7 @@
                 android:id="@+id/add_price"
                 android:text="价格"
                 android:textAlignment="textStart"
+                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
                 android:background="@color/colorWhite"
@@ -132,7 +136,6 @@
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
                 android:background="@color/colorWhite"
-                android:layout_below="@id/add_price"
                 android:layout_width="match_parent"
                 android:layout_height="44dp" />
         </LinearLayout>
@@ -146,5 +149,5 @@
         android:textColor="@color/colorWhite"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="50dp" />
 </RelativeLayout>

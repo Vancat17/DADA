@@ -6,6 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/toolbar"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="44dp">
 
@@ -18,11 +19,11 @@
 
         <TextView
             android:id="@+id/sender_name"
-            android:text="小学生"
+            android:text="NICHENG"
             android:gravity="center"
-            android:textSize="18sp"
-            android:layout_toRightOf="@id/back_button"
-            android:layout_toLeftOf="@id/more_button"
+            android:textSize="@dimen/title_size"
+            android:layout_toEndOf="@id/back_button"
+            android:layout_toStartOf="@id/more_button"
             android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -45,13 +46,14 @@
         <ImageButton
             android:id="@+id/detail_image"
             android:layout_margin="10dp"
-            android:src="@drawable/images"
+            android:src="@drawable/ic_default_image"
+            android:scaleType="centerCrop"
             android:layout_width="80dp"
             android:layout_height="80dp" />
 
         <TextView
             android:id="@+id/detail_topic"
-            android:text="打羽毛球"
+            android:text="Test"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
             android:layout_marginTop="18dp"
@@ -61,7 +63,7 @@
 
         <TextView
             android:id="@+id/detail_price"
-            android:text="¥35"
+            android:text="Test"
             android:layout_below="@id/detail_topic"
             android:layout_toEndOf="@id/detail_image"
             android:layout_marginTop="10dp"
@@ -69,7 +71,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="加入前聊一聊"
+            android:text="Test"
             android:textSize="10sp"
             android:layout_below="@id/detail_price"
             android:layout_toEndOf="@id/detail_image"
@@ -87,6 +89,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <RelativeLayout
+        android:background="@color/colorWhite"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="44dp">

@@ -45,10 +45,10 @@
         android:layout_height="80dp">
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-            android:id="@+id/detail_user_photo"
+            android:id="@+id/user_photo"
             app:shape_mode="circle"
             android:layout_margin="10dp"
-            android:src="@drawable/images"
+            android:src="@drawable/ic_user_photo"
             android:scaleType="centerCrop"
             android:layout_width="60dp"
             android:layout_height="60dp" />
@@ -140,7 +140,6 @@
         <Button
             android:id="@+id/detail_change_age"
             android:text="@string/edit_age"
-            android:textColor="@color/colorLightGrey"
             android:background="@color/colorTransparent"
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
@@ -177,11 +176,8 @@
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
     </LinearLayout>
-    <View
-        android:layout_margin="10dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+
+    <include layout="@layout/line_small"/>
 
     <LinearLayout
         android:layout_marginStart="10dp"
@@ -205,11 +201,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
-    <View
-        android:layout_margin="10dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+
+    <include layout="@layout/line_small"/>
 
     <LinearLayout
         android:layout_marginStart="10dp"

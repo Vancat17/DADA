@@ -49,7 +49,7 @@ class PageFragment : Fragment() {
     private fun addData() {
 
         for (i in 0..9) {
-            mContentItems!!.add(ContentItem(FCBRandom.randomImage(), FCBRandom.randomSender(), FCBRandom.randomTopic(), FCBRandom.randomTag(), "12月20日 上午10:30", "四川大学锦城学院", FCBRandom.randomPeopleNum(), FCBRandom.randomPrice(), FCBRandom.randomContent()))
+            mContentItems!!.add(ContentItem(FCBRandom.randomImage(), FCBRandom.randomSender(), FCBRandom.randomTopic(), FCBRandom.randomTag(), "12月20日 上午10:30", "四川大学锦城学院", FCBRandom.randomPeopleNum(), FCBRandom.randomPrice(), FCBRandom.randomContent(),false))
         }
     }
 

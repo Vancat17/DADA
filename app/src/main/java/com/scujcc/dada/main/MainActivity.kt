@@ -21,6 +21,7 @@ import com.scujcc.dada.user.UserDetailActivity
 import com.scujcc.dada.function.*
 import com.scujcc.dada.function.settings.SettingActivity
 import com.scujcc.dada.function.stroke.StrokeActivity
+import com.scujcc.dada.user.UserItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(main_toolbar)
+
+        var user = UserItem(R.drawable.images, "搭搭",1, "90后",null,null,null,1,false,false)
 
         search_button.setOnClickListener {
             val intent = Intent(this@MainActivity, SearchActivity::class.java)
@@ -57,9 +60,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-
+        headView.user_image.setImageResource(user.photoId!!)
+        headView.user_name.text = user.name
+        headView.user_vip_level.text = vipLevel(user.vip)
         headView.user_image.setOnClickListener {
             val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
+            intent.putExtra("USER_DETAIL", user)
             startActivity(intent)
         }
 
@@ -68,7 +74,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         main_tab_layout.setupWithViewPager(main_viewpager)
     }
 
+    private fun vipLevel(level: Int): String {
+        return when(level) {
+            0 -> "普通会员"
+            1 -> "黄金会员"
+            2 -> "钻石会员"
+            else -> "我的会员"
+        }
+    }
     override fun onBackPressed() {
+
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
@@ -77,7 +92,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }

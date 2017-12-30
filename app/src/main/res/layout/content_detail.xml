@@ -7,6 +7,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/detail_recycler"
+        android:layout_above="@id/menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,6 +16,7 @@
     <include layout="@layout/toolbar_header"/>
 
     <LinearLayout
+        android:id="@+id/menu"
         android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
@@ -34,6 +36,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
+                android:id="@+id/like_button_text"
                 android:text="收藏"
                 android:textSize="10sp"
                 android:layout_alignParentBottom="true"
