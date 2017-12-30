@@ -25,25 +25,27 @@ class ContentDetailActivity : Activity() {
         detail_recycler.layoutManager = LinearLayoutManager(applicationContext)
         detail_recycler.adapter = ContentDetailAdapter(contentItem!!)
 
-        isLiekd()
+        isLiked()
         buttonClick()
     }
 
     private fun buttonClick() {
         left_button.setOnClickListener { finish() }
         right_button.setOnClickListener { Toast.makeText(applicationContext, "分享", Toast.LENGTH_SHORT).show() }
-        like_button.setOnClickListener { isLiekd() }
+        like_button.setOnClickListener { isLiked() }
         talk_button.setOnClickListener {
             val intent = Intent(applicationContext, ChatActivity::class.java)
+            intent.putExtra("CHAT", contentItem)
             startActivity(intent)
         }
         join_button.setOnClickListener {
             val intent = Intent(applicationContext, PayActivity::class.java)
+            intent.putExtra("JOIN", contentItem)
             startActivity(intent)
         }
     }
 
-    private fun isLiekd() {
+    private fun isLiked() {
         if (contentItem!!.isLiked) {
             like_button_text.text = "已收藏"
             like_button.setImageDrawable(getDrawable(R.drawable.ic_liked))

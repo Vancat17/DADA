@@ -14,4 +14,7 @@
 
     <color name="divider">#E5E5E5</color>
 
+    <color name="colorBackground">#F1F2F7</color>
+
+    <color name="colorMoneyRed">#F72933</color>
 </resources>

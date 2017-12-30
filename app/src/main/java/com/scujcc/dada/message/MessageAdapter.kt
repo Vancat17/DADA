@@ -14,7 +14,6 @@ import com.scujcc.dada.R
  */
 class MessageAdapter(private val mMessageItem: List<MessageItem>): RecyclerView.Adapter<MessageAdapter.IndexHolder>()  {
 
-
     inner class IndexHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         init {
@@ -28,8 +27,7 @@ class MessageAdapter(private val mMessageItem: List<MessageItem>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-//        return mMessageItem.size
-        return 10
+        return mMessageItem.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): IndexHolder {

@@ -34,4 +34,10 @@
     <string name="edit_company">添加所在公司</string>
     <string name="sign">个性签名</string>
     <string name="edit_sign_hint">还未填写个性签名，简单介绍一下自己吧</string>
+
+    <string name="topic">标题</string>
+    <string name="detail">内容</string>
+    <string name="price">价格</string>
+    <string name="user_info">个人信息</string>
+    <string name="people_num">人数:</string>
 </resources>

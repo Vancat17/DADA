@@ -26,16 +26,16 @@ object FCBRandom {
     }
 
     //随机价格
-    internal fun randomPrice(): Int {
-        val price = ArrayList<Int>()
+    internal fun randomPrice(): Double {
+        val price = ArrayList<Double>()
 
-        price.add(90)
-        price.add(88)
-        price.add(35)
-        price.add(78)
-        price.add(98)
-        price.add(29)
-        price.add(0)
+        price.add(90.00)
+        price.add(88.00)
+        price.add(35.00)
+        price.add(78.00)
+        price.add(98.00)
+        price.add(29.00)
+        price.add(0.00)
         val random = Random()
         return price[random.nextInt(price.size)]
     }

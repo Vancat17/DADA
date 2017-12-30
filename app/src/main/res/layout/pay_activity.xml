@@ -6,145 +6,104 @@
     android:orientation="vertical"
     tools:context="com.scujcc.dada.pay.PayActivity">
 
-
-    <RelativeLayout
-        android:id="@+id/part1"
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_header"/>
+    <LinearLayout
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="44dp">
+        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:src="@drawable/ic_back"
-            android:background="@color/colorTransparent"
-            android:layout_width="44dp"
-            android:layout_height="44dp" />
+        <include layout="@layout/line_small"/>
 
-        <TextView
-            android:text="付款详情"
-            android:layout_toEndOf="@id/back_button"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="@color/colorBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:id="@+id/more_button"
-            android:background="@color/colorTransparent"
-            android:layout_alignParentEnd="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-    </RelativeLayout>
-
-
-
-    <RelativeLayout
-        android:id="@+id/part2"
-        android:layout_below="@id/part1"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <ImageView
-            android:id="@+id/detail_image"
-            android:src="@drawable/download"
-            android:scaleType="centerCrop"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
-
-        <TextView
-            android:id="@+id/detail_topic"
-            android:text="打篮球"
-            android:textSize="18sp"
-            android:textColor="@color/colorBlack"
-            android:layout_toEndOf="@id/detail_image"
-            android:layout_margin="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/detail_price"
-            android:text="¥ 65.00"
-            android:layout_toRightOf="@id/detail_image"
-            android:layout_below="@id/detail_topic"
-            android:padding="10dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/part3"
-        android:layout_below="@id/part2"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-        <TextView
-            android:text="参与者"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/user_name"
-            android:text="老王"
-            android:layout_toStartOf="@id/user_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/user_phone"
-            android:text="17788888888"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/user_location"
-            android:text="锦城篮球场"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/user_phone"
-            android:layout_margin="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/part4"
-        android:layout_below="@id/part3"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-        <TextView
-            android:id="@+id/ren"
-            android:text="人数:"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/order_num"
-            android:text="4人"
-            android:gravity="center"
-            android:layout_toEndOf="@id/ren"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-        <Button
-            android:id="@+id/change_num_button"
-            android:background="@color/colorTransparent"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:drawableEnd="@drawable/ic_next"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
+            android:layout_height="100dp">
 
+            <ImageView
+                android:id="@+id/detail_image"
+                android:scaleType="centerCrop"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/detail_topic"
+                android:text="@string/topic"
+                android:textSize="18sp"
+                android:textColor="@color/colorBlack"
+                android:layout_toEndOf="@id/detail_image"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/detail_price"
+                android:text="@string/price"
+                android:layout_toEndOf="@id/detail_image"
+                android:layout_below="@id/detail_topic"
+                android:padding="10dp"
+                android:textColor="@color/colorMoneyRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/line_big"/>
+
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:text="@string/user_info"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/info_button"
+                android:textAlignment="textEnd"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorTransparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <include layout="@layout/line_small"/>
+
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:text="@string/people_num"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/people_num_button"
+                android:textAlignment="textStart"
+                android:paddingStart="50dp"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorTransparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="RtlSymmetry" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/fill_area"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
+        android:background="@color/colorWhite"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="44dp">
@@ -159,8 +118,7 @@
 
         <TextView
             android:id="@+id/price"
-            android:textColor="@color/colorPrimary"
-            android:text="¥ 65.00"
+            android:textColor="@color/colorMoneyRed"
             android:gravity="center_vertical"
             android:layout_weight="3"
             android:layout_width="0dp"
@@ -172,7 +130,8 @@
             android:layout_weight="2"
             android:layout_width="0dp"
             android:text="确定"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorMoneyRed"
             android:layout_height="match_parent" />
     </LinearLayout>
+
 </RelativeLayout>

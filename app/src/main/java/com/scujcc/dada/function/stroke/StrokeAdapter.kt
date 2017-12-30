@@ -12,7 +12,7 @@ import com.scujcc.dada.R
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class StrokeAdapter(mStrokeItems: MutableList<StrokeItem>) : RecyclerView.Adapter<StrokeAdapter.StrokeHolder>() {
+class StrokeAdapter(private var mStrokeItems: MutableList<StrokeItem>) : RecyclerView.Adapter<StrokeAdapter.StrokeHolder>() {
 
     inner class StrokeHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
@@ -38,8 +38,7 @@ class StrokeAdapter(mStrokeItems: MutableList<StrokeItem>) : RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-//        return mStrokeItems.size
-        return  10
+        return mStrokeItems.size
     }
 
 
