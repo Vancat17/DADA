@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.scujcc.dada.R
 import com.scujcc.dada.content.ContentItem
 import kotlinx.android.synthetic.main.chat_activity.*
+import kotlinx.android.synthetic.main.toolbar_header.*
 
 class ChatActivity : Activity() {
 
@@ -22,7 +23,7 @@ class ChatActivity : Activity() {
 
     @SuppressLint("SetTextI18n")
     private fun initData() {
-        title = contentItem!!.sender
+        title_text.text = contentItem!!.sender
         detail_image.setImageResource(contentItem!!.imageId)
         detail_topic.text = contentItem!!.topic
         detail_price.text = "¥" + contentItem!!.price

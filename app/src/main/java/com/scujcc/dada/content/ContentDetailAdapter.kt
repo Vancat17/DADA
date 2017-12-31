@@ -37,7 +37,7 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
                 detailHolder.itemView.detail_price.text = "¥" + item.price
                 detailHolder.itemView.detail_people_num.text = "当前人数" + (item.num - 1) + "/" + item.num
                 detailHolder.itemView.activity_tag.text = item.tag
-                detailHolder.itemView.detail_detail.text = "本周末(9号)考完试 组团一起打滴滴回泸州 \n 就在学校上车 一个人太贵了，多几个人便宜点"
+                detailHolder.itemView.detail_detail.text = item.content
                 detailHolder.itemView.price_detail.text = "我一个人的话 需要156元 \n 两个人 248/2 只要124一个人\n 三个人 310/3 只要103一个人"
             }
             else -> {

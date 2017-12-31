@@ -110,6 +110,7 @@
                     android:layout_height="match_parent" />
 
                 <Button
+                    android:id="@+id/add_location"
                     android:text="四川大学锦城学院"
                     android:textSize="12sp"
                     android:background="@color/colorTransparent"

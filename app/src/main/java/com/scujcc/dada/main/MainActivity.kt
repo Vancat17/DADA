@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.view.*
+import org.litepal.LitePal
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,9 +39,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        LitePal.initialize(applicationContext)
         setSupportActionBar(main_toolbar)
 
-        var user = UserItem(R.drawable.images, "搭搭",1, "90后",null,null,null,1,false,false)
+        var user = UserItem("1136836811",R.drawable.images, "搭搭",1, "90后",null,null,null,1,false,false)
 
         search_button.setOnClickListener {
             val intent = Intent(this@MainActivity, SearchActivity::class.java)

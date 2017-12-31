@@ -36,7 +36,12 @@ class PayActivity : Activity() {
         left_button.setOnClickListener { finish() }
         info_button.setOnClickListener {  }
         people_num_button.setOnClickListener {
-            val numArray = arrayOf("1", "2", "3", "4")
+
+            val numArray = arrayOfNulls<String>(contentItem!!.num)
+
+            for (i in 0..(contentItem!!.num - 1)) {
+                numArray[i] = (i+1).toString()
+            }
             val builder = AlertDialog.Builder(this)// 自定义对话框
             builder.setItems(numArray, { dialog, which ->
                 people_num_button.text = numArray[which] + "人"

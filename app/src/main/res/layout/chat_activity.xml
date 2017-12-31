@@ -4,8 +4,11 @@
     android:layout_height="match_parent"
     tools:context="com.scujcc.dada.message.ChatActivity">
 
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_header"/>
+
     <android.support.v7.widget.CardView
         android:id="@+id/chat_detail"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
