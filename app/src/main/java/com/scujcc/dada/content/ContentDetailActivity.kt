@@ -2,7 +2,10 @@ package com.scujcc.dada.content
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.scujcc.dada.R
@@ -18,7 +21,7 @@ class ContentDetailActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_detail)
-
+        window.statusBarColor = Color.LTGRAY
         contentItem = intent.getSerializableExtra("SER") as ContentItem
 
         detail_recycler.setHasFixedSize(true)

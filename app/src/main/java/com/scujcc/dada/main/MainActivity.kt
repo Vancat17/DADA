@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         LitePal.initialize(applicationContext)
         setSupportActionBar(main_toolbar)
 
-        var user = UserItem("1136836811",R.drawable.images, "搭搭",1, "90后",null,null,null,1,false,false)
+        val user = UserItem("1136836811",R.drawable.ic_user_photo, "搭搭",1, "90后",null,null,null,1,false,false)
 
         search_button.setOnClickListener {
             val intent = Intent(this@MainActivity, SearchActivity::class.java)

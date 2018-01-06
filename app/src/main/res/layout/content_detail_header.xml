@@ -11,7 +11,6 @@
 
         <ImageView
             android:id="@+id/detail_image"
-            android:src="@drawable/download5"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
@@ -110,7 +109,6 @@
 
         <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/sender_image"
-            android:src="@drawable/images"
             android:scaleType="centerCrop"
             app:shape_mode="circle"
             android:layout_margin="5dp"

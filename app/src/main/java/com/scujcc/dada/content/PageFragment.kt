@@ -1,15 +1,27 @@
 package com.scujcc.dada.content
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.scujcc.dada.R
+import com.scujcc.dada.helper.Content
+import com.scujcc.dada.helper.GetRequest
 import kotlinx.android.synthetic.main.content_main_recycler.view.*
 import org.litepal.crud.DataSupport
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by  范朝波 on 2017/12/15.
@@ -20,13 +32,52 @@ import org.litepal.crud.DataSupport
 class PageFragment : Fragment() {
 
     private var mPage: Int = 0
+    private lateinit var mContentItem: ContentItem
 
     private  var mContentItems: MutableList<ContentItem>? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mContentItems = DataSupport.findAll(ContentItem::class.java)
+
+        mContentItems = ArrayList()
+
+        val retrofit = Retrofit.Builder()
+                .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+                 .build()
+
+        val request = retrofit.create<GetRequest>(GetRequest::class.java)
+        try {
+            val call = request.getContent("game")
+            call.enqueue(object : Callback<Content> {
+                @SuppressLint("SimpleDateFormat")
+                override fun onResponse(call: Call<Content>, response: Response<Content>) {
+
+                    val date = Date(System.currentTimeMillis())
+                    val contentid = SimpleDateFormat("yyyyMMddHHmmss").format(date)
+                    Log.w("Test", response.body().content)
+                    mContentItem = ContentItem(contentid, R.drawable.ic_default_image, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content, false)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+                    mContentItems!!.add(mContentItem)
+
+                }
+                override fun onFailure(call: Call<Content>, t: Throwable) {
+                    Log.w("Test", "失败")
+
+                }
+            })
+        } catch (ignored: Exception) {
+
+        }
+//        mContentItems = DataSupport.findAll(ContentItem::class.java)
         mPage = arguments.getInt(ARG_CONTENT_PAGE)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -86,20 +86,6 @@ object FCBRandom {
         return tags[random.nextInt(tags.size)]
     }
 
-    //随机图片
-    internal fun randomImage(): Int {
-        val images = ArrayList<Int>()
-
-        images.add(R.drawable.download)
-        images.add(R.drawable.download2)
-        images.add(R.drawable.download3)
-        images.add(R.drawable.download4)
-        images.add(R.drawable.download5)
-        images.add(R.drawable.images)
-        images.add(R.drawable.images1)
-        val random = Random()
-        return images[random.nextInt(images.size)]
-    }
 
     //随机内容
     internal fun randomContent(): String {

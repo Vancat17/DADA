@@ -13,7 +13,6 @@
             android:id="@+id/message_photo"
             android:layout_margin="10dp"
             app:shape_mode="circle"
-            android:src="@drawable/download3"
             android:scaleType="centerCrop"
             android:layout_width="60dp"
             android:layout_height="60dp" />
@@ -49,7 +48,6 @@
         <ImageView
             android:id="@+id/message_sub_image"
             android:scaleType="centerCrop"
-            android:src="@drawable/images"
             android:layout_alignParentEnd="true"
             android:layout_margin="20dp"
             android:layout_width="40dp"

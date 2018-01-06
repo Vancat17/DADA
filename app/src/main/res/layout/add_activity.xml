@@ -75,16 +75,8 @@
                 android:layout_height="100dp">
 
                 <ImageButton
-                    android:src="@drawable/images"
                     android:layout_margin="10dp"
-                    android:scaleType="center"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-
-                <ImageButton
-                    android:src="@drawable/images1"
-                    android:layout_margin="10dp"
-                    android:scaleType="center"
+                    android:scaleType="centerCrop"
                     android:layout_width="80dp"
                     android:layout_height="80dp" />
 
@@ -111,7 +103,7 @@
 
                 <Button
                     android:id="@+id/add_location"
-                    android:text="四川大学锦城学院"
+                    android:text="地址"
                     android:textSize="12sp"
                     android:background="@color/colorTransparent"
                     android:layout_width="wrap_content"
@@ -133,6 +125,16 @@
             <Button
                 android:id="@+id/add_tag"
                 android:text="分类"
+                android:textAlignment="textStart"
+                android:padding="10dp"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="44dp" />
+
+            <Button
+                android:id="@+id/add_time"
+                android:text="时间"
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"

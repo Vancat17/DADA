@@ -22,9 +22,9 @@ class LikeActivity : AppCompatActivity() {
 
         mContentItems = ArrayList()
 
-        for (i in 0..9) {
-            mContentItems!!.add(ContentItem((10*i).toString(),FCBRandom.randomImage(), FCBRandom.randomSender(), FCBRandom.randomTopic(), FCBRandom.randomTag(), "12月20日 上午10:30", "四川大学锦城学院", FCBRandom.randomPeopleNum(), FCBRandom.randomPrice(), FCBRandom.randomContent(), true))
-        }
+//        for (i in 0..9) {
+//            mContentItems!!.add(ContentItem((10*i).toString(),FCBRandom.randomImage(), FCBRandom.randomSender(), FCBRandom.randomTopic(), FCBRandom.randomTag(), "12月20日 上午10:30", "四川大学锦城学院", FCBRandom.randomPeopleNum(), FCBRandom.randomPrice(), FCBRandom.randomContent(), true))
+//        }
 
         like_recycler.setHasFixedSize(true)
         like_recycler.layoutManager = LinearLayoutManager(applicationContext)

@@ -10,4 +10,4 @@ import java.io.Serializable
  * QQ号    ：1136836811
  */
 
-class ContentItem(@Column(unique = true, defaultValue = "unknown")var contentId: String,var imageId: Int, var sender: String?, var topic: String?, var tag: String?, var time: String?, var location: String?, var num: Int, var price: Double, var content: String?, var isLiked: Boolean) : Serializable, DataSupport()
+class ContentItem(@Column(unique = true, defaultValue = "unknown")var id: String,var imageId: Int, var sender: String?, var topic: String?, var tag: String?, var time: String?, var location: String?, var num: Int?, var price: Double?, var content: String?, var isLiked: Boolean) : Serializable, DataSupport()

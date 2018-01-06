@@ -25,7 +25,6 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
             itemView.setOnClickListener(this)
 
         }
-
         override fun onClick(v: View) {
             val intent = Intent(v.context, ContentDetailActivity::class.java)
             intent.putExtra("SER", mContentItems[adapterPosition])
@@ -55,7 +54,7 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
                 holder.itemView.activity_tag.text = mContentItems[pos].tag
                 holder.itemView.activity_time.text = mContentItems[pos].time
                 holder.itemView.activity_location.text = mContentItems[pos].location
-                holder.itemView.activity_num.text = (mContentItems[pos].num - 1).toString() + "/" + mContentItems[pos].num.toString()
+                holder.itemView.activity_num.text = (mContentItems[pos].num!! - 1).toString() + "/" + mContentItems[pos].num.toString()
                 if (mContentItems[pos].price == 0.00) {
                     holder.itemView.activity_price.text = "免费"
                 } else {

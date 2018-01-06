@@ -20,6 +20,8 @@
     -->
     <list>
         <mapping class="com.scujcc.dada.content.ContentItem" />
+        <mapping class="com.scujcc.dada.message.MessageItem" />
+        <mapping class="com.scujcc.dada.user.UserItem" />
     </list>
 
 

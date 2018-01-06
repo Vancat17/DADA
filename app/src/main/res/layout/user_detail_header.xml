@@ -9,7 +9,6 @@
     <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
         android:id="@+id/user_photo"
         app:shape_mode="circle"
-        android:src="@drawable/images"
         android:scaleType="centerCrop"
         android:background="@color/colorTransparent"
         android:layout_width="80dp"

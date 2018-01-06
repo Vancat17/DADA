@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.user_activity_setting.*
 class SettingActivity : AppCompatActivity() {
 
     val teams = ArrayList<SettingItem>()
-    val members = ArrayList<SettingMember>()
+    private val members = ArrayList<SettingMember>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +51,7 @@ class SettingActivity : AppCompatActivity() {
                     holder!!.itemView.title.setTextColor(RED)
                     holder.itemView.title.width = windowManager.defaultDisplay.width
                     holder.itemView.title.gravity = Gravity.CENTER
-                    holder.itemView.next.visibility = View.INVISIBLE
+                    holder.itemView.next.visibility = View.GONE
                 }
 
                 holder!!.itemView.title.text = member.name
