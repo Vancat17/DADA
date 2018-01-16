@@ -14,4 +14,7 @@ interface GetRequest {
     @GET("dada/content/{id}")
     fun getContent(@Path("id") id: String): Call<Content>
 
+    @GET("dada/content")
+    fun getAllContent() : Call<List<Content>>
+
 }

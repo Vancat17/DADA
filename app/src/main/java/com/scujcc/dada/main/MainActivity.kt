@@ -21,19 +21,18 @@ import com.scujcc.dada.user.UserDetailActivity
 import com.scujcc.dada.function.*
 import com.scujcc.dada.function.settings.SettingActivity
 import com.scujcc.dada.function.stroke.StrokeActivity
-import com.scujcc.dada.user.UserItem
+import com.scujcc.dada.user.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.view.*
 import org.litepal.LitePal
+import org.litepal.crud.DataSupport
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
 
     private var pagerAdapter: SimplePagerAdapter? = null
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         LitePal.initialize(applicationContext)
         setSupportActionBar(main_toolbar)
 
-        val user = UserItem("1136836811",R.drawable.ic_user_photo, "搭搭",1, "90后",null,null,null,1,false,false)
+//        User(2017, R.drawable.icon, "范朝波", 0, "90后", "软件/互联网", "无", null, 0, true, true).save()
+        val user = DataSupport.findFirst(User::class.java)
 
         search_button.setOnClickListener {
             val intent = Intent(this@MainActivity, SearchActivity::class.java)

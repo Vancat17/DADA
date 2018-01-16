@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.user_detail_edit.*
+import org.litepal.crud.DataSupport
 
 /**
  * Created by  范朝波 on 2017/12/16.
@@ -15,41 +16,42 @@ import kotlinx.android.synthetic.main.user_detail_edit.*
 
 class UserDetailEditActivity : Activity() {
 
-    private var mUser: UserItem? = null
+    private var user = DataSupport.findFirst(User::class.java)!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_detail_edit)
-
-        mUser = intent.getSerializableExtra("USER_DETAIL_EDIT") as UserItem
 
         initData()
         buttonClick()
     }
 
     private fun initData() {
-        user_photo.setImageResource(mUser!!.photoId!!)
-        detail_change_name.setText(mUser!!.name)
-        detail_change_sex.text = if (mUser!!.sex == 0) "男" else "女"
-        detail_change_age.text = mUser!!.age
-        detail_change_job.text = mUser!!.job
-        detail_change_company.setText(mUser!!.company)
-        detail_change_sign.setText(mUser!!.sign)
+        user_photo.setImageResource(user.photoId!!)
+        detail_change_name.setText(user.name)
+        detail_change_sex.text = if (user.sex == 0) "男" else "女"
+        detail_change_age.text = user.age
+        detail_change_job.text = user.job
+        detail_change_company.setText(user.company)
+        detail_change_sign.setText(user.sign)
     }
 
     private fun buttonClick() {
-        val user = mUser
-        user!!
+
         detail_change_cancel.setOnClickListener {
-            val intent = intent
-            intent.putExtra("DETAIL_RESULT",mUser)
-            setResult(0,intent)
             finish()
         }
         detail_change_done.setOnClickListener {
-            val intent = intent
-            intent.putExtra("DETAIL_RESULT",user)
-            setResult(0,intent)
+
+            /**
+             * 文本变化
+             */
+            user.name = detail_change_name.text.toString()
+            user.company = detail_change_company.text.toString()
+            user.sign = detail_change_sign.text.toString()
+
+            //更新用户
+            user.save()
             finish()
         }
         detail_change_photo.setOnClickListener { Toast.makeText(applicationContext, "换照片", Toast.LENGTH_SHORT).show() }
@@ -63,6 +65,7 @@ class UserDetailEditActivity : Activity() {
             })
             builder.show()
         }
+
         detail_change_age.setOnClickListener {
             val sexArray = arrayOf("1950后","1960后","1970后","1980后","1990后","2000后","2010后")
             val builder = AlertDialog.Builder(this)// 自定义对话框

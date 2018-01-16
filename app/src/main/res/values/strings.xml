@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">搭搭</string>
+    <string name="app_name">搭搭找团</string>
     <string name="navigation_drawer_open">打开导航</string>
     <string name="navigation_drawer_close">关闭导航</string>
     <string name="action_settings">设置</string>
@@ -40,4 +40,8 @@
     <string name="price">价格</string>
     <string name="user_info">个人信息</string>
     <string name="people_num">人数:</string>
+
+
+    <!--网络相关-->
+    <string name="baseUrl">http://120.79.19.183:8080/</string>
 </resources>

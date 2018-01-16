@@ -63,16 +63,12 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_margin="10dp"
-        android:background="#F0F0F0"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+    <include layout="@layout/line_small"/>
 
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/edit_name"
@@ -92,16 +88,13 @@
             android:inputType="text"
             tools:ignore="LabelFor" />
     </LinearLayout>
-    <View
-        android:layout_margin="10dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+
+    <include layout="@layout/line_small"/>
 
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/sex"
@@ -120,16 +113,13 @@
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
     </LinearLayout>
-    <View
-        android:layout_margin="10dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+
+    <include layout="@layout/line_small"/>
 
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/age"
@@ -150,6 +140,7 @@
     </LinearLayout>
 
     <View
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="@color/colorWhite"/>
@@ -157,7 +148,7 @@
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/job"
@@ -182,7 +173,7 @@
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/company"
@@ -196,7 +187,7 @@
             android:background="@null"
             android:textCursorDrawable="@null"
             android:textSize="14sp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -207,7 +198,7 @@
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="55dp">
 
         <TextView
             android:text="@string/sign"
@@ -220,7 +211,7 @@
             android:hint="@string/edit_sign_hint"
             android:background="@null"
             android:textCursorDrawable="@null"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_gravity="center"
             android:textSize="14sp"
             android:layout_width="match_parent"

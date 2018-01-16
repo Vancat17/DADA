@@ -20,7 +20,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -49,23 +48,14 @@ class PageFragment : Fragment() {
 
         val request = retrofit.create<GetRequest>(GetRequest::class.java)
         try {
-            val call = request.getContent("game")
+            val call = request.getContent("datatest")
             call.enqueue(object : Callback<Content> {
                 @SuppressLint("SimpleDateFormat")
                 override fun onResponse(call: Call<Content>, response: Response<Content>) {
 
-                    val date = Date(System.currentTimeMillis())
-                    val contentid = SimpleDateFormat("yyyyMMddHHmmss").format(date)
-                    Log.w("Test", response.body().content)
-                    mContentItem = ContentItem(contentid, R.drawable.ic_default_image, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content, false)
+                    Log.w("Test", "成功")
+                    mContentItem = ContentItem("id", R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content, false)
                     mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-                    mContentItems!!.add(mContentItem)
-
                 }
                 override fun onFailure(call: Call<Content>, t: Throwable) {
                     Log.w("Test", "失败")
@@ -86,6 +76,11 @@ class PageFragment : Fragment() {
         view.content_main_recycler.layoutManager = LinearLayoutManager(activity)
         view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
 
+        view.content_refresh.post {
+            Log.w("TG","KK")
+            view.content_refresh.isRefreshing = true
+        }
+        if (view.content_refresh.isRefreshing) view.content_refresh.isRefreshing = false
         view.content_refresh.setOnRefreshListener {
             mContentItems = DataSupport.findAll(ContentItem::class.java)
             view.content_main_recycler.adapter.notifyDataSetChanged()
@@ -93,6 +88,9 @@ class PageFragment : Fragment() {
         }
         return view
     }
+
+
+
 
     companion object {
 
