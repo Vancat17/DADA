@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -26,8 +27,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.view.*
-import org.litepal.LitePal
 import org.litepal.crud.DataSupport
+import com.avos.avoscloud.im.v2.AVIMException
+import com.avos.avoscloud.im.v2.callback.AVIMConversationCallback
+import com.avos.avoscloud.im.v2.messages.AVIMTextMessage
+import com.avos.avoscloud.im.v2.AVIMConversation
+import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback
+import com.avos.avoscloud.im.v2.AVIMClient
+import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
+import java.util.*
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,10 +47,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        LitePal.initialize(applicationContext)
         setSupportActionBar(main_toolbar)
 
-//        User(2017, R.drawable.icon, "范朝波", 0, "90后", "软件/互联网", "无", null, 0, true, true).save()
+        sendMessageToJerryFromTom()
+
+        User(2017, R.drawable.icon, "范朝波", 0, "90后", "软件/互联网", "无", null, 0, true, true).save()
         val user = DataSupport.findFirst(User::class.java)
 
         search_button.setOnClickListener {
@@ -158,5 +168,37 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    private fun sendMessageToJerryFromTom() {
+        // Tom 用自己的名字作为clientId，获取AVIMClient对象实例
+        val tom = AVIMClient.getInstance("Tom")
+        // 与服务器连接
+        tom.open(object : AVIMClientCallback() {
+            override fun done(client: AVIMClient, e: AVIMException?) {
+                if (e == null) {
+                    // 创建与Jerry之间的对话
+                    client.createConversation(Arrays.asList("Jerry"), "Tom & Jerry", null,
+                            object : AVIMConversationCreatedCallback() {
+
+                                override fun done(conversation: AVIMConversation, e: AVIMException?) {
+                                    if (e == null) {
+                                        val msg = AVIMTextMessage()
+                                        msg.text = "耗子，起床！"
+                                        // 发送消息
+                                        conversation.sendMessage(msg, object : AVIMConversationCallback() {
+
+                                            override fun done(e: AVIMException?) {
+                                                if (e == null) {
+                                                    Log.d("Test", "发送成功！")
+                                                }
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                }
+            }
+        })
     }
 }

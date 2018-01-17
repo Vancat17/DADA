@@ -8,6 +8,12 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
+import cn.leancloud.chatkit.LCChatKit
+import cn.leancloud.chatkit.activity.LCIMConversationActivity
+import cn.leancloud.chatkit.utils.LCIMConstants
+import com.avos.avoscloud.im.v2.AVIMClient
+import com.avos.avoscloud.im.v2.AVIMException
+import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
 import com.scujcc.dada.R
 import com.scujcc.dada.message.ChatActivity
 import com.scujcc.dada.pay.PayActivity
@@ -37,9 +43,20 @@ class ContentDetailActivity : Activity() {
         right_button.setOnClickListener { Toast.makeText(applicationContext, "分享", Toast.LENGTH_SHORT).show() }
         like_button.setOnClickListener { isLiked() }
         talk_button.setOnClickListener {
-            val intent = Intent(applicationContext, ChatActivity::class.java)
-            intent.putExtra("CHAT", contentItem)
-            startActivity(intent)
+
+            //开启聊天
+            LCChatKit.getInstance().open("范朝波", object : AVIMClientCallback() {
+                override fun done(p0: AVIMClient?, p1: AVIMException?) {
+
+                    if (null == p1) {
+                        val intent = Intent(applicationContext, LCIMConversationActivity::class.java).apply {
+                            putExtra("CHAT", contentItem)
+                            putExtra(LCIMConstants.PEER_ID,"种荒地")
+                        }
+                        startActivity(intent)
+                    }
+                }
+            })
         }
         join_button.setOnClickListener {
             val intent = Intent(applicationContext, PayActivity::class.java)

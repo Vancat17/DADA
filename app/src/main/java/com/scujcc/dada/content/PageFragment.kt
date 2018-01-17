@@ -76,11 +76,6 @@ class PageFragment : Fragment() {
         view.content_main_recycler.layoutManager = LinearLayoutManager(activity)
         view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
 
-        view.content_refresh.post {
-            Log.w("TG","KK")
-            view.content_refresh.isRefreshing = true
-        }
-        if (view.content_refresh.isRefreshing) view.content_refresh.isRefreshing = false
         view.content_refresh.setOnRefreshListener {
             mContentItems = DataSupport.findAll(ContentItem::class.java)
             view.content_main_recycler.adapter.notifyDataSetChanged()

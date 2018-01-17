@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
+import cn.leancloud.chatkit.activity.LCIMConversationActivity
 import com.scujcc.dada.R
 import com.scujcc.dada.content.ContentItem
 import kotlinx.android.synthetic.main.chat_activity.*
 import kotlinx.android.synthetic.main.toolbar_header.*
 
-class ChatActivity : Activity() {
+class ChatActivity : LCIMConversationActivity() {
 
     private var contentItem: ContentItem? = null
 
@@ -21,7 +22,7 @@ class ChatActivity : Activity() {
 
         initData()
 
-        saveChatHistory()
+//        saveChatHistory()
     }
 
     @SuppressLint("SetTextI18n")
