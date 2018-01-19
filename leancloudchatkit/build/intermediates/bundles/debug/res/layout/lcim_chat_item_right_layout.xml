@@ -19,14 +19,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/chat_right_layout_status"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/chat_right_layout_content"
+            android:layout_alignStart="@+id/chat_right_layout_content"
             android:layout_centerVertical="true"
             android:visibility="gone">
 
@@ -60,17 +60,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/chat_right_iv_avatar"
+            android:layout_toStartOf="@+id/chat_right_iv_avatar"
             android:orientation="horizontal"
-            android:paddingLeft="40dp">
+            android:paddingStart="40dp">
         </LinearLayout>
 
-        <ImageView
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/chat_right_iv_avatar"
             style="@style/LCIMAvatar"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"/>
     </RelativeLayout>
 
     <TextView

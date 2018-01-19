@@ -93,10 +93,10 @@ public class LCIMConversationFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.lcim_conversation_fragment, container, false);
 
-    recyclerView = (RecyclerView) view.findViewById(R.id.fragment_chat_rv_chat);
-    refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_chat_srl_pullrefresh);
+    recyclerView = view.findViewById(R.id.fragment_chat_rv_chat);
+    refreshLayout = view.findViewById(R.id.fragment_chat_srl_pullrefresh);
     refreshLayout.setEnabled(false);
-    inputBottomBar = (LCIMInputBottomBar) view.findViewById(R.id.fragment_chat_inputbottombar);
+    inputBottomBar = view.findViewById(R.id.fragment_chat_inputbottombar);
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
 

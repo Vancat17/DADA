@@ -1,113 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/login_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.scujcc.dada.user.LoginActivity">
 
-    <ImageButton
-        android:id="@+id/back_button"
-        android:src="@drawable/ic_back_circle"
-        android:background="@color/colorTransparent"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+   <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+       android:id="@+id/user_photo"
+       android:layout_width="80dp"
+       android:layout_height="80dp"
+       android:layout_marginTop="80dp"
+       android:src="@drawable/dada"
+       android:layout_centerHorizontal="true"
+       app:shape_mode="circle"/>
 
-    <TextView
-        android:text="使用手机号登录"
-        android:gravity="center"
-        android:textSize="32sp"
-        android:textColor="@android:color/black"
+    <LinearLayout
+        android:id="@+id/cell1"
+        android:layout_below="@id/user_photo"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal"
+        android:background="@drawable/corners_button_gray_backgroud"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="46dp">
 
-    <EditText
-        android:id="@+id/user_phone"
-        android:hint="请输入手机号"
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
+        <Button
+            android:id="@+id/area_button"
+            android:text="+86"
+            android:textColor="@color/colorWhite"
+            android:background="@null"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
 
         <EditText
-            android:id="@+id/user_password"
-            android:hint="请输入密码"
-            android:layout_toStartOf="@id/look_password"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:id="@+id/phone"
+            android:hint="手机号"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:inputType="phone"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            tools:ignore="TextFields" />
 
         <ImageButton
-            android:id="@+id/look_password"
-            android:src="@drawable/ic_menu_like"
-            android:layout_alignParentEnd="true"
-            android:layout_width="60dp"
+            android:id="@+id/phone_delete_button"
+            android:src="@drawable/ic_close"
+            android:background="@color/colorTransparent"
+            android:layout_width="50dp"
             android:layout_height="match_parent" />
-    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell2"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal"
+        android:background="@drawable/corners_button_gray_backgroud"
+        android:layout_below="@id/cell1"
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+
+        <ImageView
+            android:id="@+id/code_image"
+            android:src="@drawable/ic_password"
+            android:layout_gravity="center_vertical"
+            android:layout_width="80dp"
+            android:layout_height="20dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:hint="密码"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:inputType="textPassword"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            tools:ignore="TextFields" />
+
+        <ImageButton
+            android:id="@+id/password_delete_button"
+            android:src="@drawable/ic_close"
+            android:background="@color/colorTransparent"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell3"
+        android:gravity="center"
+        android:layout_below="@id/cell2"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="12sp"
+            android:text="未注册/暂时忘记密码，可尝试"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/code_login_button"
+            android:text="验证码登录"
+            android:textSize="12sp"
+            android:background="@color/colorTransparent"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <Button
+        android:id="@+id/login_button"
+        android:text="进入"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/cell3"
+        android:layout_margin="25dp"
+        android:background="@drawable/corners_button_background"
         android:layout_width="match_parent"
-        android:layout_height="44dp" />
+        android:layout_height="46dp" />
 
     <RelativeLayout
+        android:id="@+id/bottom_item"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
-            android:id="@+id/register_button"
-            android:text="注册"
+            android:id="@+id/protocol_button"
+            android:text="用户协议及隐私政策"
+            android:textColor="@color/colorWhite"
             android:background="@color/colorTransparent"
             android:textAlignment="textStart"
-            android:layout_width="54dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/forget_button"
             android:text="忘记密码"
+            android:textColor="@color/colorWhite"
             android:background="@color/colorTransparent"
             android:layout_alignParentEnd="true"
             android:textAlignment="textEnd"
-            android:layout_width="64dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <View
-            android:layout_weight="1"
-            android:background="@color/colorBlack"
-            android:layout_width="0dp"
-            android:layout_height="1dp"/>
-
-        <TextView
-            android:text="第三方登录方式"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <View
-            android:layout_weight="1"
-            android:background="@color/colorBlack"
-            android:layout_width="0dp"
-            android:layout_height="1dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

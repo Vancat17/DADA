@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginBottom="5dp"
               android:layout_marginLeft="@dimen/lcim_chat_horizontal_margin"
@@ -19,14 +20,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/chat_right_layout_status"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/chat_right_layout_content"
+            android:layout_alignStart="@+id/chat_right_layout_content"
             android:layout_centerVertical="true"
             android:visibility="gone">
 
@@ -60,17 +61,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/chat_right_iv_avatar"
+            android:layout_toStartOf="@+id/chat_right_iv_avatar"
             android:orientation="horizontal"
-            android:paddingLeft="40dp">
+            android:paddingStart="40dp"
+            tools:ignore="RtlSymmetry">
         </LinearLayout>
 
-        <ImageView
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/chat_right_iv_avatar"
             style="@style/LCIMAvatar"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"/>
     </RelativeLayout>
 
     <TextView
@@ -82,5 +84,6 @@
         android:layout_marginTop="3dp"
         android:ellipsize="end"
         android:gravity="right"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        tools:ignore="RtlHardcoded" />
 </LinearLayout>

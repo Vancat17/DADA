@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#FF8811</color>
-    <color name="colorPrimaryDark">#FF8811</color>
+    <color name="colorPrimary">#81D8D0</color>
+    <color name="colorPrimaryDark">#81D8D0</color>
     <color name="colorAccent">#FF4081</color>
 
     <!--自定义颜色-->
     <color name="colorBlack">#000000</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorAlphaWhite">#3FFFFFFF</color>
     <color name="colorDarkGray">#7B7B7B</color>
     <color name="colorLightGrey">#D6D7D7</color>
 

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="5dp"
-              android:layout_marginLeft="@dimen/lcim_chat_horizontal_margin"
-              android:layout_marginRight="@dimen/lcim_chat_horizontal_margin"
-              android:layout_marginTop="5dp"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="@dimen/lcim_chat_horizontal_margin"
+    android:layout_marginRight="@dimen/lcim_chat_horizontal_margin"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/chat_left_tv_time"
@@ -19,29 +21,31 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
             android:id="@+id/chat_left_iv_avatar"
+            app:shape_mode="circle"
             style="@style/LCIMAvatar"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginEnd="10dp"/>
 
         <LinearLayout
             android:id="@+id/chat_left_layout_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/chat_left_iv_avatar"
+            android:layout_toEndOf="@+id/chat_left_iv_avatar"
             android:orientation="horizontal"
-            android:paddingRight="40dp"/>
+            android:paddingEnd="40dp"
+            tools:ignore="RtlSymmetry" />
 
         <FrameLayout
             android:id="@+id/chat_left_layout_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/chat_left_layout_content"
+            android:layout_alignEnd="@+id/chat_left_layout_content"
             android:visibility="gone">
 
             <ProgressBar
@@ -75,5 +79,6 @@
         android:layout_marginTop="3dp"
         android:ellipsize="end"
         android:gravity="left"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        tools:ignore="RtlHardcoded" />
 </LinearLayout>

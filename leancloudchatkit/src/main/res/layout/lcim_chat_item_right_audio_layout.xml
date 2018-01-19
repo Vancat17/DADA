@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/lcim_chat_horizontal_margin"/>
+        android:layout_marginEnd="@dimen/lcim_chat_horizontal_margin"/>
 
     <cn.leancloud.chatkit.view.LCIMPlayButton
         android:id="@+id/chat_item_audio_play_btn"

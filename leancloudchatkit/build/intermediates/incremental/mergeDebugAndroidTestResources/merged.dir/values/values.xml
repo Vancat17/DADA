@@ -216,6 +216,10 @@
     <declare-styleable name="RecycleListView"><attr format="dimension" name="paddingBottomNoButtons"/><attr format="dimension" name="paddingTopNoTitle"/></declare-styleable>
     <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr name="android:descendantFocusability"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/><attr format="boolean" name="fastScrollEnabled"/><attr format="reference" name="fastScrollVerticalThumbDrawable"/><attr format="reference" name="fastScrollVerticalTrackDrawable"/><attr format="reference" name="fastScrollHorizontalThumbDrawable"/><attr format="reference" name="fastScrollHorizontalTrackDrawable"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="ShapedImageView"><attr format="enum" name="shape_mode">
+            <enum name="round_rect" value="1"/>
+            <enum name="circle" value="2"/>
+        </attr><attr format="dimension" name="round_radius"/><attr format="dimension" name="stroke_width"/><attr format="color|reference" name="stroke_color"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">
             
@@ -453,6 +457,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="app_name">ShapedImageView Demo</string>
     <string name="lcim_chat_activity_select_picture">选择图片</string>
     <string name="lcim_chat_bottom_camera">拍摄</string>
     <string name="lcim_chat_bottom_location">位置</string>
