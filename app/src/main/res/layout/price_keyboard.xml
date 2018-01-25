@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_price_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:ignore="UselessParent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#66000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/now_price"/>
+
+            <TextView
+                android:text="@string/cn_price"
+                android:padding="2dp"
+                android:textColor="@color/colorLightGrey"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/et_price"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:layout_width="0dp"
+                android:lines="1"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/no_price"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#bbbbbb"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/pref_price"/>
+
+            <TextView
+                android:text="@string/cn_price"
+                android:padding="2dp"
+                android:textColor="@color/colorLightGrey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/et_original_price"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:layout_width="0dp"
+                android:lines="1"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/no_price"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="1dp"
+            android:background="#bbbbbb"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/now_num"/>
+
+            <EditText
+                android:id="@+id/et_num"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:layout_width="0dp"
+                android:lines="1"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/no_num"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#bbbbbb"/>
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="@string/total_num"/>
+
+            <EditText
+                android:id="@+id/et_totalNum"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:layout_width="0dp"
+                android:lines="1"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/no_num"/>
+        </LinearLayout>
+
+        <include layout="@layout/number_keyboard"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

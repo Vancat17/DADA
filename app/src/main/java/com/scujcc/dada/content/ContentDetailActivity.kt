@@ -34,14 +34,13 @@ class ContentDetailActivity : Activity() {
         detail_recycler.layoutManager = LinearLayoutManager(applicationContext)
         detail_recycler.adapter = ContentDetailAdapter(contentItem!!)
 
-        isLiked()
         buttonClick()
     }
 
     private fun buttonClick() {
         left_button.setOnClickListener { finish() }
         right_button.setOnClickListener { Toast.makeText(applicationContext, "分享", Toast.LENGTH_SHORT).show() }
-        like_button.setOnClickListener { isLiked() }
+        like_button.setOnClickListener { }
         talk_button.setOnClickListener {
 
             //开启聊天
@@ -50,7 +49,6 @@ class ContentDetailActivity : Activity() {
 
                     if (null == p1) {
                         val intent = Intent(applicationContext, LCIMConversationActivity::class.java).apply {
-                            putExtra("CHAT", contentItem)
                             putExtra(LCIMConstants.PEER_ID,"种荒地")
                         }
                         startActivity(intent)
@@ -65,17 +63,17 @@ class ContentDetailActivity : Activity() {
         }
     }
 
-    private fun isLiked() {
-        if (contentItem!!.isLiked) {
-            like_button_text.text = "已收藏"
-            like_button.setImageDrawable(getDrawable(R.drawable.ic_liked))
-            Toast.makeText(applicationContext, "已收藏", Toast.LENGTH_SHORT).show()
-            contentItem!!.isLiked = false
-        } else {
-            like_button_text.text = "收藏"
-            like_button.setImageDrawable(getDrawable(R.drawable.ic_like))
-            contentItem!!.isLiked = true
-        }
-    }
+//    private fun isLiked() {
+//        if (contentItem!!.isLiked) {
+//            like_button_text.text = "已收藏"
+//            like_button.setImageDrawable(getDrawable(R.drawable.ic_liked))
+//            Toast.makeText(applicationContext, "已收藏", Toast.LENGTH_SHORT).show()
+//            contentItem!!.isLiked = false
+//        } else {
+//            like_button_text.text = "收藏"
+//            like_button.setImageDrawable(getDrawable(R.drawable.ic_like))
+//            contentItem!!.isLiked = true
+//        }
+//    }
 }
 

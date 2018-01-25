@@ -21,7 +21,7 @@
     <list>
         <mapping class="com.scujcc.dada.content.ContentItem" />
         <mapping class="com.scujcc.dada.message.MessageItem" />
-        <mapping class="com.scujcc.dada.user.User" />
+        <mapping class="com.scujcc.dada.helper.User" />
     </list>
 
 

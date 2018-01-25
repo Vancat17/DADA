@@ -79,14 +79,16 @@
         <EditText
             android:id="@+id/detail_change_name"
             android:text="@string/edit_user_name"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
             android:textSize="15sp"
-            android:background="@color/colorTransparent"
+            android:background="@null"
             android:layout_marginStart="10dp"
+            android:paddingStart="2dp"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="text"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,RtlSymmetry" />
     </LinearLayout>
 
     <include layout="@layout/line_small"/>
@@ -185,12 +187,14 @@
             android:id="@+id/detail_change_company"
             android:hint="@string/edit_company"
             android:background="@null"
-            android:textCursorDrawable="@null"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
             android:textSize="14sp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
+            android:paddingStart="2dp"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
     <include layout="@layout/line_small"/>
@@ -198,7 +202,7 @@
     <LinearLayout
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:text="@string/sign"
@@ -210,12 +214,14 @@
             android:id="@+id/detail_change_sign"
             android:hint="@string/edit_sign_hint"
             android:background="@null"
-            android:textCursorDrawable="@null"
-            android:layout_marginStart="20dp"
+            android:paddingStart="2dp"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
+            android:layout_marginStart="10dp"
             android:layout_gravity="center"
             android:textSize="14sp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
 </LinearLayout>

@@ -22,7 +22,7 @@ import com.scujcc.dada.user.UserDetailActivity
 import com.scujcc.dada.function.*
 import com.scujcc.dada.function.settings.SettingActivity
 import com.scujcc.dada.function.stroke.StrokeActivity
-import com.scujcc.dada.user.User
+import com.scujcc.dada.helper.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -51,8 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         sendMessageToJerryFromTom()
 
-        User(2017, R.drawable.icon, "范朝波", 0, "90后", "软件/互联网", "无", null, 0, true, true).save()
-        val user = DataSupport.findFirst(User::class.java)
+        val user = DataSupport.findLast(User::class.java)
 
         search_button.setOnClickListener {
             val intent = Intent(this@MainActivity, SearchActivity::class.java)
@@ -72,9 +71,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        headView.user_image.setImageResource(user.photoId!!)
+        headView.user_image.setImageResource(R.drawable.dada)
         headView.user_name.text = user.name
-        headView.user_vip_level.text = vipLevel(user.vip)
+        headView.user_vip_level.text = vipLevel(user.level)
         headView.user_image.setOnClickListener {
             val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
             intent.putExtra("USER_DETAIL", user)

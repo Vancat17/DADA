@@ -1,15 +1,10 @@
 package com.scujcc.dada.main
 
-import android.util.Log
 import cn.leancloud.chatkit.LCChatKit
 import com.avos.avoscloud.*
 import com.avos.avoscloud.im.v2.AVIMClient
-import com.avos.avoscloud.im.v2.AVIMException
-import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
-import com.scujcc.dada.user.User
 import org.litepal.LitePal
 import org.litepal.LitePalApplication
-import org.litepal.crud.DataSupport
 
 /**
  * Created by  范朝波 on 2018/1/16.

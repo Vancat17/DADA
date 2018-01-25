@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import com.scujcc.dada.R
+import com.scujcc.dada.helper.User
 import kotlinx.android.synthetic.main.user_detail_edit.*
 import org.litepal.crud.DataSupport
 
@@ -27,9 +28,9 @@ class UserDetailEditActivity : Activity() {
     }
 
     private fun initData() {
-        user_photo.setImageResource(user.photoId!!)
+        user_photo.setImageResource(R.drawable.dada)
         detail_change_name.setText(user.name)
-        detail_change_sex.text = if (user.sex == 0) "男" else "女"
+        detail_change_sex.text = if (user.sex == "男") "男" else "女"
         detail_change_age.text = user.age
         detail_change_job.text = user.job
         detail_change_company.setText(user.company)
@@ -61,7 +62,7 @@ class UserDetailEditActivity : Activity() {
             builder.setItems(sexArray, { dialog, which ->
                 detail_change_sex.text = sexArray[which]
                 dialog.dismiss()
-                user.sex = if (sexArray[which] == "男") 0 else 1
+                user.sex = if (sexArray[which] == "男") "男" else "女"
             })
             builder.show()
         }

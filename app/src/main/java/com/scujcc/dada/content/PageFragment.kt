@@ -1,6 +1,5 @@
 package com.scujcc.dada.content
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -13,7 +12,6 @@ import com.scujcc.dada.R
 import com.scujcc.dada.helper.Content
 import com.scujcc.dada.helper.GetRequest
 import kotlinx.android.synthetic.main.content_main_recycler.view.*
-import org.litepal.crud.DataSupport
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,31 +39,6 @@ class PageFragment : Fragment() {
 
         mContentItems = ArrayList()
 
-        val retrofit = Retrofit.Builder()
-                .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
-                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
-                 .build()
-
-        val request = retrofit.create<GetRequest>(GetRequest::class.java)
-        try {
-            val call = request.getContent("datatest")
-            call.enqueue(object : Callback<Content> {
-                @SuppressLint("SimpleDateFormat")
-                override fun onResponse(call: Call<Content>, response: Response<Content>) {
-
-                    Log.w("Test", "成功")
-                    mContentItem = ContentItem("id", R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content, false)
-                    mContentItems!!.add(mContentItem)
-                }
-                override fun onFailure(call: Call<Content>, t: Throwable) {
-                    Log.w("Test", "失败")
-
-                }
-            })
-        } catch (ignored: Exception) {
-
-        }
-//        mContentItems = DataSupport.findAll(ContentItem::class.java)
         mPage = arguments.getInt(ARG_CONTENT_PAGE)
 
     }
@@ -77,15 +50,38 @@ class PageFragment : Fragment() {
         view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
 
         view.content_refresh.setOnRefreshListener {
-            mContentItems = DataSupport.findAll(ContentItem::class.java)
+            val retrofit = Retrofit.Builder()
+                    .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                    .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+                    .build()
+
+            val request = retrofit.create<GetRequest>(GetRequest::class.java)
+            try {
+                val call = request.getContent("datatest")
+                call.enqueue(object : Callback<Content> {
+                    override fun onResponse(call: Call<Content>, response: Response<Content>) {
+
+                        Log.w("Test", "加载成功")
+                        mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content)
+                        mContentItems!!.add(mContentItem)
+
+                    }
+                    override fun onFailure(call: Call<Content>, t: Throwable) {
+                        Log.w("Test", "加载失败")
+
+                    }
+                })
+            } catch (ignored: Exception) {
+
+            }
             view.content_main_recycler.adapter.notifyDataSetChanged()
             view.content_refresh.isRefreshing = false
         }
+
+        view.content_refresh!!.setColorSchemeResources(R.color.colorPrimary)
+
         return view
     }
-
-
-
 
     companion object {
 

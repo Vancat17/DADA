@@ -31,11 +31,11 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
         when (position) {
             0 -> {
                 val detailHolder = holder as DetailHolder
-                detailHolder.itemView.detail_image.setImageResource(item.imageId)
+                detailHolder.itemView.detail_image.setImageResource(item.image)
                 detailHolder.itemView.detail_topic.text = item.topic
                 detailHolder.itemView.sender_name.text = item.sender
                 detailHolder.itemView.detail_price.text = "¥" + item.price
-                detailHolder.itemView.detail_people_num.text = "当前人数" + (item.num!! - 1) + "/" + item.num
+                detailHolder.itemView.detail_people_num.text = "当前人数" + (item.totalnumber!! - 1) + "/" + item.totalnumber
                 detailHolder.itemView.activity_tag.text = item.tag
                 detailHolder.itemView.detail_detail.text = item.content
                 detailHolder.itemView.price_detail.text = "我一个人的话 需要156元 \n 两个人 248/2 只要124一个人\n 三个人 315/3 只要105一个人"

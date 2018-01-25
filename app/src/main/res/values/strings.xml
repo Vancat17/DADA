@@ -44,4 +44,27 @@
 
     <!--网络相关-->
     <string name="baseUrl">http://120.79.19.183:8080/</string>
+
+
+    <!--发布页-->
+    <string name="add_title">发布</string>
+    <string name="add_topic">标题 关键词都是朋友喜欢搜索的</string>
+    <string name="add_content">描述一下该团的细节和注意事项</string>
+    <string name="add_location">地址</string>
+    <string name="add_tag">分类</string>
+    <string name="add_time">时间</string>
+    <string name="add_button">确定发布</string>
+    <string name="now_price">单人价格</string>
+    <string name="cn_price">¥</string>
+    <string name="no_price">0.00</string>
+    <string name="pref_price">单人原价</string>
+    <string name="now_num">现有人数</string>
+    <string name="no_num">0人</string>
+    <string name="total_num">总共人数</string>
+    <string name="order_total_price">实付款 :</string>
+    <string name="order_ok">确定</string>
+
+
+    <!--订单页-->
+
 </resources>

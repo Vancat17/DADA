@@ -23,7 +23,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:orientation="horizontal"
-        android:background="@drawable/corners_button_gray_backgroud"
+        android:background="@drawable/corners_gray_background"
         android:layout_width="match_parent"
         android:layout_height="46dp">
 
@@ -62,7 +62,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:orientation="horizontal"
-        android:background="@drawable/corners_button_gray_backgroud"
+        android:background="@drawable/corners_gray_background"
         android:layout_below="@id/cell1"
         android:layout_width="match_parent"
         android:layout_height="46dp">
@@ -126,7 +126,7 @@
         android:textColor="@color/colorWhite"
         android:layout_below="@id/cell3"
         android:layout_margin="25dp"
-        android:background="@drawable/corners_button_background"
+        android:background="@drawable/corners_primary_background"
         android:layout_width="match_parent"
         android:layout_height="46dp" />
 

@@ -17,10 +17,11 @@
             android:background="@color/colorTransparent"
             android:layout_margin="10dp"
             android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:contentDescription="@string/todo" />
 
         <TextView
-            android:text="发布"
+            android:text="@string/add_title"
             android:textSize="@dimen/title_size"
             android:textColor="@color/colorBlack"
             android:layout_centerInParent="true"
@@ -30,6 +31,7 @@
 
     <ScrollView
         android:layout_below="@id/add_toolbar"
+        android:layout_marginBottom="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -39,12 +41,11 @@
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/add_topic"
-                android:hint="标题 关键词都是朋友喜欢搜索的"
+                android:hint="@string/add_topic"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
                 android:textSize="14sp"
                 android:layout_margin="10dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:background="@color/colorTransparent"
+                android:background="@null"
                 android:layout_width="match_parent"
                 android:layout_height="40dp" />
 
@@ -56,38 +57,31 @@
                 android:layout_height="1dp"/>
             <EditText
                 android:id="@+id/add_content"
-                android:hint="描述一下该团的细节和注意事项"
+                android:hint="@string/add_content"
                 android:textSize="14sp"
                 android:layout_margin="10dp"
-                android:focusable="true"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
                 android:minLines="6"
                 android:gravity="top"
-                android:focusableInTouchMode="true"
-                android:background="@color/colorTransparent"
+                android:background="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <!--ViewPager更好-->
-            <RadioGroup
-                android:id="@+id/add_image"
-                android:orientation="horizontal"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_image"
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
 
-                <ImageButton
-                    android:layout_margin="10dp"
-                    android:scaleType="centerCrop"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-
-                <ImageButton
-                    android:src="@drawable/ic_camera"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorLightGrey"
-                    android:scaleType="center"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </RadioGroup>
+            <!--<ImageButton-->
+                <!--android:id="@+id/add_image"-->
+                <!--android:src="@drawable/ic_camera"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="@color/colorLightGrey"-->
+                <!--android:scaleType="center"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:contentDescription="@string/todo" />-->
 
             <LinearLayout
                 android:layout_gravity="center_vertical"
@@ -99,11 +93,12 @@
                     android:src="@drawable/ic_location"
                     android:padding="12dp"
                     android:layout_width="40dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/todo" />
 
                 <Button
                     android:id="@+id/add_location"
-                    android:text="地址"
+                    android:text="@string/add_location"
                     android:textSize="12sp"
                     android:background="@color/colorTransparent"
                     android:layout_width="wrap_content"
@@ -111,20 +106,26 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/add_price"
-                android:text="价格"
-                android:textAlignment="textStart"
-                android:layout_marginTop="10dp"
-                android:padding="10dp"
-                android:drawableEnd="@drawable/ic_next"
-                android:background="@color/colorWhite"
+            <LinearLayout
+                android:id="@+id/ll_price"
                 android:layout_width="match_parent"
-                android:layout_height="44dp" />
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/add_price"
+                    android:text="@string/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp" />
+            </LinearLayout>
+
+
 
             <Button
                 android:id="@+id/add_tag"
-                android:text="分类"
+                android:text="@string/add_tag"
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
@@ -134,7 +135,7 @@
 
             <Button
                 android:id="@+id/add_time"
-                android:text="时间"
+                android:text="@string/add_time"
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
@@ -147,10 +148,17 @@
 
     <Button
         android:id="@+id/add_button"
-        android:text="确定发布"
+        android:text="@string/add_button"
         android:layout_alignParentBottom="true"
         android:textColor="@color/colorWhite"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+
+    <include
+        android:layout_alignParentBottom="true"
+        layout="@layout/price_keyboard"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
 </RelativeLayout>

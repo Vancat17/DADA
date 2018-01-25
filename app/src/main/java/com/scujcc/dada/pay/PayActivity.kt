@@ -29,7 +29,7 @@ class PayActivity : Activity() {
     @SuppressLint("SetTextI18n")
     private fun initData() {
         title_text.text = "团体加入"
-        detail_image.setImageResource(contentItem!!.imageId)
+        detail_image.setImageResource(contentItem!!.image)
         detail_topic.text = contentItem!!.topic
         detail_price.text = "¥" + contentItem!!.price
         people_num_button.text = "1人"
@@ -42,9 +42,9 @@ class PayActivity : Activity() {
         info_button.setOnClickListener {  }
         people_num_button.setOnClickListener {
 
-            val numArray = arrayOfNulls<String>(contentItem!!.num!!)
+            val numArray = arrayOfNulls<String>(contentItem!!.totalnumber!!)
 
-            for (i in 0..(contentItem!!.num!! - 1)) {
+            for (i in 0..(contentItem!!.totalnumber!! - 1)) {
                 numArray[i] = (i+1).toString()
             }
             val builder = AlertDialog.Builder(this)// 自定义对话框

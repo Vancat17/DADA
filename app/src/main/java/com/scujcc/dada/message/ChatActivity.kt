@@ -28,7 +28,7 @@ class ChatActivity : LCIMConversationActivity() {
     @SuppressLint("SetTextI18n")
     private fun initData() {
         title_text.text = contentItem!!.sender
-        detail_image.setImageResource(contentItem!!.imageId)
+        detail_image.setImageResource(contentItem!!.image)
         detail_topic.text = contentItem!!.topic
         detail_price.text = "¥" + contentItem!!.price
     }
@@ -37,6 +37,6 @@ class ChatActivity : LCIMConversationActivity() {
     //1.存联系人
     //2.存信息
     private fun saveChatHistory() {
-        MessageItem("11368368",R.drawable.ic_default_image,contentItem!!.sender, "明天确定要去吗？", contentItem!!.imageId, contentItem!!.time).save()
+        MessageItem("11368368",R.drawable.ic_default_image,contentItem!!.sender, "明天确定要去吗？", contentItem!!.image, contentItem!!.time).save()
     }
 }

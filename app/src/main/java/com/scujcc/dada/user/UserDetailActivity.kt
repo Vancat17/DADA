@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.scujcc.dada.R
+import com.scujcc.dada.helper.User
 
 import java.util.ArrayList
 
@@ -43,7 +44,7 @@ class UserDetailActivity : Activity() {
         back_button.setOnClickListener { finish() }
 
         edit_button.setOnClickListener {
-            val intent = Intent(this@UserDetailActivity, UserDetailEditActivity::class.java)
+            val intent = Intent(applicationContext, UserDetailEditActivity::class.java)
             startActivity(intent)
         }
     }
@@ -51,9 +52,9 @@ class UserDetailActivity : Activity() {
     private fun initializeData() {
 
         mFunctionItems = ArrayList()
-        mFunctionItems!!.add(FunctionItem(vipLevel(user.vip), "进入会员主页", R.drawable.ic_vip))
-        mFunctionItems!!.add(FunctionItem("实名认证", isNo(user.isVerify), R.drawable.ic_verified))
-        mFunctionItems!!.add(FunctionItem("芝麻信用认证", isNo(user.isSesame), R.drawable.ic_sesame))
+        mFunctionItems!!.add(FunctionItem(vipLevel(user.level), "进入会员主页", R.drawable.ic_vip))
+        mFunctionItems!!.add(FunctionItem("实名认证", isNo(user.verified), R.drawable.ic_verified))
+        mFunctionItems!!.add(FunctionItem("芝麻信用认证", isNo(user.sesame), R.drawable.ic_sesame))
     }
 
     private fun vipLevel(level: Int): String {
@@ -110,13 +111,13 @@ class UserDetailActivity : Activity() {
             when (getItemViewType(position)) {
                 HEADER_TYPE -> {
                     val headerHolder = holder as HeaderHolder
-                    headerHolder.itemView.user_photo.setImageResource(user.photoId!!)
+                    headerHolder.itemView.user_photo.setImageResource(R.drawable.dada)
                     headerHolder.itemView.user_name.text = user.name
                     headerHolder.itemView.user_signature.text = if (user.sign != null) user.sign else "还没有签名哦，简单介绍一下自己吧"
                     headerHolder.itemView.user_job.text = if (user.job != null) user.job else "未设置行业"
                     when (user.sex) {
-                        0 -> { holder.itemView.user_sex.setImageResource(R.drawable.ic_man)}
-                        1 -> { holder.itemView.user_sex.setImageResource(R.drawable.ic_woman)}
+                        "男" -> { holder.itemView.user_sex.setImageResource(R.drawable.ic_man)}
+                        "女" -> { holder.itemView.user_sex.setImageResource(R.drawable.ic_woman)}
                     }
                 }
                 else -> {

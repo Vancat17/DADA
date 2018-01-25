@@ -2,14 +2,21 @@ package com.scujcc.dada.add
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import android.widget.Toast
+import com.donkingliang.imageselector.utils.ImageSelectorUtils
 import com.scujcc.dada.R
+import com.scujcc.dada.add.SelectImageAdapter.Companion.REQUEST_CODE
 import com.scujcc.dada.helper.Content
+import com.scujcc.dada.helper.KeyboardUtil
 import com.scujcc.dada.helper.PostRequest
 import kotlinx.android.synthetic.main.add_activity.*
+import kotlinx.android.synthetic.main.price_keyboard.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,30 +24,73 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AddActivity : Activity() {
+
+    private var adapter: SelectImageAdapter? = null
+    private var images: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_activity)
         window.statusBarColor = Color.WHITE
+
+        adapter = SelectImageAdapter(this)
+        rv_image.adapter = adapter
+        rv_image.layoutManager = GridLayoutManager(this, 4)
         buttonClick()
     }
 
-    @SuppressLint("SimpleDateFormat")
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE && data != null) {
+            val images = data.getStringArrayListExtra(ImageSelectorUtils.SELECT_RESULT)
+            for (image in images) {
+                this.images.add(image)
+            }
+            adapter!!.refresh(this.images)
+        }
+    }
+    @SuppressLint("SetTextI18n", "ClickableViewAccessibility", "SimpleDateFormat")
     private fun buttonClick() {
 
-        add_price.setOnClickListener {
-
-            val priceArray = arrayOf("9.9", "19.99","90.99")
-            val builder = AlertDialog.Builder(this)// 自定义对话框
-            builder.setItems(priceArray, { dialog, which ->
-                add_price.text = priceArray[which]
-                dialog.dismiss()
-            })
-            builder.show()
+        val keyboardUtil = KeyboardUtil(this)
+        keyboardUtil.setOnOkClick {
+            if (validate()) {
+                ll_price_select!!.visibility = View.GONE
+                add_button.visibility = View.VISIBLE
+                add_price.text = "¥" + et_price.text + "/人，" +  "  原价 ¥" + et_original_price.text + "/人," + " 人数 :" + et_num.text + "/" + et_totalNum.text
+            }
         }
+        keyboardUtil.setOnCancelClick {
+            ll_price_select!!.visibility = View.GONE
+            add_button.visibility = View.VISIBLE
+        }
+
+        ll_price!!.setOnClickListener {
+            keyboardUtil.attachTo(et_price)
+            et_price.requestFocus()
+            ll_price_select!!.visibility = View.VISIBLE
+            add_button.visibility = View.INVISIBLE
+        }
+        et_price.setOnTouchListener { _, _ ->
+            keyboardUtil.attachTo(et_price)
+            false
+        }
+        et_original_price.setOnTouchListener { _, _ ->
+            keyboardUtil.attachTo(et_original_price)
+            false
+        }
+        et_num.setOnTouchListener { _, _ ->
+            keyboardUtil.attachTo(et_num)
+            false
+        }
+        et_totalNum.setOnTouchListener { _, _ ->
+            keyboardUtil.attachTo(et_totalNum)
+            false
+        }
+
 
         add_tag.setOnClickListener {
 
@@ -63,6 +113,7 @@ class AddActivity : Activity() {
             })
             builder.show()
         }
+
         //用当前时间做Id永不重复
 
         add_button.setOnClickListener {
@@ -79,7 +130,7 @@ class AddActivity : Activity() {
 
                     val date = Date(System.currentTimeMillis())
                     val contentId = SimpleDateFormat("yyyyMMddHHmmss").format(date)
-                    val content = Content(contentId,"image", 0, 4,add_location.text.toString(), add_tag.text.toString(), add_topic.text.toString(), 18.99,add_content.text.toString())
+                    val content = Content(contentId, contentId,"image", 0, 4,add_location.text.toString(), add_tag.text.toString(), add_topic.text.toString(), 18.99,add_content.text.toString())
                     val call = request.postContent(content)
                     call.enqueue(object : Callback<Content> {
                         override fun onResponse(call: Call<Content>?, response: Response<Content>?) {
@@ -118,5 +169,27 @@ class AddActivity : Activity() {
             return false
         }
         return true
+    }
+
+    private fun validate(): Boolean {
+        return when {
+            et_price!!.text.toString() == "" -> {
+                Toast.makeText(application, "价格不能为空", Toast.LENGTH_SHORT).show()
+                false
+            }
+            et_original_price!!.text.toString() == "" -> {
+                Toast.makeText(application, "原价不能为空", Toast.LENGTH_SHORT).show()
+                false
+            }
+            et_totalNum!!.text.toString() == "" -> {
+                Toast.makeText(application, "总人数不能为空", Toast.LENGTH_SHORT).show()
+                false
+            }
+            et_num.text.toString() >= et_totalNum.text.toString() -> {
+                Toast.makeText(application, "现有人数不能大于总人数", Toast.LENGTH_SHORT).show()
+                false
+            }
+            else -> true
+        }
     }
 }

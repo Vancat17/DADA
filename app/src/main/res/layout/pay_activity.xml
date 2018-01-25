@@ -23,7 +23,8 @@
                 android:id="@+id/detail_image"
                 android:scaleType="centerCrop"
                 android:layout_width="100dp"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:contentDescription="@string/todo" />
 
             <TextView
                 android:id="@+id/detail_topic"
@@ -109,7 +110,7 @@
         android:layout_height="44dp">
 
         <TextView
-            android:text="实付款 :"
+            android:text="@string/order_total_price"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -129,7 +130,7 @@
             android:textColor="@color/colorWhite"
             android:layout_weight="2"
             android:layout_width="0dp"
-            android:text="确定"
+            android:text="@string/order_ok"
             android:background="@color/colorMoneyRed"
             android:layout_height="match_parent" />
     </LinearLayout>
