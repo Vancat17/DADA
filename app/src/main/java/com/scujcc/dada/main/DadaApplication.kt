@@ -14,7 +14,6 @@ import org.litepal.LitePalApplication
 
 class DadaApplication : LitePalApplication() {
 
-
     override fun onCreate() {
         super.onCreate()
         LitePal.initialize(applicationContext)
@@ -36,20 +35,5 @@ class DadaApplication : LitePalApplication() {
                 }
             }
         })
-
-        loginLC()
-    }
-
-
-    private fun loginLC() {
-
-//        val user = DataSupport.findFirst(User::class.java)
-//        LCChatKit.getInstance().open(user.name, object : AVIMClientCallback(){
-//            override fun done(p0: AVIMClient?, p1: AVIMException?) {
-//                if (p1 == null) {
-//                    Log.w("TestLC", "登录成功")
-//                }
-//            }
-//        })
     }
 }

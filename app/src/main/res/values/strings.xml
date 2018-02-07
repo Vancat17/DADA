@@ -5,6 +5,11 @@
     <string name="action_settings">设置</string>
 
 
+    <string name="image">图片</string>
+    <string name="confirm">确定</string>
+    <string name="preview">预览</string>
+    <string name="select">选择</string>
+
     <!--个人页-->
     <string name="action_stroke">行程</string>
     <string name="action_like">收藏</string>
@@ -50,7 +55,7 @@
     <string name="add_title">发布</string>
     <string name="add_topic">标题 关键词都是朋友喜欢搜索的</string>
     <string name="add_content">描述一下该团的细节和注意事项</string>
-    <string name="add_location">地址</string>
+    <string name="add_location">点击定位</string>
     <string name="add_tag">分类</string>
     <string name="add_time">时间</string>
     <string name="add_button">确定发布</string>

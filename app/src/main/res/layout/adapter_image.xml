@@ -6,7 +6,7 @@
     android:layout_margin="1dp">
 
 
-    <com.scujcc.dada.tools.SquareImageView
+    <com.scujcc.dada.common.SquareImageView
         android:layout_margin="10dp"
         android:id="@+id/iv_image"
         android:layout_width="match_parent"

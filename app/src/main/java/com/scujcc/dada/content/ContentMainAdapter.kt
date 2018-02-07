@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.content_main_card.view.*
@@ -23,13 +24,11 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
 
         init {
             itemView.setOnClickListener(this)
-
         }
         override fun onClick(v: View) {
             val intent = Intent(v.context, ContentDetailActivity::class.java)
             intent.putExtra("SER", mContentItems[adapterPosition])
             v.context.startActivity(intent)
-
         }
     }
 
@@ -48,7 +47,8 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
             }
             else -> {
                 val pos = if (position - ITEM_EXTRA > 0) position - ITEM_EXTRA else 0
-                holder.itemView.activity_image.setImageResource(mContentItems[pos].image)
+                val uri = "http://pic2.52pk.com/files/170511/2165322_100509_1_lit.jpg"
+                Glide.with(holder.itemView.context).load(uri).into(holder.itemView.activity_image)
                 holder.itemView.activity_sender.text = mContentItems[pos].sender
                 holder.itemView.activity_topic.text = mContentItems[pos].topic
                 holder.itemView.activity_tag.text = mContentItems[pos].tag

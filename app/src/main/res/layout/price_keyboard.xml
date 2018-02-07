@@ -134,7 +134,7 @@
                 android:hint="@string/no_num"/>
         </LinearLayout>
 
-        <include layout="@layout/number_keyboard"/>
+        <include layout="@layout/add_price_keyboard"/>
 
     </LinearLayout>
 

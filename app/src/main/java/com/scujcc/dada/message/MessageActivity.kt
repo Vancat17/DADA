@@ -26,7 +26,6 @@ class MessageActivity : AppCompatActivity() {
         title = "消息"
 
         mMessageItems = DataSupport.findAll(MessageItem::class.java)
-        Log.w("Test",mMessageItems!!.size.toString())
 
         if (mMessageItems!!.size != 0) {
             no_message.visibility = View.GONE

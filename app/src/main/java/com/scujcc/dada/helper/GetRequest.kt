@@ -1,6 +1,5 @@
 package com.scujcc.dada.helper
 
-import com.scujcc.dada.content.ContentItem
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,4 +17,5 @@ interface GetRequest {
 
     @GET("dada/user/{id}")
     fun getUser(@Path("id") id: String): Call<User>
+
 }

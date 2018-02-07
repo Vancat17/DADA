@@ -73,16 +73,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" />
 
-            <!--<ImageButton-->
-                <!--android:id="@+id/add_image"-->
-                <!--android:src="@drawable/ic_camera"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="@color/colorLightGrey"-->
-                <!--android:scaleType="center"-->
-                <!--android:layout_width="80dp"-->
-                <!--android:layout_height="80dp"-->
-                <!--android:contentDescription="@string/todo" />-->
-
             <LinearLayout
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal"
@@ -106,30 +96,24 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_price"
+            <Button
+                android:id="@+id/add_price"
+                android:text="@string/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/add_price"
-                    android:text="@string/price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp" />
-            </LinearLayout>
-
+                android:textAlignment="textStart"
+                android:drawableEnd="@drawable/ic_next"
+                android:background="@color/colorTransparent"
+                android:padding="10dp" />
 
 
             <Button
-                android:id="@+id/add_tag"
+                android:id="@+id/add_category"
                 android:text="@string/add_tag"
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTransparent"
                 android:layout_width="match_parent"
                 android:layout_height="44dp" />
 
@@ -139,7 +123,7 @@
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:drawableEnd="@drawable/ic_next"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTransparent"
                 android:layout_width="match_parent"
                 android:layout_height="44dp" />
         </LinearLayout>
@@ -160,5 +144,12 @@
         layout="@layout/price_keyboard"
         android:layout_height="wrap_content"
         android:layout_width="match_parent" />
+
+    <View
+        android:id="@+id/cover"
+        android:visibility="gone"
+        android:background="@color/colorLightGrey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

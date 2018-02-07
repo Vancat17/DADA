@@ -15,8 +15,6 @@ class TestActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.test)
-        back_button.setOnClickListener {
-            finish()
-        }
+
     }
 }

@@ -2,15 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scujcc.dada">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
         android:name=".main.DadaApplication"
@@ -81,23 +87,26 @@
         <activity android:name=".message.ChatActivity" />
         <activity android:name=".pay.PayActivity" />
         <activity android:name=".function.stroke.StrokeDetailActivity" />
-        <activity android:name=".user.ProviderDetailActivity"></activity>
+        <activity android:name=".user.ProviderDetailActivity" />
+
+        <!--***************发布页相关*************-->
+        <!-- 高德Service -->
+        <service android:name="com.amap.api.location.APSService" />
+        <!--高德Key Debug-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7eb4a96bd8ab82facf193f917dd4813d" />
+        <!--省市区街道-->
+        <activity android:name="com.scujcc.dada.common.cityselector.AddressActivity" />
+
+        <!--分类-->
+        <activity android:name=".add.activity.CategoryActivity" />
+        <activity android:name=".common.imageselector.ClipImageActivity" />
+        <activity android:name=".common.imageselector.ImageSelectorActivity" />
+        <activity android:name=".common.imageselector.PreviewActivity" />
+        <activity android:name=".pay.wxpay.WXPayEntryActivity" />
 
 
-
-
-        <activity
-            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name="com.donkingliang.imageselector.PreviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name="com.donkingliang.imageselector.ClipImageActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

@@ -57,7 +57,7 @@ class PageFragment : Fragment() {
 
             val request = retrofit.create<GetRequest>(GetRequest::class.java)
             try {
-                val call = request.getContent("datatest")
+                val call = request.getContent("20180131125346")
                 call.enqueue(object : Callback<Content> {
                     override fun onResponse(call: Call<Content>, response: Response<Content>) {
 

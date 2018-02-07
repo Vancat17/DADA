@@ -35,6 +35,7 @@ import com.avos.avoscloud.im.v2.AVIMConversation
 import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback
 import com.avos.avoscloud.im.v2.AVIMClient
 import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
+import com.bumptech.glide.Glide
 import java.util.*
 
 
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        headView.user_image.setImageResource(R.drawable.dada)
+        Glide.with(applicationContext).load("kkkk").into(headView.user_image)
         headView.user_name.text = user.name
         headView.user_vip_level.text = vipLevel(user.level)
         headView.user_image.setOnClickListener {
@@ -189,7 +190,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                                             override fun done(e: AVIMException?) {
                                                 if (e == null) {
-                                                    Log.d("Test", "发送成功！")
+                                                    Log.d("LocationActivity", "发送成功！")
                                                 }
                                             }
                                         })
