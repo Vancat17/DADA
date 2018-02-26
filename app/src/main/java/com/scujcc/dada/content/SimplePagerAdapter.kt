@@ -14,7 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter
 class SimplePagerAdapter(fm: FragmentManager, private val context: Context) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        return PageFragment.newInstance(position + 1)
+        return ContentMainFragment.newInstance(position + 1)
     }
 
     override fun getCount(): Int {

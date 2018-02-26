@@ -179,11 +179,12 @@ public class PreviewActivity extends Activity {
     /**
      * 修改状态栏颜色
      */
+    @SuppressLint("ResourceAsColor")
     private void setStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#373c3d"));
+            window.setStatusBarColor(R.color.colorPrimary);
         }
     }
 

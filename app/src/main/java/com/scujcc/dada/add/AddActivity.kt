@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.Toast
+import com.kaopiz.kprogresshud.KProgressHUD
 import com.scujcc.dada.R
 import com.scujcc.dada.helper.Content
 import com.scujcc.dada.helper.PostRequest
@@ -37,7 +38,6 @@ class AddActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_activity)
         window.statusBarColor = Color.WHITE
-
 
         adapter = SelectImageAdapter(this)
         rv_image.adapter = adapter

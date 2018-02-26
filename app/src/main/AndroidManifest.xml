@@ -16,16 +16,27 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:name=".main.DadaApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/dada_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".main.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="portrait"
@@ -34,11 +45,7 @@
             android:name=".user.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".user.UserDetailActivity"
@@ -72,9 +79,6 @@
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TestActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".function.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -89,23 +93,22 @@
         <activity android:name=".function.stroke.StrokeDetailActivity" />
         <activity android:name=".user.ProviderDetailActivity" />
 
-        <!--***************发布页相关*************-->
+        <!-- ***************发布页相关************* -->
         <!-- 高德Service -->
         <service android:name="com.amap.api.location.APSService" />
-        <!--高德Key Debug-->
+        <!-- 高德Key Debug -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="7eb4a96bd8ab82facf193f917dd4813d" />
-        <!--省市区街道-->
-        <activity android:name="com.scujcc.dada.common.cityselector.AddressActivity" />
+        <!-- 省市区街道 -->
+        <activity android:name=".common.cityselector.AddressActivity" />
 
-        <!--分类-->
+        <!-- 分类 -->
         <activity android:name=".add.activity.CategoryActivity" />
         <activity android:name=".common.imageselector.ClipImageActivity" />
         <activity android:name=".common.imageselector.ImageSelectorActivity" />
         <activity android:name=".common.imageselector.PreviewActivity" />
-        <activity android:name=".pay.wxpay.WXPayEntryActivity" />
-
+        <activity android:name=".pay.WXPayEntryActivity" />
 
     </application>
 

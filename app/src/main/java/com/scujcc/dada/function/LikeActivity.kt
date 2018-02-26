@@ -3,7 +3,6 @@ package com.scujcc.dada.function
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import com.scujcc.dada.FCBRandom
 
 import com.scujcc.dada.R
 import com.scujcc.dada.content.ContentItem

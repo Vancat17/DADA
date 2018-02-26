@@ -10,12 +10,15 @@ import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.amap.api.location.AMapLocationListener
+import com.kaopiz.kprogresshud.KProgressHUD
 import com.scujcc.dada.R
 import com.scujcc.dada.common.cityselector.adapter.AddressAdapter
 import com.scujcc.dada.common.cityselector.utils.AddressUtils
 import kotlinx.android.synthetic.main.add_address_activity.*
 
 class AddressActivity : AppCompatActivity() {
+
+    private var hud: KProgressHUD? = null
 
     private var locationClient: AMapLocationClient? = null
     private var locationOption: AMapLocationClientOption? = null
@@ -70,6 +73,10 @@ class AddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_address_activity)
 
+        hud = KProgressHUD.create(this)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel("数据加载中")
+                .show()
         //初始化client
         locationClient = AMapLocationClient(this.applicationContext)
         locationOption = defaultOption
@@ -115,10 +122,10 @@ class AddressActivity : AppCompatActivity() {
      * @since 2.8.0
      * @author hongming.wang
      */
-    private fun stopLocation() {
-        // 停止定位
-        locationClient!!.stopLocation()
-    }
+//    private fun stopLocation() {
+//        // 停止定位
+//        locationClient!!.stopLocation()
+//    }
 
     /**
      * 销毁定位

@@ -38,7 +38,6 @@ class SelectImageAdapter(private val mContext: Activity) : RecyclerView.Adapter<
         }
 
         var ivImage: ImageView = itemView.findViewById(R.id.iv_image)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -70,6 +69,4 @@ class SelectImageAdapter(private val mContext: Activity) : RecyclerView.Adapter<
         this.images = images
         notifyDataSetChanged()
     }
-
-
 }

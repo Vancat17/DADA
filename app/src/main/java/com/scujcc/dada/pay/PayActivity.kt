@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AlertDialog
+import android.widget.Toast
 import com.scujcc.dada.R
 import com.scujcc.dada.content.ContentItem
 import kotlinx.android.synthetic.main.pay_activity.*
@@ -55,6 +56,9 @@ class PayActivity : Activity() {
             })
             builder.show()
         }
-        confirm_button.setOnClickListener {  }
+        confirm_button.setOnClickListener {
+            Toast.makeText(applicationContext,"加入成功", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 }

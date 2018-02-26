@@ -1,4 +1,4 @@
-package com.scujcc.dada.pay.wxpay;
+package com.scujcc.dada.pay;
 
 import android.app.Activity;
 import android.os.Bundle;

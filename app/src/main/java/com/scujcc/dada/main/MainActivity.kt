@@ -38,6 +38,11 @@ import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
 import com.bumptech.glide.Glide
 import java.util.*
 
+/**
+ * Created by  范朝波 on 2018/1/16.
+ * 微信    ：family997722
+ * QQ号    ：1136836811
+ */
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,15 +57,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         sendMessageToJerryFromTom()
 
+        //查找请求到的用户
         val user = DataSupport.findLast(User::class.java)
 
         search_button.setOnClickListener {
-            val intent = Intent(this@MainActivity, SearchActivity::class.java)
+            val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }
 
         main_fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, AddActivity::class.java)
+            val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
 
@@ -72,11 +78,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        Glide.with(applicationContext).load("kkkk").into(headView.user_image)
+        Glide.with(applicationContext).load(R.drawable.dada_icon).into(headView.user_image)
         headView.user_name.text = user.name
         headView.user_vip_level.text = vipLevel(user.level)
         headView.user_image.setOnClickListener {
-            val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
+            val intent = Intent(this, UserDetailActivity::class.java)
             intent.putExtra("USER_DETAIL", user)
             startActivity(intent)
         }
@@ -114,7 +120,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         if (id == R.id.action_message) {
 
-            val intent = Intent(this@MainActivity, MessageActivity::class.java)
+            val intent = Intent(this, MessageActivity::class.java)
             startActivity(intent)
             return true
         }
@@ -128,23 +134,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (id) {
             R.id.nav_stroke -> {
-                val intent = Intent(this@MainActivity, StrokeActivity::class.java)
+                val intent = Intent(this, StrokeActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_like -> {
-                val intent = Intent(this@MainActivity, LikeActivity::class.java)
+                val intent = Intent(this, LikeActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_wallet -> {
-                val intent = Intent(this@MainActivity, WalletActivity::class.java)
+                val intent = Intent(this, WalletActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_service -> {
-                val intent = Intent(this@MainActivity, ServiceActivity::class.java)
+                val intent = Intent(this, ServiceActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_setting -> {
-                val intent = Intent(this@MainActivity, SettingActivity::class.java)
+                val intent = Intent(this, SettingActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -201,4 +207,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
     }
+
 }

@@ -1,10 +1,10 @@
 package com.scujcc.dada.common.imageselector;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -44,18 +44,19 @@ public class ClipImageActivity extends Activity {
     /**
      * 修改状态栏颜色
      */
+    @SuppressLint("ResourceAsColor")
     private void setStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#373c3d"));
+            window.setStatusBarColor(R.color.colorPrimary);
         }
     }
 
     private void initView() {
         imageView = findViewById(R.id.process_img);
-        btnConfirm = (FrameLayout) findViewById(R.id.btn_confirm);
-        btnBack = (FrameLayout) findViewById(R.id.btn_back);
+        btnConfirm = findViewById(R.id.btn_confirm);
+        btnBack = findViewById(R.id.btn_back);
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override

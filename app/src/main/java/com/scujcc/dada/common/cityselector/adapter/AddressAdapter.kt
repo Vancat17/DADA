@@ -44,7 +44,6 @@ class AddressAdapter(private var location: String?, addresses: List<Any>): Recyc
                         val item = items[pos] as ProvinceModel
                         items  = item.childs
                         temps = items
-//                        address += item.name + " "
                         notifyDataSetChanged()
                     }
                     items[pos] is CityModel -> {

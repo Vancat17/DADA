@@ -13,12 +13,12 @@
 
         <FrameLayout
             android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
             android:foreground="@drawable/btn_back_selector">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -174,8 +174,7 @@
             android:id="@+id/btn_preview"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:foreground="@drawable/btn_foreground_selector">
+            android:layout_alignParentEnd="true">
 
             <TextView
                 android:id="@+id/tv_preview"

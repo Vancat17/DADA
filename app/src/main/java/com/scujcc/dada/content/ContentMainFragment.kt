@@ -26,7 +26,7 @@ import java.util.*
  * QQ号    ：1136836811
  */
 
-class PageFragment : Fragment() {
+class ContentMainFragment : Fragment() {
 
     private var mPage: Int = 0
     private lateinit var mContentItem: ContentItem
@@ -49,13 +49,45 @@ class PageFragment : Fragment() {
         view.content_main_recycler.layoutManager = LinearLayoutManager(activity)
         view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
 
-        view.content_refresh.setOnRefreshListener {
-            val retrofit = Retrofit.Builder()
-                    .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
-                    .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
-                    .build()
+        view.content_refresh!!.setColorSchemeResources(R.color.colorPrimary)
 
-            val request = retrofit.create<GetRequest>(GetRequest::class.java)
+        //首次进入刷新
+        view.content_refresh.measure(0,0)
+        view.content_refresh.isRefreshing = true
+
+        //网络请求
+        val retrofit = Retrofit.Builder()
+                .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+                .build()
+
+        val request = retrofit.create<GetRequest>(GetRequest::class.java)
+        try {
+
+            val call = request.getContent("20180131125346")
+            call.enqueue(object : Callback<Content> {
+                override fun onResponse(call: Call<Content>, response: Response<Content>) {
+
+                    Log.w("Test", "加载成功")
+                    mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content)
+                    mContentItems!!.add(mContentItem)
+
+                    view.content_main_recycler.adapter.notifyDataSetChanged()
+                    view.content_refresh.isRefreshing = false
+
+                }
+                override fun onFailure(call: Call<Content>, t: Throwable) {
+                    Log.w("Test", "加载失败")
+
+                }
+            })
+        } catch (ignored: Exception) {
+
+        }
+
+        //手动刷新监听
+        view.content_refresh.setOnRefreshListener {
+
             try {
                 val call = request.getContent("20180131125346")
                 call.enqueue(object : Callback<Content> {
@@ -64,22 +96,19 @@ class PageFragment : Fragment() {
                         Log.w("Test", "加载成功")
                         mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content)
                         mContentItems!!.add(mContentItem)
+                        view.content_main_recycler.adapter.notifyDataSetChanged()
+                        view.content_refresh.isRefreshing = false
 
                     }
                     override fun onFailure(call: Call<Content>, t: Throwable) {
                         Log.w("Test", "加载失败")
-
                     }
                 })
-            } catch (ignored: Exception) {
-
+            } catch (ignored: Exception) { }
+            if (view.content_refresh.isRefreshing) {
+                view.content_refresh.isRefreshing = false
             }
-            view.content_main_recycler.adapter.notifyDataSetChanged()
-            view.content_refresh.isRefreshing = false
         }
-
-        view.content_refresh!!.setColorSchemeResources(R.color.colorPrimary)
-
         return view
     }
 
@@ -87,10 +116,10 @@ class PageFragment : Fragment() {
 
         private val ARG_CONTENT_PAGE = "ARG_CONTENT_PAGE"
 
-        fun newInstance(page: Int): PageFragment {
+        fun newInstance(page: Int): ContentMainFragment {
             val args = Bundle()
             args.putInt(ARG_CONTENT_PAGE, page)
-            val pageFragment = PageFragment()
+            val pageFragment = ContentMainFragment()
             pageFragment.arguments = args
             return pageFragment
         }

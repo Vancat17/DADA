@@ -28,9 +28,8 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver>
 
+        </receiver>
         <service android:name="com.avos.avoscloud.PushService" />
     </application>
-
 </manifest>
