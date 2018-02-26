@@ -27,7 +27,7 @@ class ContentDetailActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_detail)
-        window.statusBarColor = Color.LTGRAY
+        window.statusBarColor = Color.TRANSPARENT
         contentItem = intent.getSerializableExtra("SER") as ContentItem
 
         detail_recycler.setHasFixedSize(true)

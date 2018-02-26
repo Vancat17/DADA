@@ -85,7 +85,7 @@ class UserDetailActivity : Activity() {
                 itemView.setOnClickListener(this)
             }
             override fun onClick(v: View?) {
-                Toast.makeText(v!!.context, "HHH", Toast.LENGTH_SHORT).show()
+                Toast.makeText(v!!.context, "开发中", Toast.LENGTH_SHORT).show()
             }
 
         }

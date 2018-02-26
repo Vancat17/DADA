@@ -31,6 +31,7 @@ import kotlin.collections.ArrayList
 
 class AddActivity : Activity() {
 
+    private var hud: KProgressHUD? = null
     private var adapter: SelectImageAdapter? = null
     private var images: ArrayList<String> = ArrayList()
 
@@ -62,6 +63,9 @@ class AddActivity : Activity() {
         if (requestCode == CATEGORY_REQUEST_CODE && data != null) {
             add_category.text = data.getStringExtra("CATEGORY")
         }
+
+        hud!!.dismiss()
+
     }
     @SuppressLint("SetTextI18n", "ClickableViewAccessibility", "SimpleDateFormat")
     private fun buttonClick() {
@@ -107,6 +111,10 @@ class AddActivity : Activity() {
 
         //位置
         add_location.setOnClickListener {
+            hud = KProgressHUD.create(this)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("数据加载中")
+                    .show()
             val intent = Intent(this, AddressActivity::class.java)
             startActivityForResult(intent, LOCATION_REQUEST_CODE)
         }
@@ -143,14 +151,17 @@ class AddActivity : Activity() {
                     val call = request.postContent(content)
                     call.enqueue(object : Callback<Content> {
                         override fun onResponse(call: Call<Content>?, response: Response<Content>?) {
+                            Toast.makeText(applicationContext, "发布成功", Toast.LENGTH_SHORT).show()
+
                         }
                         override fun onFailure(call: Call<Content>?, t: Throwable?) {
+                            Toast.makeText(applicationContext, "发布失败", Toast.LENGTH_SHORT).show()
+
                         }
                     })
                 } catch (ig : Exception) {
 
                 }
-                Toast.makeText(applicationContext, "发布成功", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }

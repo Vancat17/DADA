@@ -45,6 +45,7 @@ class AddressActivity : AppCompatActivity() {
 
         private var nowLocation: String? = null
 
+
         @SuppressLint("SetTextI18n")
         override fun onLocationChanged(location: AMapLocation?) {
             if (null != location) {
@@ -73,10 +74,7 @@ class AddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_address_activity)
 
-        hud = KProgressHUD.create(this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("数据加载中")
-                .show()
+
         //初始化client
         locationClient = AMapLocationClient(this.applicationContext)
         locationOption = defaultOption

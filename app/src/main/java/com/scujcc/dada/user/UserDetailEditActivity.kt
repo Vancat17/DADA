@@ -53,6 +53,8 @@ class UserDetailEditActivity : Activity() {
 
             //更新用户
             user.save()
+            //向服务器提交用户信息
+
             finish()
         }
         detail_change_photo.setOnClickListener { Toast.makeText(applicationContext, "换照片", Toast.LENGTH_SHORT).show() }
