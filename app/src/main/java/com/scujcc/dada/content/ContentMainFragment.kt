@@ -57,30 +57,49 @@ class ContentMainFragment : Fragment() {
 
         //网络请求
         val retrofit = Retrofit.Builder()
-                .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
                 .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
                 .build()
 
         val request = retrofit.create<GetRequest>(GetRequest::class.java)
         try {
 
-            val call = request.getContent("20180131125346")
-            call.enqueue(object : Callback<Content> {
-                override fun onResponse(call: Call<Content>, response: Response<Content>) {
-
+            val call = request.getAllContent()
+            call.enqueue(object : Callback<List<Content>> {
+                override fun onResponse(call: Call<List<Content>>?, response: Response<List<Content>>?) {
                     Log.w("Test", "加载成功")
-                    mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content)
-                    mContentItems!!.add(mContentItem)
+                    for (item in response!!.body()) {
+                        mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
+                        mContentItems!!.add(mContentItem)
+                    }
 
                     view.content_main_recycler.adapter.notifyDataSetChanged()
                     view.content_refresh.isRefreshing = false
-
                 }
-                override fun onFailure(call: Call<Content>, t: Throwable) {
-                    Log.w("Test", "加载失败")
 
+                override fun onFailure(call: Call<List<Content>>?, t: Throwable?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
+
             })
+
+//            val call = request.getContent("")
+//            call.enqueue(object : Callback<Content> {
+//                override fun onResponse(call: Call<Content>, response: Response<Content>) {
+//
+//                    Log.w("Test", "加载成功")
+//                    mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().total, response.body().price, response.body().content)
+//                    mContentItems!!.add(mContentItem)
+//
+//                    view.content_main_recycler.adapter.notifyDataSetChanged()
+//                    view.content_refresh.isRefreshing = false
+//
+//                }
+//                override fun onFailure(call: Call<Content>, t: Throwable) {
+//                    Log.w("Test", "加载失败")
+//
+//                }
+//            })
         } catch (ignored: Exception) {
 
         }
@@ -89,20 +108,23 @@ class ContentMainFragment : Fragment() {
         view.content_refresh.setOnRefreshListener {
 
             try {
-                val call = request.getContent("20180131125346")
-                call.enqueue(object : Callback<Content> {
-                    override fun onResponse(call: Call<Content>, response: Response<Content>) {
-
+                val call = request.getAllContent()
+                call.enqueue(object : Callback<List<Content>> {
+                    override fun onResponse(call: Call<List<Content>>?, response: Response<List<Content>>?) {
                         Log.w("Test", "加载成功")
-                        mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().totalnumber, response.body().price, response.body().content)
-                        mContentItems!!.add(mContentItem)
+                        for (item in response!!.body()) {
+                            mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
+                            mContentItems!!.add(mContentItem)
+                        }
+
                         view.content_main_recycler.adapter.notifyDataSetChanged()
                         view.content_refresh.isRefreshing = false
+                    }
 
+                    override fun onFailure(call: Call<List<Content>>?, t: Throwable?) {
+                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
-                    override fun onFailure(call: Call<Content>, t: Throwable) {
-                        Log.w("Test", "加载失败")
-                    }
+
                 })
             } catch (ignored: Exception) { }
             if (view.content_refresh.isRefreshing) {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.scujcc.dada.R
+import kotlinx.android.synthetic.main.user_stroke_card.view.*
 
 /**
  * Created by  范朝波 on 2017/12/29.
@@ -34,13 +35,13 @@ class StrokeAdapter(private var mStrokeItems: MutableList<StrokeItem>) : Recycle
     }
 
     override fun onBindViewHolder(holder: StrokeHolder, position: Int) {
-
+        holder.itemView.stroke_time.text = mStrokeItems[position].time
+        holder.itemView.stroke_topic.text = mStrokeItems[position].topic
+        holder.itemView.stroke_location.text = mStrokeItems[position].location
+        holder.itemView.stroke_is_done.text = if (mStrokeItems[position].isDone) "已完成" else "未完成"
     }
 
     override fun getItemCount(): Int {
         return mStrokeItems.size
     }
-
-
-
 }

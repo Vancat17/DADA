@@ -12,10 +12,19 @@ import retrofit2.http.Path
 
 interface GetRequest {
 
-    @GET("dada/content/{id}")
+    @GET("dada/contents/{id}")
     fun getContent(@Path("id") id: String): Call<Content>
 
-    @GET("dada/user/{id}")
+    @GET("dada/contents")
+    fun getAllContent(): Call<List<Content>>
+
+    @GET("dada/users/{id}")
     fun getUser(@Path("id") id: String): Call<User>
+
+    @GET("/dada/users/{id}/likes")
+    fun getAllLikes(@Path("id") id: String): Call<List<Content>>
+
+    @GET("/dada/users/{id}/strokes")
+    fun getAllStrokes(@Path("id") id: String): Call<List<Stroke>>
 
 }

@@ -5,4 +5,4 @@ package com.scujcc.dada.helper
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class Content(var id: String, var contentId: String, var date: String?, var currentnumber: Int?, var totalnumber: Int?, var location: String?, var tag: String?, var topic: String?, var price: Double?, var content: String?)
+class Content(var id: String, var contentId: String, val image: String, var date: String?, var now: Int?, var total: Int?, var location: String?, var tag: String?, var topic: String?, var price: Double?,val sender: String, var content: String?)

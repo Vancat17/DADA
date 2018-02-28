@@ -21,6 +21,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Url
+import java.net.URL
 import java.util.regex.Pattern
 
 @Suppress("CAST_NEVER_SUCCEEDS", "DEPRECATION")
@@ -39,8 +41,6 @@ class LoginActivity : AppCompatActivity() {
         password.setText(pref.getString("password",""))
 
         buttonClick()
-
-//        login()
     }
 
     private fun buttonClick() {
@@ -80,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-
      @SuppressLint("ApplySharedPref")
      private  fun login() {
         //保存用户名和密码
@@ -93,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
         if (checkPhone()) {
 
             val retrofit = Retrofit.Builder()
-                    .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                    .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
                     .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
                     .build()
 
@@ -104,6 +103,7 @@ class LoginActivity : AppCompatActivity() {
                 call.enqueue(object : Callback<User> {
                     override fun onResponse(call: Call<User>, response: Response<User>) {
                         DataSupport.deleteAll(User::class.java)
+
                         if (null != response.body()) {
                             response.body().save()
                             val intent = Intent(applicationContext, MainActivity::class.java)
@@ -112,15 +112,18 @@ class LoginActivity : AppCompatActivity() {
 
                         } else {
                             Toast.makeText(applicationContext,"用户不存在", Toast.LENGTH_SHORT).show()
+                            hud!!.dismiss()
                         }
-                        Log.w("LocationActivity", "用户请求成功")
-
+                        Log.w("LoginActivity", "用户请求成功")
                     }
                     override fun onFailure(call: Call<User>?, t: Throwable?) {
-                        Log.w("LocationActivity", "用户请求失败")
+                        Log.w("LoginActivity", "用户请求失败")
                     }
                 })
-            } catch (ignored: Exception) { Toast.makeText(applicationContext,"网络异常", Toast.LENGTH_SHORT).show() }
+            } catch (ignored: Exception) {
+                Toast.makeText(applicationContext,"网络异常", Toast.LENGTH_SHORT).show()
+                hud!!.dismiss()
+            }
 
         } else {
 

@@ -147,7 +147,7 @@ class AddActivity : Activity() {
 
                     val date = Date(System.currentTimeMillis())
                     val contentId = SimpleDateFormat("yyyyMMddHHmmss").format(date)
-                    val content = Content(contentId, contentId,"image", 0, 4,add_location.text.toString(), add_category.text.toString(), add_topic.text.toString(), 18.99,add_content.text.toString())
+                    val content = Content(contentId, contentId,"image", add_time.text.toString(), 0,4, add_location.text.toString(), add_category.text.toString(),add_topic.text.toString(),19.99,"范朝波",add_content.text.toString())
                     val call = request.postContent(content)
                     call.enqueue(object : Callback<Content> {
                         override fun onResponse(call: Call<Content>?, response: Response<Content>?) {

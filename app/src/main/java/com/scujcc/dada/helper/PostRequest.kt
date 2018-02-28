@@ -11,6 +11,6 @@ import retrofit2.http.POST
  */
 interface PostRequest {
 
-    @POST("dada/content")
+    @POST("dada/contents")
     fun postContent(@Body content: Content): Call<Content>
 }

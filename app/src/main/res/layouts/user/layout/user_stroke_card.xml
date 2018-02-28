@@ -14,13 +14,11 @@
 
         <TextView
             android:id="@+id/stroke_time"
-            android:text="10月20日 8:30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/stroke_topic"
-            android:text="打篮球"
             android:layout_marginTop="10dp"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
@@ -38,7 +36,6 @@
 
         <TextView
             android:id="@+id/stroke_location"
-            android:text="四川大学锦城学院"
             android:layout_marginTop="10dp"
             android:layout_marginStart="4dp"
             android:textSize="12sp"
@@ -54,7 +51,6 @@
 
         <TextView
             android:id="@+id/stroke_is_done"
-            android:text="已完成"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
