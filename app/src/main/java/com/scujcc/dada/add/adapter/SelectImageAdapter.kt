@@ -1,15 +1,18 @@
 package com.scujcc.dada.add.adapter
 
 import android.app.Activity
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.scujcc.dada.R
-import com.scujcc.dada.add.AddActivity.Companion.IMAGE_REQUEST_CODE
-import com.scujcc.dada.common.imageselector.utils.ImageSelectorUtils
+import com.scujcc.dada.add.AddActivity.Companion.REQUEST_LIST_CODE
+import com.yuyh.library.imgsel.ISNav
+import com.yuyh.library.imgsel.config.ISListConfig
 import kotlinx.android.synthetic.main.adapter_image.view.*
 import java.io.File
 import java.util.*
@@ -31,12 +34,17 @@ class SelectImageAdapter(private val mContext: Activity) : RecyclerView.Adapter<
         }
 
         override fun onClick(v: View?) {
-
             if (adapterPosition == images.size) {
-                ImageSelectorUtils.openPhoto(mContext, IMAGE_REQUEST_CODE, false, 9)
+                val config = ISListConfig.Builder()
+                        .multiSelect(true)
+                        // 是否记住上次选中记录
+                        .rememberSelected(true)
+                        // 使用沉浸式状态栏
+                        .statusBarColor(Color.parseColor("#3F51B5")).build()
+
+                ISNav.getInstance().toListActivity(mContext, config, REQUEST_LIST_CODE)
             }
         }
-
         var ivImage: ImageView = itemView.findViewById(R.id.iv_image)
     }
 
@@ -48,7 +56,7 @@ class SelectImageAdapter(private val mContext: Activity) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (position == images.size) {
             holder.itemView.delete_button.visibility = View.GONE
-            Glide.with(mContext).load(R.drawable.add_pic).into(holder.ivImage)
+            Glide.with(mContext).load(R.drawable.ic_take_photo).into(holder.ivImage)
         } else {
             val image = images[position]
             holder.itemView.delete_button.visibility = View.VISIBLE

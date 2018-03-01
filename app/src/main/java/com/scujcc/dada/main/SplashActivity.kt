@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.scujcc.dada.R
 import com.scujcc.dada.helper.User
-import com.scujcc.dada.user.LoginActivity
+import com.scujcc.dada.user.activity.LoginActivity
 import org.litepal.crud.DataSupport
 
 /**

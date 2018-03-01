@@ -2,20 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scujcc.dada">
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.RECORD_VIDEO" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
@@ -41,18 +45,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".user.LoginActivity"
+            android:name=".user.activity.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".user.UserDetailActivity"
+            android:name=".user.activity.UserDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".message.MessageActivity"
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".user.UserDetailEditActivity"
+            android:name=".user.activity.UserDetailEditActivity"
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -88,7 +92,7 @@
         <activity android:name=".message.ChatActivity" />
         <activity android:name=".pay.PayActivity" />
         <activity android:name=".function.stroke.StrokeDetailActivity" />
-        <activity android:name=".user.ProviderDetailActivity" />
+        <activity android:name=".user.activity.ProviderDetailActivity" />
 
         <!-- ***************发布页相关************* -->
         <!-- 高德Service -->
@@ -102,12 +106,9 @@
 
         <!-- 分类 -->
         <activity android:name=".add.activity.CategoryActivity" />
-        <activity android:name=".common.imageselector.ClipImageActivity" />
-        <activity android:name=".common.imageselector.ImageSelectorActivity" />
-        <activity android:name=".common.imageselector.PreviewActivity" />
+
         <activity android:name=".pay.WXPayEntryActivity" />
-        <activity android:name=".main.GuideActivity"></activity>
-        <activity android:name=".main.GuideActivity" />
+        <activity android:name=".main.GuideActivity"/>
     </application>
 
 </manifest>

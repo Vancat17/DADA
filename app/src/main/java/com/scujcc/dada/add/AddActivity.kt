@@ -8,16 +8,17 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.scujcc.dada.R
-import com.scujcc.dada.helper.Content
-import com.scujcc.dada.helper.PostRequest
-import com.scujcc.dada.common.cityselector.AddressActivity
 import com.scujcc.dada.add.activity.CategoryActivity
 import com.scujcc.dada.add.adapter.SelectImageAdapter
-import com.scujcc.dada.common.imageselector.utils.ImageSelectorUtils
-import com.scujcc.dada.common.dateselector.model.DateParams
 import com.scujcc.dada.add.utils.KeyboardUtil
+import com.scujcc.dada.common.cityselector.AddressActivity
+import com.scujcc.dada.common.dateselector.model.DateParams
+import com.scujcc.dada.helper.Content
+import com.scujcc.dada.helper.PostRequest
+import com.yuyh.library.imgsel.ISNav
 import kotlinx.android.synthetic.main.add_activity.*
 import kotlinx.android.synthetic.main.price_keyboard.*
 import retrofit2.Call
@@ -35,25 +36,39 @@ class AddActivity : Activity() {
     private var adapter: SelectImageAdapter? = null
     private var images: ArrayList<String> = ArrayList()
 
+    private val appid = "1256129579"
+
+    private var secretId = "AKIDyylKekRDZfV5QVpBrIUQ5WkkW3LOrtLZ"
+    private var secretKey = "7zd2C7oHVUFk27yax6ze4E9qJXVDepkS"
+    private var keyDuration: Long = 600 //SecretKey 的有效时间，单位秒
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_activity)
         window.statusBarColor = Color.WHITE
+        ISNav.getInstance().init { context, path, imageView -> Glide.with(context).load(path).into(imageView) }
 
         adapter = SelectImageAdapter(this)
         rv_image.adapter = adapter
         rv_image.layoutManager = GridLayoutManager(this, 4)
+
         buttonClick()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_REQUEST_CODE && data != null) {
-            val images = data.getStringArrayListExtra(ImageSelectorUtils.SELECT_RESULT)
-            for (image in images) {
-                this.images.add(image)
+
+        if (requestCode == REQUEST_LIST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val pathList = data.getStringArrayListExtra("result")
+
+            for (path in pathList) {
+                images.add(path)
+                adapter?.refresh(images)
             }
-            adapter!!.refresh(this.images)
+        } else if (requestCode == REQUEST_CAMERA_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val path = data.getStringExtra("result")
+            images.add(path)
+            adapter?.refresh(images)
         }
 
         if (requestCode == LOCATION_REQUEST_CODE && data != null) {
@@ -64,13 +79,14 @@ class AddActivity : Activity() {
             add_category.text = data.getStringExtra("CATEGORY")
         }
 
-        hud!!.dismiss()
+        hud?.dismiss()
 
     }
     @SuppressLint("SetTextI18n", "ClickableViewAccessibility", "SimpleDateFormat")
     private fun buttonClick() {
 
         back_button.setOnClickListener { finish() }
+
 
         val keyboardUtil = KeyboardUtil(this)
         keyboardUtil.setOnOkClick {
@@ -236,8 +252,10 @@ class AddActivity : Activity() {
     }
 
     companion object {
-        val IMAGE_REQUEST_CODE = 0x00000011
-        val LOCATION_REQUEST_CODE = 0x00000001
-        val CATEGORY_REQUEST_CODE = 0x00000002
+        val REQUEST_LIST_CODE = 1
+        val REQUEST_CAMERA_CODE = 2
+        val LOCATION_REQUEST_CODE = 3
+        val CATEGORY_REQUEST_CODE = 5
+
     }
 }

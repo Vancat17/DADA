@@ -19,6 +19,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by  范朝波 on 2017/12/15.
@@ -72,34 +73,15 @@ class ContentMainFragment : Fragment() {
                         mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
                         mContentItems!!.add(mContentItem)
                     }
-
                     view.content_main_recycler.adapter.notifyDataSetChanged()
                     view.content_refresh.isRefreshing = false
                 }
-
                 override fun onFailure(call: Call<List<Content>>?, t: Throwable?) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
 
             })
 
-//            val call = request.getContent("")
-//            call.enqueue(object : Callback<Content> {
-//                override fun onResponse(call: Call<Content>, response: Response<Content>) {
-//
-//                    Log.w("Test", "加载成功")
-//                    mContentItem = ContentItem(response.body().contentId, R.drawable.download, "FCB", response.body().topic, response.body().tag, response.body().date, response.body().location, response.body().total, response.body().price, response.body().content)
-//                    mContentItems!!.add(mContentItem)
-//
-//                    view.content_main_recycler.adapter.notifyDataSetChanged()
-//                    view.content_refresh.isRefreshing = false
-//
-//                }
-//                override fun onFailure(call: Call<Content>, t: Throwable) {
-//                    Log.w("Test", "加载失败")
-//
-//                }
-//            })
         } catch (ignored: Exception) {
 
         }
@@ -112,9 +94,10 @@ class ContentMainFragment : Fragment() {
                 call.enqueue(object : Callback<List<Content>> {
                     override fun onResponse(call: Call<List<Content>>?, response: Response<List<Content>>?) {
                         Log.w("Test", "加载成功")
+                        mContentItems = ArrayList()
                         for (item in response!!.body()) {
                             mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
-                            mContentItems!!.add(mContentItem)
+                            mContentItems!!.add(0,mContentItem)
                         }
 
                         view.content_main_recycler.adapter.notifyDataSetChanged()
@@ -122,9 +105,7 @@ class ContentMainFragment : Fragment() {
                     }
 
                     override fun onFailure(call: Call<List<Content>>?, t: Throwable?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
-
                 })
             } catch (ignored: Exception) { }
             if (view.content_refresh.isRefreshing) {

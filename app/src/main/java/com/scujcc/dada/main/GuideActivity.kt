@@ -8,10 +8,11 @@ import android.view.Window
 import android.view.WindowManager
 
 import com.scujcc.dada.R
-import com.scujcc.dada.main.fragment.Guide1
-import com.scujcc.dada.main.fragment.Guide2
-import com.scujcc.dada.main.fragment.Guide3
 import com.scujcc.dada.main.fragment.Guide4
+import com.scujcc.dada.main.fragment.Guide1
+import com.scujcc.dada.main.fragment.Guide3
+import com.scujcc.dada.main.fragment.Guide2
+import kotlinx.android.synthetic.main.activity_guide.*
 
 import java.util.ArrayList
 
@@ -31,15 +32,11 @@ class GuideActivity : AppCompatActivity() {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
 
         setContentView(R.layout.activity_guide)
-        initView()
-    }
 
-    private fun initView() {
-        val viewPager = findViewById<ViewPager>(R.id.viewpager)
-        viewPager.adapter = GuideViewPagerAdapter(supportFragmentManager, showView())
+        viewpager.adapter = GuideViewPagerAdapter(supportFragmentManager, showView())
 
     }
-
+    
     private fun showView(): List<Fragment> {
         val listView = ArrayList<Fragment>()
         listView.add(Guide1())

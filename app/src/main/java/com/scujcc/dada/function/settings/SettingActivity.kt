@@ -16,7 +16,7 @@ import com.githang.groundrecycleradapter.GroupItemDecoration
 import com.githang.groundrecycleradapter.GroupRecyclerAdapter
 
 import com.scujcc.dada.R
-import com.scujcc.dada.user.LoginActivity
+import com.scujcc.dada.user.activity.LoginActivity
 import kotlinx.android.synthetic.main.setting_item.view.*
 import kotlinx.android.synthetic.main.user_activity_setting.*
 

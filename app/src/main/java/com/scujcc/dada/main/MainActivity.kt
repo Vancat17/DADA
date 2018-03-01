@@ -17,7 +17,7 @@ import com.scujcc.dada.R
 import com.scujcc.dada.add.AddActivity
 import com.scujcc.dada.content.SimplePagerAdapter
 import com.scujcc.dada.message.MessageActivity
-import com.scujcc.dada.user.UserDetailActivity
+import com.scujcc.dada.user.activity.UserDetailActivity
 
 import com.scujcc.dada.function.*
 import com.scujcc.dada.function.settings.SettingActivity

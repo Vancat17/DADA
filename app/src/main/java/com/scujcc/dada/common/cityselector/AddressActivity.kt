@@ -1,24 +1,21 @@
 package com.scujcc.dada.common.cityselector
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.amap.api.location.AMapLocationListener
-import com.kaopiz.kprogresshud.KProgressHUD
 import com.scujcc.dada.R
 import com.scujcc.dada.common.cityselector.adapter.AddressAdapter
 import com.scujcc.dada.common.cityselector.utils.AddressUtils
 import kotlinx.android.synthetic.main.add_address_activity.*
 
 class AddressActivity : AppCompatActivity() {
-
-    private var hud: KProgressHUD? = null
 
     private var locationClient: AMapLocationClient? = null
     private var locationOption: AMapLocationClientOption? = null

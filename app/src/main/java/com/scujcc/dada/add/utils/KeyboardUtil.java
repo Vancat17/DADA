@@ -225,13 +225,6 @@ public class KeyboardUtil {
         mKeyboardView.setKeyboard(mKeyboardNumber);
     }
 
-    public void showKeyboard() {
-        int visibility = mKeyboardView.getVisibility();
-        if (visibility == View.GONE || visibility == View.INVISIBLE) {
-            mKeyboardView.setVisibility(View.VISIBLE);
-        }
-    }
-
     private void hideKeyboard() {
         int visibility = mKeyboardView.getVisibility();
         if (visibility == View.VISIBLE) {

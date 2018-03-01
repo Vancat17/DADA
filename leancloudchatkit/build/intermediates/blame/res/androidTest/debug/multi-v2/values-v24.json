@@ -4,7 +4,7 @@
             "outputFile": "/Users/vancat/DADA/leancloudchatkit/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/vancat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6be5680542798202dceadd7176f8244b/res/values-v24/values-v24.xml",
+                    "source": "/Users/vancat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/cb4ec2726845856f15c086a12560ae6a/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/vancat/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2cbbd7bea48353b439d7aa90ba6d87/res/values-v24/values-v24.xml",
+                    "source": "/Users/vancat/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/8812e20ac9b0a2ca35058671dcfe5c6c/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

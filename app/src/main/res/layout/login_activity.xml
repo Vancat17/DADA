@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.scujcc.dada.user.LoginActivity">
+    tools:context="com.scujcc.dada.user.activity.LoginActivity">
 
    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
        android:id="@+id/user_photo"

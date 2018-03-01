@@ -47,7 +47,8 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
             }
             else -> {
                 val pos = if (position - ITEM_EXTRA > 0) position - ITEM_EXTRA else 0
-                val uri = "http://pic2.52pk.com/files/170511/2165322_100509_1_lit.jpg"
+//                val uri = "http://pic2.52pk.com/files/170511/2165322_100509_1_lit.jpg"
+                val uri = "https://dada-1256129579.cos.ap-chengdu.myqcloud.com/1024*1024.png"
                 Glide.with(holder.itemView.context).load(uri).into(holder.itemView.activity_image)
                 holder.itemView.activity_sender.text = mContentItems[pos].sender
                 holder.itemView.activity_topic.text = mContentItems[pos].topic
@@ -66,7 +67,8 @@ class ContentMainAdapter(private val mContentItems: List<ContentItem>) : Recycle
     }
 
     override fun getItemCount(): Int {
-        return mContentItems.size
+
+        return if (mContentItems.size < 20) mContentItems.size else 20
     }
 
     override fun getItemViewType(position: Int): Int {
