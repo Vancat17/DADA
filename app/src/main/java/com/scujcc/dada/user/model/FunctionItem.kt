@@ -6,7 +6,4 @@ package com.scujcc.dada.user.model
  * QQ号    ：1136836811
  */
 
-class FunctionItem(var title: String?, var subTitle: String?, var imageId: Int) {
-
-    private val mFunctionItems: List<FunctionItem>? = null
-}
+class FunctionItem(var title: String?, var subTitle: String?, var imageId: Int)

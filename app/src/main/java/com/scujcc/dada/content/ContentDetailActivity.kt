@@ -3,26 +3,25 @@ package com.scujcc.dada.content
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
-import cn.leancloud.chatkit.LCChatKit
-import cn.leancloud.chatkit.activity.LCIMConversationActivity
-import cn.leancloud.chatkit.utils.LCIMConstants
 import com.avos.avoscloud.im.v2.AVIMClient
 import com.avos.avoscloud.im.v2.AVIMException
 import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
 import com.scujcc.dada.R
-import com.scujcc.dada.message.ChatActivity
+import com.scujcc.dada.chatkit.LCChatKit
+import com.scujcc.dada.chatkit.activity.LCIMConversationActivity
+import com.scujcc.dada.chatkit.utils.LCIMConstants
+import com.scujcc.dada.helper.User
 import com.scujcc.dada.pay.PayActivity
 import kotlinx.android.synthetic.main.content_detail.*
 import kotlinx.android.synthetic.main.toolbar_header.*
+import org.litepal.crud.DataSupport
 
 class ContentDetailActivity : Activity() {
 
-    private var contentItem: ContentItem? = null
+    private lateinit var contentItem: ContentItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,24 +31,25 @@ class ContentDetailActivity : Activity() {
 
         detail_recycler.setHasFixedSize(true)
         detail_recycler.layoutManager = LinearLayoutManager(applicationContext)
-        detail_recycler.adapter = ContentDetailAdapter(contentItem!!)
+        detail_recycler.adapter = ContentDetailAdapter(contentItem)
 
         buttonClick()
     }
 
     private fun buttonClick() {
+        val user = DataSupport.findLast(User::class.java)
         left_button.setOnClickListener { finish() }
         right_button.setOnClickListener { Toast.makeText(applicationContext, "分享", Toast.LENGTH_SHORT).show() }
         like_button.setOnClickListener { }
         talk_button.setOnClickListener {
 
             //开启聊天
-            LCChatKit.getInstance().open("范朝波", object : AVIMClientCallback() {
+            LCChatKit.getInstance().open(user.name, object : AVIMClientCallback() {
                 override fun done(p0: AVIMClient?, p1: AVIMException?) {
 
                     if (null == p1) {
                         val intent = Intent(applicationContext, LCIMConversationActivity::class.java).apply {
-                            putExtra(LCIMConstants.PEER_ID,"种荒地")
+                            putExtra(LCIMConstants.PEER_ID, contentItem.sender)
                         }
                         startActivity(intent)
                     }
@@ -62,18 +62,5 @@ class ContentDetailActivity : Activity() {
             startActivity(intent)
         }
     }
-
-//    private fun isLiked() {
-//        if (contentItem!!.isLiked) {
-//            like_button_text.text = "已收藏"
-//            like_button.setImageDrawable(getDrawable(R.drawable.ic_liked))
-//            Toast.makeText(applicationContext, "已收藏", Toast.LENGTH_SHORT).show()
-//            contentItem!!.isLiked = false
-//        } else {
-//            like_button_text.text = "收藏"
-//            like_button.setImageDrawable(getDrawable(R.drawable.ic_like))
-//            contentItem!!.isLiked = true
-//        }
-//    }
 }
 

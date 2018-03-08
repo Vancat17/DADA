@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorLightGrey"
         android:layout_gravity="center"
-        android:src="@drawable/dada_defaut"
+        android:src="@drawable/dada_default"
         android:scaleType="centerCrop" />
 
     <ImageButton

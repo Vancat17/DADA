@@ -14,8 +14,9 @@
         <mapping class="com.scujcc.dada.content.ContentItem" />
         <mapping class="com.scujcc.dada.message.MessageItem" />
         <mapping class="com.scujcc.dada.helper.User" />
+        <mapping class="com.scujcc.dada.helper.Stroke"/>
+        <mapping class="com.scujcc.dada.helper.Content"/>
     </list>
-
 
     <!--可以选择存储数据库/内部或者外部-->
     <!--默认internal-->

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.scujcc.dada.R
-import kotlinx.android.synthetic.main.user_stroke_card.view.*
+import kotlinx.android.synthetic.main.stroke_card.view.*
 
 /**
  * Created by  范朝波 on 2017/12/29.
@@ -23,22 +23,21 @@ class StrokeAdapter(private var mStrokeItems: MutableList<StrokeItem>) : Recycle
         }
 
         override fun onClick(v: View) {
-            val intent = Intent(v.context, StrokeDetailActivity::class.java)
+            val intent = Intent(v.context, OrderActivity::class.java)
             v.context.startActivity(intent)
 
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StrokeHolder{
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.user_stroke_card, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.stroke_card, parent, false)
         return StrokeHolder(view)
     }
 
     override fun onBindViewHolder(holder: StrokeHolder, position: Int) {
-        holder.itemView.stroke_time.text = mStrokeItems[position].time
         holder.itemView.stroke_topic.text = mStrokeItems[position].topic
-        holder.itemView.stroke_location.text = mStrokeItems[position].location
-        holder.itemView.stroke_is_done.text = if (mStrokeItems[position].isDone) "已完成" else "未完成"
+//        holder.itemView.stroke_location.text = mStrokeItems[position].location
+        holder.itemView.stroke_state.text = if (mStrokeItems[position].isDone) "已完成" else "未完成"
     }
 
     override fun getItemCount(): Int {

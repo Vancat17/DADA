@@ -18,9 +18,12 @@ import com.scujcc.dada.common.cityselector.AddressActivity
 import com.scujcc.dada.common.dateselector.model.DateParams
 import com.scujcc.dada.helper.Content
 import com.scujcc.dada.helper.PostRequest
+import com.scujcc.dada.helper.PutRequest
+import com.scujcc.dada.helper.User
 import com.yuyh.library.imgsel.ISNav
 import kotlinx.android.synthetic.main.add_activity.*
 import kotlinx.android.synthetic.main.price_keyboard.*
+import org.litepal.crud.DataSupport
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,14 +36,16 @@ import kotlin.collections.ArrayList
 class AddActivity : Activity() {
 
     private var hud: KProgressHUD? = null
-    private var adapter: SelectImageAdapter? = null
+    private lateinit var adapter: SelectImageAdapter
     private var images: ArrayList<String> = ArrayList()
 
-    private val appid = "1256129579"
+    private val user = DataSupport.findLast(User::class.java)
 
-    private var secretId = "AKIDyylKekRDZfV5QVpBrIUQ5WkkW3LOrtLZ"
-    private var secretKey = "7zd2C7oHVUFk27yax6ze4E9qJXVDepkS"
-    private var keyDuration: Long = 600 //SecretKey 的有效时间，单位秒
+//    private val appid = "1256129579"
+//
+//    private var secretId = "AKIDyylKekRDZfV5QVpBrIUQ5WkkW3LOrtLZ"
+//    private var secretKey = "7zd2C7oHVUFk27yax6ze4E9qJXVDepkS"
+//    private var keyDuration: Long = 600 //SecretKey 的有效时间，单位秒
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,12 +68,12 @@ class AddActivity : Activity() {
 
             for (path in pathList) {
                 images.add(path)
-                adapter?.refresh(images)
+                adapter.refresh(images)
             }
         } else if (requestCode == REQUEST_CAMERA_CODE && resultCode == Activity.RESULT_OK && data != null) {
             val path = data.getStringExtra("result")
             images.add(path)
-            adapter?.refresh(images)
+            adapter.refresh(images)
         }
 
         if (requestCode == LOCATION_REQUEST_CODE && data != null) {
@@ -154,7 +159,7 @@ class AddActivity : Activity() {
             if (judgment()) {
 
                 val retrofit = Retrofit.Builder()
-                        .baseUrl("http://120.79.19.183:8080/") // 设置 网络请求 Url
+                        .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
                         .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
                         .build()
 
@@ -163,11 +168,16 @@ class AddActivity : Activity() {
 
                     val date = Date(System.currentTimeMillis())
                     val contentId = SimpleDateFormat("yyyyMMddHHmmss").format(date)
-                    val content = Content(contentId, contentId,"image", add_time.text.toString(), 0,4, add_location.text.toString(), add_category.text.toString(),add_topic.text.toString(),19.99,"范朝波",add_content.text.toString())
+                    val content = Content(contentId, contentId,"image", add_time.text.toString(), 0,4, add_location.text.toString(), add_category.text.toString(),add_topic.text.toString(),19.99,user.userId,add_content.text.toString())
                     val call = request.postContent(content)
                     call.enqueue(object : Callback<Content> {
                         override fun onResponse(call: Call<Content>?, response: Response<Content>?) {
                             Toast.makeText(applicationContext, "发布成功", Toast.LENGTH_SHORT).show()
+
+                            //成功之后保存到用户
+                            user.address = "哈哈哈哈哈哈哈"
+                            user.age = "21"
+                            updateUserData()
 
                         }
                         override fun onFailure(call: Call<Content>?, t: Throwable?) {
@@ -181,6 +191,27 @@ class AddActivity : Activity() {
                 finish()
             }
         }
+    }
+
+    private fun updateUserData() {
+        val retrofit = Retrofit.Builder()
+                .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
+                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+                .build()
+        val request = retrofit.create<PutRequest>(PutRequest::class.java)
+        try {
+            val call = request.updateUsers(user.userId, user)
+            call.enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>?, response: Response<String>?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onFailure(call: Call<String>?, t: Throwable?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            })
+        } catch (e : Exception) {}
     }
 
     //发布条件判断

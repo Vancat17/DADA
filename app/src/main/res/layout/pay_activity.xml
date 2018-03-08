@@ -51,6 +51,7 @@
         <include layout="@layout/line_big"/>
 
         <RelativeLayout
+            android:id="@+id/rl_info"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp">
@@ -63,18 +64,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
-            <Button
-                android:id="@+id/info_button"
-                android:textAlignment="textEnd"
-                android:drawableEnd="@drawable/ic_next"
-                android:background="@color/colorTransparent"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:text="发财包"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <TextView
+                    android:id="@+id/phone"
+                    android:text="1777777777"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <TextView
+                    android:id="@+id/location"
+                    android:text="四川大学"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:src="@drawable/ic_next"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
+
+
         </RelativeLayout>
 
         <include layout="@layout/line_small"/>
 
         <RelativeLayout
+            android:id="@+id/rl_num"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp">
@@ -86,15 +118,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
-            <Button
-                android:id="@+id/people_num_button"
-                android:textAlignment="textStart"
-                android:paddingStart="50dp"
-                android:drawableEnd="@drawable/ic_next"
-                android:background="@color/colorTransparent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/num"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:src="@drawable/ic_next"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
 
         </RelativeLayout>
 

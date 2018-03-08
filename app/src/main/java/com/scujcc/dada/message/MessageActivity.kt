@@ -18,7 +18,7 @@ import org.litepal.crud.DataSupport
 
 class MessageActivity : AppCompatActivity() {
 
-    private  var mMessageItems: MutableList<MessageItem>? = null
+    private lateinit var mMessageItems: MutableList<MessageItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,11 +27,9 @@ class MessageActivity : AppCompatActivity() {
 
         mMessageItems = DataSupport.findAll(MessageItem::class.java)
 
-        if (mMessageItems!!.size != 0) {
-            no_message.visibility = View.GONE
-            message_recycler.setHasFixedSize(true)
-            message_recycler.layoutManager = LinearLayoutManager(applicationContext)
-            message_recycler.adapter = MessageAdapter(mMessageItems!!)
-        }
+        no_message.visibility = View.GONE
+        message_recycler.setHasFixedSize(true)
+        message_recycler.layoutManager = LinearLayoutManager(applicationContext)
+        message_recycler.adapter = MessageAdapter(mMessageItems)
     }
 }

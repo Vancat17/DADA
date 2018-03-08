@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-
+        <!--标签-->
         <TextView
             android:id="@+id/activity_tag"
             android:text="拼车"
@@ -61,49 +61,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/location_icon"
-            android:layout_below="@id/detail_topic"
-            android:layout_toEndOf="@id/activity_tag"
-            android:src="@drawable/ic_location"
-            android:layout_margin="10dp"
-            android:layout_width="14dp"
-            android:layout_height="14dp" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_below="@id/activity_tag"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
 
-        <TextView
-            android:id="@+id/detail_location"
-            android:text="成都 四川大学锦城学院"
-            android:textSize="12sp"
-            android:layout_below="@id/detail_topic"
-            android:layout_toEndOf="@id/location_icon"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_location"
+                android:layout_width="14dp"
+                android:layout_height="match_parent" />
 
-        <ImageView
-            android:id="@+id/people_num_icon"
-            android:src="@drawable/ic_people_num"
-            android:layout_below="@id/detail_topic"
-            android:layout_toEndOf="@id/detail_location"
-            android:layout_margin="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
+            <TextView
+                android:id="@+id/detail_location"
+                android:text="四川大学锦城学院"
+                android:textSize="12sp"
+                android:gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/detail_people_num"
-            android:text="1/3"
-            android:textSize="12sp"
-            android:layout_below="@id/detail_topic"
-            android:layout_toEndOf="@id/people_num_icon"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/ic_people_num"
+                android:layout_marginStart="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/detail_people_num"
+                android:text="1/3"
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/ic_time"
+                android:layout_marginStart="20dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:id="@+id/detail_time"
+                android:text="周日17:30"
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
 
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/sender_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
 
         <include layout="@layout/line_small"/>
 
@@ -111,47 +127,38 @@
             android:id="@+id/sender_image"
             android:scaleType="centerCrop"
             app:shape_mode="circle"
-            android:layout_margin="5dp"
-            android:layout_alignBottom="@id/sender_button"
+            android:src="@drawable/dada_default"
+            android:layout_margin="10dp"
             android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/sender_names"
-            android:text="陈独秀"
+            android:text="小嗒"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary"
             android:layout_toEndOf="@id/sender_image"
-            android:layout_alignBottom="@id/sender_button"
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:layout_height="50dp" />
+            android:layout_height="match_parent" />
 
         <View
             android:id="@+id/line"
             android:background="@drawable/view_line_while"
             android:layout_toEndOf="@id/sender_names"
-            android:layout_margin="15dp"
-            android:layout_alignBottom="@id/sender_button"
             android:layout_width="2dp"
-            android:layout_height="20dp"/>
+            android:layout_margin="18dp"
+            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/credit_value"
             android:layout_width="wrap_content"
-            android:text="信用值 85分"
+            android:text="信用值 100分"
             android:gravity="center"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            android:layout_alignBottom="@id/sender_button"
             android:layout_toEndOf="@id/line"
-            android:layout_height="50dp" />
-
-        <Button
-            android:id="@+id/sender_button"
-            android:background="@color/colorTransparent"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 
@@ -212,6 +219,7 @@
     </RelativeLayout>
 
     <include layout="@layout/line_big"/>
+
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"

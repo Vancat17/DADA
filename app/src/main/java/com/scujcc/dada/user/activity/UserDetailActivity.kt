@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
 
 import com.scujcc.dada.R
 import com.scujcc.dada.helper.User
@@ -112,7 +113,8 @@ class UserDetailActivity : Activity() {
             when (getItemViewType(position)) {
                 HEADER_TYPE -> {
                     val headerHolder = holder as HeaderHolder
-                    headerHolder.itemView.user_photo.setImageResource(R.drawable.dada)
+                    Glide.with(headerHolder.itemView.context).load(user.avatar).into(headerHolder.itemView.user_photo)
+//                    headerHolder.itemView.user_photo.setImageResource(R.drawable.dada)
                     headerHolder.itemView.user_name.text = user.name
                     headerHolder.itemView.user_signature.text = if (user.sign != null) user.sign else "还没有签名哦，简单介绍一下自己吧"
                     headerHolder.itemView.user_job.text = if (user.job != null) user.job else "未设置行业"

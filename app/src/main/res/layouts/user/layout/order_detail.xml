@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.scujcc.dada.function.stroke.OrderActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/content_state"
+                android:text="活动已结束"
+                android:gravity="center"
+                android:textSize="24dp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+            <!--价格-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+                <TextView
+                    android:id="@+id/order_price"
+                    android:textSize="32sp"
+                    android:text="120.00元"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorMoneyRed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/money_state"
+                    android:text="钱款已打入发起人账户"
+                    android:gravity="center"
+                    android:layout_below="@id/order_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <!--参与详情-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/people_num"
+                    android:text="参与人数: 2 人"
+                    android:textColor="@color/colorBlack"
+                    android:gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@+id/person_detail"
+                    android:text="参与详情"
+                    android:textAlignment="textEnd"
+                    android:background="@color/colorTransparent"
+                    android:textColor="@color/lcim_common_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+
+            <!--原订单-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <ImageView
+                    android:id="@+id/content_image"
+                    android:src="@drawable/dada_default"
+                    android:gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+                <TextView
+                    android:id="@+id/content_topic"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:text="周末拼车 成都到绵阳"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@+id/content_detail"
+                    android:text="活动详情"
+                    android:textAlignment="textEnd"
+                    android:background="@color/colorTransparent"
+                    android:textColor="@color/lcim_common_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="30dp">
+
+               <TextView
+                   android:gravity="center_vertical"
+                   android:text="发起人昵称"
+                   android:textSize="12dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent" />
+
+               <TextView
+                   android:id="@+id/sender_name"
+                   android:gravity="center_vertical"
+                   android:text="范朝波"
+                   android:textSize="12dp"
+                   android:layout_alignParentEnd="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent" />
+           </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="订单编号"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/order_number"
+                    android:gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:text="87367910371263"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="支付交易号"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/pay_number"
+                    android:textSize="12dp"
+                    android:gravity="center_vertical"
+                    android:text="37916892098982107831736880293"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:text="交易时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/pay_time"
+                    android:textSize="12dp"
+                    android:gravity="center_vertical"
+                    android:text="2018-03-06 21:08:09"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/chat_button"
+            android:text="联系发起人"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/colorLightGrey"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/assess_button"
+            android:text="评价 "
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/vancat/DADA/leancloudchatkit/src/main/assets"/><source path="/Users/vancat/DADA/leancloudchatkit/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/vancat/DADA/leancloudchatkit/src/debug/assets"/></dataSet></merger>

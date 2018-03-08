@@ -6,37 +6,28 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
-
 import android.widget.Toast
-
+import com.bumptech.glide.Glide
 import com.scujcc.dada.R
 import com.scujcc.dada.add.AddActivity
 import com.scujcc.dada.content.SimplePagerAdapter
-import com.scujcc.dada.message.MessageActivity
-import com.scujcc.dada.user.activity.UserDetailActivity
-
-import com.scujcc.dada.function.*
+import com.scujcc.dada.function.collection.CollectionActivity
+import com.scujcc.dada.function.SearchActivity
+import com.scujcc.dada.function.ServiceActivity
+import com.scujcc.dada.function.WalletActivity
 import com.scujcc.dada.function.settings.SettingActivity
 import com.scujcc.dada.function.stroke.StrokeActivity
 import com.scujcc.dada.helper.User
+import com.scujcc.dada.message.MessageActivity
+import com.scujcc.dada.user.activity.UserDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.view.*
 import org.litepal.crud.DataSupport
-import com.avos.avoscloud.im.v2.AVIMException
-import com.avos.avoscloud.im.v2.callback.AVIMConversationCallback
-import com.avos.avoscloud.im.v2.messages.AVIMTextMessage
-import com.avos.avoscloud.im.v2.AVIMConversation
-import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback
-import com.avos.avoscloud.im.v2.AVIMClient
-import com.avos.avoscloud.im.v2.callback.AVIMClientCallback
-import com.bumptech.glide.Glide
-import java.util.*
 
 /**
  * Created by  范朝波 on 2018/1/16.
@@ -55,7 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(main_toolbar)
 
-        sendMessageToJerryFromTom()
 
         //查找请求到的用户
         val user = DataSupport.findLast(User::class.java)
@@ -78,7 +68,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         val headView = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        Glide.with(applicationContext).load(R.drawable.dada_icon).into(headView.user_image)
+        Glide.with(applicationContext).load(user.avatar).into(headView.user_image)
         headView.user_name.text = user.name
         headView.user_vip_level.text = vipLevel(user.level)
         headView.user_image.setOnClickListener {
@@ -138,7 +128,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.nav_like -> {
-                val intent = Intent(this, LikeActivity::class.java)
+                val intent = Intent(this, CollectionActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_wallet -> {
@@ -175,37 +165,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         return super.onKeyDown(keyCode, event)
     }
-
-    private fun sendMessageToJerryFromTom() {
-        // Tom 用自己的名字作为clientId，获取AVIMClient对象实例
-        val tom = AVIMClient.getInstance("Tom")
-        // 与服务器连接
-        tom.open(object : AVIMClientCallback() {
-            override fun done(client: AVIMClient, e: AVIMException?) {
-                if (e == null) {
-                    // 创建与Jerry之间的对话
-                    client.createConversation(Arrays.asList("Jerry"), "Tom & Jerry", null,
-                            object : AVIMConversationCreatedCallback() {
-
-                                override fun done(conversation: AVIMConversation, e: AVIMException?) {
-                                    if (e == null) {
-                                        val msg = AVIMTextMessage()
-                                        msg.text = "耗子，起床！"
-                                        // 发送消息
-                                        conversation.sendMessage(msg, object : AVIMConversationCallback() {
-
-                                            override fun done(e: AVIMException?) {
-                                                if (e == null) {
-                                                    Log.d("LocationActivity", "发送成功！")
-                                                }
-                                            }
-                                        })
-                                    }
-                                }
-                            })
-                }
-            }
-        })
-    }
-
 }

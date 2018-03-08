@@ -141,7 +141,7 @@ public class ISListConfig implements Serializable {
                 filePath = Environment.getRootDirectory().getAbsolutePath() + "/Camera";
 
             title = "照片";
-            titleBgColor = Color.parseColor("#3F51B5");
+            titleBgColor = Color.parseColor("#81D8D0");
             titleColor = Color.WHITE;
 
             btnText = "确定";

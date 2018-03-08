@@ -2,6 +2,7 @@ package com.scujcc.dada.function
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.search_activity.*
 
@@ -15,9 +16,8 @@ class SearchActivity : Activity() {
     }
 
     private fun buttonClick() {
-        location.setOnClickListener {
-            //地区选择
-        }
-        cancel.setOnClickListener { finish() }
+
+        back.setOnClickListener { finish() }
+        search.setOnClickListener { Toast.makeText(applicationContext,"搜索按钮", Toast.LENGTH_SHORT).show() }
     }
 }

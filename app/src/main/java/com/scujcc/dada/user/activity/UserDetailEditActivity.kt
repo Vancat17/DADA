@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.scujcc.dada.R
 import com.scujcc.dada.helper.User
 import kotlinx.android.synthetic.main.user_detail_edit.*
@@ -28,7 +29,8 @@ class UserDetailEditActivity : Activity() {
     }
 
     private fun initData() {
-        user_photo.setImageResource(R.drawable.dada)
+        Glide.with(applicationContext).load(user.avatar).into(user_photo)
+//        user_photo.setImageResource(R.drawable.dada)
         detail_change_name.setText(user.name)
         detail_change_sex.text = if (user.sex == "男") "男" else "女"
         detail_change_age.text = user.age

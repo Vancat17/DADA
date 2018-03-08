@@ -23,4 +23,6 @@
     <color name="key_ok_color_pressed">#0174f2</color>
 
     <color name="tram">#00000000</color>
+
+    <color name="lineColor">#E7E7E7</color>
 </resources>

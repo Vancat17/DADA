@@ -2,10 +2,7 @@ package com.scujcc.dada.pay
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import com.scujcc.dada.R
@@ -16,11 +13,12 @@ import kotlinx.android.synthetic.main.toolbar_header.*
 class PayActivity : Activity() {
 
     private var contentItem: ContentItem? = null
-    @RequiresApi(Build.VERSION_CODES.M)
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pay_activity)
-        window.statusBarColor = getColor(R.color.colorWhite)
+        window.statusBarColor = R.color.colorWhite
         contentItem = intent.getSerializableExtra("JOIN") as ContentItem
 
         initData()
@@ -33,24 +31,26 @@ class PayActivity : Activity() {
         detail_image.setImageResource(contentItem!!.image)
         detail_topic.text = contentItem!!.topic
         detail_price.text = "¥" + contentItem!!.price
-        people_num_button.text = "1人"
+        num.text = "1人"
         price.text = detail_price.text
     }
 
     @SuppressLint("SetTextI18n")
     private fun buttonClick() {
         left_button.setOnClickListener { finish() }
-        info_button.setOnClickListener {  }
-        people_num_button.setOnClickListener {
+        rl_info.setOnClickListener {
+
+        }
+        rl_num.setOnClickListener {
 
             val numArray = arrayOfNulls<String>(contentItem!!.totalnumber!!)
 
             for (i in 0..(contentItem!!.totalnumber!! - 1)) {
-                numArray[i] = (i+1).toString()
+                numArray[i] = (i+1).toString() + " 人"
             }
             val builder = AlertDialog.Builder(this)// 自定义对话框
             builder.setItems(numArray, { dialog, which ->
-                people_num_button.text = numArray[which] + "人"
+                num.text = numArray[which]
                 price.text = "¥" + (contentItem!!.price!! * (which + 1))
                 dialog.dismiss()
             })

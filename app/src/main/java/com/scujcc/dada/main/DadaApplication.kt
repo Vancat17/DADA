@@ -1,8 +1,8 @@
 package com.scujcc.dada.main
 
-import cn.leancloud.chatkit.LCChatKit
 import com.avos.avoscloud.*
 import com.avos.avoscloud.im.v2.AVIMClient
+import com.scujcc.dada.chatkit.LCChatKit
 import org.litepal.LitePal
 import org.litepal.LitePalApplication
 
@@ -17,7 +17,6 @@ class DadaApplication : LitePalApplication() {
     override fun onCreate() {
         super.onCreate()
         LitePal.initialize(applicationContext)
-
         AVOSCloud.setDebugLogEnabled(true)
         LCChatKit.getInstance().init(applicationContext, "7sayB8QAL9XKVIRhqaPvyEgE-gzGzoHsz", "MdN5JWLSqnmR9tPmNnvccosF")
         AVIMClient.setAutoOpen(true)

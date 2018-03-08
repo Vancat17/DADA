@@ -40,7 +40,7 @@ class SelectImageAdapter(private val mContext: Activity) : RecyclerView.Adapter<
                         // 是否记住上次选中记录
                         .rememberSelected(true)
                         // 使用沉浸式状态栏
-                        .statusBarColor(Color.parseColor("#3F51B5")).build()
+                        .statusBarColor(Color.parseColor("#81D8D0")).build()
 
                 ISNav.getInstance().toListActivity(mContext, config, REQUEST_LIST_CODE)
             }

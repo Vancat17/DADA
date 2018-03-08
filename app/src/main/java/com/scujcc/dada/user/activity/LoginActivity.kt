@@ -97,11 +97,14 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val call = request.getUser(phone.text.toString())
                 call.enqueue(object : Callback<User> {
+
                     override fun onResponse(call: Call<User>, response: Response<User>) {
                         DataSupport.deleteAll(User::class.java)
 
                         if (null != response.body()) {
-                            response.body().save()
+                            val item = response.body()
+                            val user = User(item.userId, item.avatar,item.name,item.phone,item.sex,item.level,item.verified,item.sesame,item.age,item.job,item.company,item.school,item.sign,item.address)
+                            user.save()
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
                             finish()
@@ -122,7 +125,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
         } else {
-
         }
     }
 }

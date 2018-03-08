@@ -25,13 +25,14 @@ class MessageAdapter(private val mMessageItems: List<MessageItem>) : RecyclerVie
         }
         override fun onClick(v: View) {
             val intent = Intent(v.context, ContentDetailActivity::class.java)
-            intent.putExtra("CHAT", mMessageItems[adapterPosition])
+//            intent.putExtra("CHAT", mMessageItems[adapterPosition])
             v.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-        return mMessageItems.size
+//        return mMessageItems.size
+        return 20
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): IndexHolder {

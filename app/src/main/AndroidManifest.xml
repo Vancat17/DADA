@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+
     <application
         android:name=".main.DadaApplication"
         android:allowBackup="true"
@@ -64,7 +65,7 @@
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".function.LikeActivity"
+            android:name=".function.collection.CollectionActivity"
             android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -91,7 +92,8 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".message.ChatActivity" />
         <activity android:name=".pay.PayActivity" />
-        <activity android:name=".function.stroke.StrokeDetailActivity" />
+        <activity android:parentActivityName=".function.stroke.StrokeActivity"
+            android:name=".function.stroke.OrderActivity" />
         <activity android:name=".user.activity.ProviderDetailActivity" />
 
         <!-- ***************发布页相关************* -->
@@ -109,6 +111,29 @@
 
         <activity android:name=".pay.WXPayEntryActivity" />
         <activity android:name=".main.GuideActivity"/>
+
+
+        <!--即时通讯-->
+        <activity android:name=".chatkit.activity.LCIMConversationActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".chatkit.activity.LCIMImageActivity" />
+
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+
+        </receiver>
+        <service android:name="com.avos.avoscloud.PushService" />
+
     </application>
 
 </manifest>

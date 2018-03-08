@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.scujcc.dada.R
 import com.scujcc.dada.helper.Content
 import com.scujcc.dada.helper.GetRequest
@@ -18,8 +17,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by  范朝波 on 2017/12/15.
@@ -32,7 +29,7 @@ class ContentMainFragment : Fragment() {
     private var mPage: Int = 0
     private lateinit var mContentItem: ContentItem
 
-    private  var mContentItems: MutableList<ContentItem>? = null
+    private lateinit var mContentItems: MutableList<ContentItem>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +45,7 @@ class ContentMainFragment : Fragment() {
         val view = LayoutInflater.from(activity).inflate(R.layout.content_main_recycler,container,false)
         view.content_main_recycler.setHasFixedSize(true)
         view.content_main_recycler.layoutManager = LinearLayoutManager(activity)
-        view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems!!)
+        view.content_main_recycler.adapter = ContentMainAdapter(this.mContentItems)
 
         view.content_refresh!!.setColorSchemeResources(R.color.colorPrimary)
 
@@ -71,7 +68,7 @@ class ContentMainFragment : Fragment() {
                     Log.w("Test", "加载成功")
                     for (item in response!!.body()) {
                         mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
-                        mContentItems!!.add(mContentItem)
+                        mContentItems.add(mContentItem)
                     }
                     view.content_main_recycler.adapter.notifyDataSetChanged()
                     view.content_refresh.isRefreshing = false
@@ -79,7 +76,6 @@ class ContentMainFragment : Fragment() {
                 override fun onFailure(call: Call<List<Content>>?, t: Throwable?) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
-
             })
 
         } catch (ignored: Exception) {
@@ -97,7 +93,7 @@ class ContentMainFragment : Fragment() {
                         mContentItems = ArrayList()
                         for (item in response!!.body()) {
                             mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
-                            mContentItems!!.add(0,mContentItem)
+                            mContentItems.add(0,mContentItem)
                         }
 
                         view.content_main_recycler.adapter.notifyDataSetChanged()

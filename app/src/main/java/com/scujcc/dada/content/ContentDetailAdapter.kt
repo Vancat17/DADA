@@ -22,10 +22,6 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
 
     inner class RecommendHolder(itemView: View) : IndexHolder(itemView)
 
-    /**
-     * 为了节约首页内存的开销 到详情页从服务器拉取详情内容
-     */
-
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: IndexHolder, position: Int) {
 
