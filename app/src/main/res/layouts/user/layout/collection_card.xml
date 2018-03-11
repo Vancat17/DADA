@@ -28,7 +28,6 @@
 
             <TextView
                 android:id="@+id/sender_name"
-                android:text="null"
                 android:layout_margin="10dp"
                 android:layout_toEndOf="@id/sender_image"
                 android:layout_width="wrap_content"
@@ -36,7 +35,6 @@
 
             <TextView
                 android:id="@+id/price"
-                android:text="¥ 1111"
                 android:layout_margin="10dp"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/colorMoneyRed"
@@ -50,6 +48,7 @@
             android:src="@drawable/dada_default"
             android:layout_width="200dp"
             android:layout_height="200dp" />
+
 
         <TextView
             android:id="@+id/collection_topic"
@@ -68,7 +67,6 @@
 
             <Button
                 android:id="@+id/collection_location"
-                android:text="地点"
                 android:gravity="center"
                 android:background="@color/colorTransparent"
                 android:textColor="@android:color/holo_blue_bright"

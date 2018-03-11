@@ -67,7 +67,7 @@ class ContentMainFragment : Fragment() {
                 override fun onResponse(call: Call<List<Content>>?, response: Response<List<Content>>?) {
                     Log.w("Test", "加载成功")
                     for (item in response!!.body()) {
-                        mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
+                        mContentItem = ContentItem(item.contentId, item.image,item.name, item.topic, item.tag, item.date, item.location, item.now!!, item.total!!, item.price!!, item.content)
                         mContentItems.add(mContentItem)
                     }
                     view.content_main_recycler.adapter.notifyDataSetChanged()
@@ -92,7 +92,7 @@ class ContentMainFragment : Fragment() {
                         Log.w("Test", "加载成功")
                         mContentItems = ArrayList()
                         for (item in response!!.body()) {
-                            mContentItem = ContentItem(item.contentId, R.drawable.download, "FCB", item.topic, item.tag, item.date, item.location, item.total, item.price, item.content)
+                            mContentItem = ContentItem(item.contentId, item.image, item.name, item.topic, item.tag, item.date, item.location, item.now!!, item.total!!, item.price!!, item.content)
                             mContentItems.add(0,mContentItem)
                         }
 

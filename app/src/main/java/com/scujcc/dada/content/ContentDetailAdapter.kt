@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.scujcc.dada.R
+import com.scujcc.dada.helper.Content
 import kotlinx.android.synthetic.main.content_detail_header.view.*
 
 /**
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.content_detail_header.view.*
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<ContentDetailAdapter.IndexHolder>() {
+class ContentDetailAdapter(private val item: Content): RecyclerView.Adapter<ContentDetailAdapter.IndexHolder>() {
 
     open inner class IndexHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -28,14 +29,18 @@ class ContentDetailAdapter(private val item: ContentItem): RecyclerView.Adapter<
         when (position) {
             0 -> {
                 val detailHolder = holder as DetailHolder
-                val uri = "http://pic2.52pk.com/files/170511/2165322_100509_1_lit.jpg"
-                Glide.with(holder.itemView.context).load(uri).into(holder.itemView.detail_image)
+                Glide.with(holder.itemView.context).load(item.image).into(holder.itemView.detail_image)
+                Glide.with(holder.itemView.context).load(item.avatar).into(holder.itemView.sender_image)
                 detailHolder.itemView.detail_topic.text = item.topic
-                detailHolder.itemView.sender_name.text = item.sender
+                detailHolder.itemView.sender_name.text = item.name
+                detailHolder.itemView.detail_location.text = item.location
+                detailHolder.itemView.detail_time.text = item.date
                 detailHolder.itemView.detail_price.text = "¥" + item.price
-                detailHolder.itemView.detail_people_num.text = "当前人数" + (item.totalnumber!! - 1) + "/" + item.totalnumber
+                detailHolder.itemView.detail_people_num.text = "当前人数" + item.now + "/" + item.total
                 detailHolder.itemView.activity_tag.text = item.tag
                 detailHolder.itemView.detail_detail.text = item.content
+                detailHolder.itemView.sender_names.text = item.name
+                detailHolder.itemView.sender_score.text = item.score.toString()
             }
             else -> {
 

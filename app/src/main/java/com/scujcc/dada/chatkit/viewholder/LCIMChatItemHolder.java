@@ -1,5 +1,6 @@
 package com.scujcc.dada.chatkit.viewholder;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -56,9 +57,9 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
 
   public void initView() {
     if (isLeft) {
-      avatarView = (ImageView) itemView.findViewById(R.id.chat_left_iv_avatar);
-      timeView = (TextView) itemView.findViewById(R.id.chat_left_tv_time);
-      nameView = (TextView) itemView.findViewById(R.id.chat_left_tv_name);
+      avatarView = itemView.findViewById(R.id.chat_left_iv_avatar);
+      timeView = itemView.findViewById(R.id.chat_left_tv_time);
+      nameView = itemView.findViewById(R.id.chat_left_tv_name);
       conventLayout = (LinearLayout) itemView.findViewById(R.id.chat_left_layout_content);
       statusLayout = (FrameLayout) itemView.findViewById(R.id.chat_left_layout_status);
       statusView = (TextView) itemView.findViewById(R.id.chat_left_tv_status);
@@ -85,7 +86,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
     message = (AVIMMessage) o;
     timeView.setText(millisecsToDateString(message.getTimestamp()));
     nameView.setText("");
-    avatarView.setImageResource(R.drawable.lcim_default_avatar_icon);
+    avatarView.setImageResource(R.drawable.avatar);
     LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
       @Override
       protected void internalDone0(LCChatKitUser userProfile, AVException e) {
@@ -96,7 +97,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
           final String avatarUrl = userProfile.getAvatarUrl();
           if (!TextUtils.isEmpty(avatarUrl)) {
             Picasso.with(getContext()).load(avatarUrl)
-              .placeholder(R.drawable.lcim_default_avatar_icon).into(avatarView);
+              .placeholder(R.drawable.avatar).into(avatarView);
           }
         }
       }
@@ -195,6 +196,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
 
   //TODO 展示更人性一点
   private static String millisecsToDateString(long timestamp) {
+    @SuppressLint("SimpleDateFormat")
     SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm");
     return format.format(new Date(timestamp));
   }

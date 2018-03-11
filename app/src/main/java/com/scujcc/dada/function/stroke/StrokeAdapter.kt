@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.scujcc.dada.R
 import kotlinx.android.synthetic.main.stroke_card.view.*
 
@@ -35,9 +36,10 @@ class StrokeAdapter(private var mStrokeItems: MutableList<StrokeItem>) : Recycle
     }
 
     override fun onBindViewHolder(holder: StrokeHolder, position: Int) {
+        Glide.with(holder.itemView.context).load(mStrokeItems[position].image).into(holder.itemView.stroke_image)
+        holder.itemView.stroke_price.text = mStrokeItems[position].price.toString()
         holder.itemView.stroke_topic.text = mStrokeItems[position].topic
-//        holder.itemView.stroke_location.text = mStrokeItems[position].location
-        holder.itemView.stroke_state.text = if (mStrokeItems[position].isDone) "已完成" else "未完成"
+        holder.itemView.stroke_state.text = mStrokeItems[position].state
     }
 
     override fun getItemCount(): Int {

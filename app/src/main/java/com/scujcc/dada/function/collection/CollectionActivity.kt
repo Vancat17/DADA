@@ -56,9 +56,12 @@ class CollectionActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<List<Content>>?, response: Response<List<Content>>?) {
                     for (item in response!!.body()) {
-//                        mCollectionItem.add(CollectionItem(item.image,))
+                        mCollectionItem.add(CollectionItem(item.avatar, item.name, item.price!!, item.image, item.topic!!, item.location!!))
                     }
-                    no_collection.visibility = View.GONE
+                    if (mCollectionItem.isNotEmpty()) {
+                        no_collection.visibility = View.GONE
+                    }
+                    collection_recycle.adapter.notifyDataSetChanged()
                 }
 
             })

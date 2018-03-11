@@ -22,13 +22,13 @@
             <ImageView
                 android:id="@+id/detail_image"
                 android:scaleType="centerCrop"
+                android:layout_margin="5dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:contentDescription="@string/todo" />
 
             <TextView
                 android:id="@+id/detail_topic"
-                android:text="@string/topic"
                 android:textSize="18sp"
                 android:textColor="@color/colorBlack"
                 android:layout_toEndOf="@id/detail_image"
@@ -38,7 +38,6 @@
 
             <TextView
                 android:id="@+id/detail_price"
-                android:text="@string/price"
                 android:layout_toEndOf="@id/detail_image"
                 android:layout_below="@id/detail_topic"
                 android:padding="10dp"
@@ -73,21 +72,18 @@
 
                 <TextView
                     android:id="@+id/name"
-                    android:text="发财包"
                     android:layout_weight="1"
                     android:textAlignment="textEnd"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
                 <TextView
                     android:id="@+id/phone"
-                    android:text="1777777777"
                     android:layout_weight="1"
                     android:textAlignment="textEnd"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
                 <TextView
                     android:id="@+id/location"
-                    android:text="四川大学"
                     android:layout_weight="1"
                     android:textAlignment="textEnd"
                     android:layout_width="match_parent"
@@ -122,6 +118,7 @@
                 android:id="@+id/num"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="40dp"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 

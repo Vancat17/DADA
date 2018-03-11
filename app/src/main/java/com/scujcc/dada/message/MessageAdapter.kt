@@ -5,9 +5,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.scujcc.dada.R
 import com.scujcc.dada.content.ContentDetailActivity
-import com.scujcc.dada.content.ContentMainAdapter
+import kotlinx.android.synthetic.main.message_card.view.*
 
 /**
  * Created by  范朝波 on 2017/12/26.
@@ -17,6 +18,7 @@ import com.scujcc.dada.content.ContentMainAdapter
 
 class MessageAdapter(private val mMessageItems: List<MessageItem>) : RecyclerView.Adapter<MessageAdapter.IndexHolder>() {
 
+
     inner class IndexHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         init {
@@ -24,15 +26,14 @@ class MessageAdapter(private val mMessageItems: List<MessageItem>) : RecyclerVie
 
         }
         override fun onClick(v: View) {
-            val intent = Intent(v.context, ContentDetailActivity::class.java)
+            val Intentent = Intent(v.context, ContentDetailActivity::class.java)
 //            intent.putExtra("CHAT", mMessageItems[adapterPosition])
-            v.context.startActivity(intent)
+//            v.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-//        return mMessageItems.size
-        return 20
+        return mMessageItems.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): IndexHolder {
@@ -42,6 +43,12 @@ class MessageAdapter(private val mMessageItems: List<MessageItem>) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: IndexHolder?, position: Int) {
+//        if (holder != null) {
+            Glide.with(holder!!.itemView.context).load(mMessageItems[position].avatar).into(holder.itemView.sender_avatar)
+            holder.itemView.last_message.text = mMessageItems[position].message
+            holder.itemView.last_time.text = mMessageItems[position].time
+            holder.itemView.sender_name.text = mMessageItems[position].name
+//        }
 
     }
 }

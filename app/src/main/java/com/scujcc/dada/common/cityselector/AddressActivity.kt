@@ -50,7 +50,7 @@ class AddressActivity : AppCompatActivity() {
                 //errCode等于0代表定位成功，其他的为定位失败，具体的可以参照官网定位错误码说明
                 if (location.errorCode == 0) {
 
-                    nowLocation = location.city + " " + location.district + " " + location.street
+                    nowLocation = location.city + " " + location.street
 
                     Log.w("Test", "定位成功")
 

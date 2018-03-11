@@ -5,4 +5,4 @@ package com.scujcc.dada.function.collection
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class CollectionItem
+class CollectionItem(val avatar: String?, val name: String?, val price: Double?, val image: String?, val topic: String?, val location: String?)

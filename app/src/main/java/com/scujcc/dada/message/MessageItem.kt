@@ -1,6 +1,5 @@
 package com.scujcc.dada.message
 
-import org.litepal.annotation.Column
 import org.litepal.crud.DataSupport
 import java.io.Serializable
 
@@ -9,4 +8,4 @@ import java.io.Serializable
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class MessageItem(@Column(unique = true, defaultValue = "unknown")var senderId: String, var imageId: Int, sender: String?, var message: String?, var subImageId: Int, date: String?) : Serializable, DataSupport()
+class MessageItem(var avatar: String,var name: String?, var message: String?, var image: String,var time: String?) : Serializable, DataSupport()

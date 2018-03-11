@@ -5,4 +5,4 @@ package com.scujcc.dada.function.stroke
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class StrokeItem (var time: String, var topic: String, var location: String?, var isDone: Boolean)
+class StrokeItem (var image: String, var topic: String, var state: String, val price: Double)

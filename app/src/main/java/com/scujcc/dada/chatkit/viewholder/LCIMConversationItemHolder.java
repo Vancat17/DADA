@@ -60,14 +60,14 @@ public class LCIMConversationItemHolder extends LCIMCommonViewHolder {
   }
 
   public void initView() {
-    avatarView = (ImageView) itemView.findViewById(R.id.conversation_item_iv_avatar);
-    nameView = (TextView) itemView.findViewById(R.id.conversation_item_tv_name);
-    timeView = (TextView) itemView.findViewById(R.id.conversation_item_tv_time);
-    unreadView = (TextView) itemView.findViewById(R.id.conversation_item_tv_unread);
-    typeView = (TextView) itemView.findViewById(R.id.conversation_item_tv_type);
-    messageView = (TextView) itemView.findViewById(R.id.conversation_item_tv_message);
-    avatarLayout = (RelativeLayout) itemView.findViewById(R.id.conversation_item_layout_avatar);
-    contentLayout = (LinearLayout) itemView.findViewById(R.id.conversation_item_layout_content);
+    avatarView = itemView.findViewById(R.id.conversation_item_iv_avatar);
+    nameView = itemView.findViewById(R.id.conversation_item_tv_name);
+    timeView = itemView.findViewById(R.id.conversation_item_tv_time);
+    unreadView = itemView.findViewById(R.id.conversation_item_tv_unread);
+    typeView = itemView.findViewById(R.id.conversation_item_tv_type);
+    messageView = itemView.findViewById(R.id.conversation_item_tv_message);
+    avatarLayout = itemView.findViewById(R.id.conversation_item_layout_avatar);
+    contentLayout = itemView.findViewById(R.id.conversation_item_layout_content);
   }
 
   @Override
@@ -178,9 +178,9 @@ public class LCIMConversationItemHolder extends LCIMCommonViewHolder {
             }
             if (!TextUtils.isEmpty(s)) {
               Picasso.with(getContext()).load(s)
-                .placeholder(R.drawable.lcim_default_avatar_icon).into(avatarView);
+                .placeholder(R.drawable.avatar).into(avatarView);
             } else {
-              avatarView.setImageResource(R.drawable.lcim_default_avatar_icon);
+              avatarView.setImageResource(R.drawable.avatar);
             }
           }
         });

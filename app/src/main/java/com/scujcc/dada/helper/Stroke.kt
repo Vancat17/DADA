@@ -7,4 +7,4 @@ import org.litepal.crud.DataSupport
  * 微信    ：family997722
  * QQ号    ：1136836811
  */
-class Stroke(var id: String, val date: String, val topic: String, val location: String, val finished: Boolean) : DataSupport()
+class Stroke(var id: String, val date: String, val topic: String, val location: String, val image: String, val ordernumber: String, val name: String, val state: String, val paydate: String, val paynumber: String) : DataSupport()

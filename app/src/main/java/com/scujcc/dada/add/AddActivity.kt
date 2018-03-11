@@ -16,10 +16,7 @@ import com.scujcc.dada.add.adapter.SelectImageAdapter
 import com.scujcc.dada.add.utils.KeyboardUtil
 import com.scujcc.dada.common.cityselector.AddressActivity
 import com.scujcc.dada.common.dateselector.model.DateParams
-import com.scujcc.dada.helper.Content
-import com.scujcc.dada.helper.PostRequest
-import com.scujcc.dada.helper.PutRequest
-import com.scujcc.dada.helper.User
+import com.scujcc.dada.helper.*
 import com.yuyh.library.imgsel.ISNav
 import kotlinx.android.synthetic.main.add_activity.*
 import kotlinx.android.synthetic.main.price_keyboard.*
@@ -168,16 +165,29 @@ class AddActivity : Activity() {
 
                     val date = Date(System.currentTimeMillis())
                     val contentId = SimpleDateFormat("yyyyMMddHHmmss").format(date)
-                    val content = Content(contentId, contentId,"image", add_time.text.toString(), 0,4, add_location.text.toString(), add_category.text.toString(),add_topic.text.toString(),19.99,user.userId,add_content.text.toString())
+                    val content = Content(contentId, contentId,getString(R.string.simpleImage), add_time.text.toString(), et_num.text.toString().toInt(),et_totalNum.text.toString().toInt(), add_location.text.toString(), add_category.text.toString(),add_topic.text.toString(),et_price.text.toString().toDouble(),user.name,add_content.text.toString(),getString(R.string.avatar),95)
                     val call = request.postContent(content)
                     call.enqueue(object : Callback<Content> {
                         override fun onResponse(call: Call<Content>?, response: Response<Content>?) {
                             Toast.makeText(applicationContext, "发布成功", Toast.LENGTH_SHORT).show()
 
-                            //成功之后保存到用户
-                            user.address = "哈哈哈哈哈哈哈"
-                            user.age = "21"
-                            updateUserData()
+
+                            val retrofit2 = Retrofit.Builder()
+                                    .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
+                                    .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+                                    .build()
+                            val request2 = retrofit2.create<PutRequest>(PutRequest::class.java)
+                            try {
+                                val stroke= Stroke(contentId, content.date!!, content.topic!!, content.location!!,content.image, "","","","","")
+                                val call2 = request2.updateStrokes(user.userId, stroke)
+                                call2.enqueue(object : Callback<String> {
+                                    override fun onResponse(call: Call<String>?, response: Response<String>?) {
+                                    }
+
+                                    override fun onFailure(call: Call<String>?, t: Throwable?) {
+                                    }
+                                })
+                            } catch (e : Exception) {}
 
                         }
                         override fun onFailure(call: Call<Content>?, t: Throwable?) {
@@ -191,27 +201,6 @@ class AddActivity : Activity() {
                 finish()
             }
         }
-    }
-
-    private fun updateUserData() {
-        val retrofit = Retrofit.Builder()
-                .baseUrl(getString(R.string.baseUrl)) // 设置 网络请求 Url
-                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
-                .build()
-        val request = retrofit.create<PutRequest>(PutRequest::class.java)
-        try {
-            val call = request.updateUsers(user.userId, user)
-            call.enqueue(object : Callback<String> {
-                override fun onResponse(call: Call<String>?, response: Response<String>?) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-                override fun onFailure(call: Call<String>?, t: Throwable?) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-            })
-        } catch (e : Exception) {}
     }
 
     //发布条件判断
@@ -276,7 +265,7 @@ class AddActivity : Activity() {
                 .setStartDate(startCal.time)
                 .setEndDate(endCal.time)
                 .setOnSureListener { date ->
-                    val message = SimpleDateFormat("开始 MM月 dd日 HH时 mm分").format(date)
+                    val message = SimpleDateFormat("MM-dd HH:mm").format(date)
                     add_time.text = message
                 }
                 .show(this)

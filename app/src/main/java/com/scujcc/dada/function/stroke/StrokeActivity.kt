@@ -34,6 +34,16 @@ class StrokeActivity : AppCompatActivity() {
         stroke_recycle.layoutManager = LinearLayoutManager(applicationContext)
         stroke_recycle.adapter = StrokeAdapter(mStrokeItems)
 
+        my_stroke.setOnClickListener {
+            my_stroke.background = getDrawable(R.drawable.common_button_background)
+            join_stroke.background = getDrawable(R.drawable.corners_background)
+        }
+
+        join_stroke.setOnClickListener {
+            join_stroke.background = getDrawable(R.drawable.common_button_background)
+            my_stroke.background = getDrawable(R.drawable.corners_background)
+        }
+
     }
 
     private fun getData() {
@@ -57,7 +67,7 @@ class StrokeActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<List<Stroke>>?, response: Response<List<Stroke>>?) {
 
                     for (item in response!!.body()) {
-                            mStrokeItems.add(StrokeItem(item.date,item.topic, item.location, item.finished))
+                            mStrokeItems.add(StrokeItem(item.image,item.topic, item.state,19.99))
                     }
                     if (mStrokeItems.isNotEmpty()) {
                         no_stroke.visibility = View.GONE

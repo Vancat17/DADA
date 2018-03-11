@@ -1,10 +1,15 @@
 package com.scujcc.dada.chatkit.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVCallback;
@@ -13,12 +18,16 @@ import com.avos.avoscloud.im.v2.AVIMConversation;
 import com.avos.avoscloud.im.v2.AVIMException;
 import com.avos.avoscloud.im.v2.AVIMTemporaryConversation;
 import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback;
+import com.bumptech.glide.Glide;
 import com.scujcc.dada.R;
 import com.scujcc.dada.chatkit.LCChatKit;
 import com.scujcc.dada.chatkit.cache.LCIMConversationItemCache;
 import com.scujcc.dada.chatkit.utils.LCIMConstants;
 import com.scujcc.dada.chatkit.utils.LCIMConversationUtils;
 import com.scujcc.dada.chatkit.utils.LCIMLogUtils;
+import com.scujcc.dada.helper.Content;
+import com.scujcc.dada.message.MessageItem;
+import com.scujcc.dada.pay.PayActivity;
 
 import java.util.Arrays;
 
@@ -31,13 +40,41 @@ import java.util.Arrays;
 public class LCIMConversationActivity extends AppCompatActivity {
 
   protected LCIMConversationFragment conversationFragment;
+  private Content mContent;
+  private ImageView mImage;
+  private TextView mPrice;
+  private Button mJoin;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.lcim_conversation_activity);
+
+    mImage = findViewById(R.id.chat_image);
+    mPrice = findViewById(R.id.chat_price);
+    mJoin = findViewById(R.id.join_button);
+    mContent = (Content) getIntent().getSerializableExtra("CHAT_CONTENT");
+
+    initData();
     conversationFragment = (LCIMConversationFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_chat);
     initByIntent(getIntent());
+
+    new MessageItem(mContent.getAvatar(), mContent.getName(), mContent.getImage(), "最近消息", "1小时前").save();
+  }
+
+  @SuppressLint("SetTextI18n")
+  private void initData() {
+
+    Glide.with(getApplicationContext()).load(mContent.getImage()).into(mImage);
+    mPrice.setText("¥ " + mContent.getPrice());
+    mJoin.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(LCIMConversationActivity.this, PayActivity.class);
+        intent.putExtra("JOIN", mContent);
+        startActivity(intent);
+      }
+    });
   }
 
   @Override

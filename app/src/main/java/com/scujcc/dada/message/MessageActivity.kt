@@ -27,9 +27,12 @@ class MessageActivity : AppCompatActivity() {
 
         mMessageItems = DataSupport.findAll(MessageItem::class.java)
 
-        no_message.visibility = View.GONE
         message_recycler.setHasFixedSize(true)
         message_recycler.layoutManager = LinearLayoutManager(applicationContext)
         message_recycler.adapter = MessageAdapter(mMessageItems)
+
+        if (mMessageItems.isNotEmpty()) {
+            no_message.visibility = View.GONE
+        }
     }
 }

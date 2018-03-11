@@ -17,7 +17,6 @@
 
         <TextView
             android:id="@+id/sender_name"
-            android:text="JK@XXX"
             android:textSize="12sp"
             android:textColor="@color/colorLightGrey"
             android:layout_alignEnd="@id/detail_image"
@@ -29,7 +28,6 @@
 
         <TextView
             android:id="@+id/detail_topic"
-            android:text="周五拼车泸州"
             android:textSize="20sp"
             android:background="@drawable/corners_half_background"
             android:textColor="@color/colorBlack"
@@ -40,7 +38,6 @@
 
         <TextView
             android:id="@+id/detail_price"
-            android:text="¥65"
             android:layout_alignParentEnd="true"
             android:layout_alignBottom="@id/detail_topic"
             android:padding="10dp"
@@ -52,7 +49,6 @@
         <!--标签-->
         <TextView
             android:id="@+id/activity_tag"
-            android:text="拼车"
             android:textSize="12sp"
             android:layout_below="@id/detail_price"
             android:layout_margin="10dp"
@@ -76,7 +72,6 @@
 
             <TextView
                 android:id="@+id/detail_location"
-                android:text="四川大学锦城学院"
                 android:textSize="12sp"
                 android:gravity="center_vertical"
                 android:layout_marginStart="8dp"
@@ -91,7 +86,6 @@
 
             <TextView
                 android:id="@+id/detail_people_num"
-                android:text="1/3"
                 android:textSize="12sp"
                 android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
@@ -105,7 +99,6 @@
 
             <TextView
                 android:id="@+id/detail_time"
-                android:text="周日17:30"
                 android:textSize="12sp"
                 android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
@@ -134,7 +127,6 @@
 
         <TextView
             android:id="@+id/sender_names"
-            android:text="小嗒"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary"
             android:layout_toEndOf="@id/sender_image"
@@ -151,9 +143,8 @@
             android:layout_height="match_parent"/>
 
         <TextView
-            android:id="@+id/credit_value"
+            android:id="@+id/sender_score"
             android:layout_width="wrap_content"
-            android:text="信用值 100分"
             android:gravity="center"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"

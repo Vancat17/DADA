@@ -70,6 +70,8 @@
     <string name="order_ok">确定</string>
 
 
+    <string name="simpleImage">https://dada-1256129579.cos.ap-chengdu.myqcloud.com/1024*1024.png</string>
+    <string name="avatar">http://t2.hddhhn.com/uploads/tu/201612/98/st94.png</string>
     <!--订单页-->
 
 </resources>
