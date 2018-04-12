@@ -7,19 +7,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 
     <application
         android:name=".main.DadaApplication"
@@ -89,8 +85,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".pay.PayActivity" />
-        <activity android:parentActivityName=".function.stroke.StrokeActivity"
-            android:name=".function.stroke.OrderActivity" />
+        <activity
+            android:name=".function.stroke.OrderActivity"
+            android:parentActivityName=".function.stroke.StrokeActivity" />
         <activity android:name=".user.activity.ProviderDetailActivity" />
 
         <!-- ***************发布页相关************* -->
@@ -105,21 +102,20 @@
 
         <!-- 分类 -->
         <activity android:name=".add.activity.CategoryActivity" />
-
         <activity android:name=".pay.WXPayEntryActivity" />
-        <activity android:name=".main.GuideActivity"/>
+        <activity android:name=".main.GuideActivity" />
 
-
-        <!--即时通讯-->
-        <activity android:name=".chatkit.activity.LCIMConversationActivity"
+        <!-- 即时通讯 -->
+        <activity
+            android:name=".chatkit.activity.LCIMConversationActivity"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="cn.leancloud.chatkit.conversation_item_click_action" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".chatkit.activity.LCIMImageActivity" />
-
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>
@@ -127,10 +123,12 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-
         </receiver>
+
         <service android:name="com.avos.avoscloud.PushService" />
 
+        <activity android:name=".add.MapActiivty" />
+        <activity android:name="com.scujcc.MapActivity" />
     </application>
 
 </manifest>
