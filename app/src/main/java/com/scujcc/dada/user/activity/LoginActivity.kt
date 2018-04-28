@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         login_button.setOnClickListener {
             hud = KProgressHUD.create(this)
                     .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                    .setLabel("登录中...")
+                    .setLabel("正在登陆...")
                     .show()
             login()
         }

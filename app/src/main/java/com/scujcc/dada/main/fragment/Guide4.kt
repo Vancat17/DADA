@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kaopiz.kprogresshud.KProgressHUD
 import com.scujcc.dada.R
 import com.scujcc.dada.user.activity.LoginActivity
 import kotlinx.android.synthetic.main.guide_fragment.view.*
@@ -18,13 +19,19 @@ import kotlinx.android.synthetic.main.guide_fragment.view.*
 
 class Guide4 : Fragment() {
 
+    private var hud: KProgressHUD? = null
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.guide_fragment, container, false)
         view.fragment_background!!.setBackgroundResource(R.mipmap.guide_4)
-        view.fragment_text.visibility = View.VISIBLE
-        view.fragment_text.setOnClickListener {
+        view.start_button.visibility = View.VISIBLE
+        view.start_button.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
+            hud = KProgressHUD.create(view.context)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("搭搭正在加载，客官请稍后")
+                    .show()
             activity.finish()
         }
         return view

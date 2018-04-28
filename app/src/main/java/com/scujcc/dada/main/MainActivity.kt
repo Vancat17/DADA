@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         main_fab.setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_top)
         }
 
         val toggle = ActionBarDrawerToggle(

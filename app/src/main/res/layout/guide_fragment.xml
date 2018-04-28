@@ -3,15 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_background">
-    <ImageView
-        android:id="@+id/fragment_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <Button
+        android:id="@+id/start_button"
+        android:text="立即体验"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
-        android:background="@drawable/dada"
-        android:gravity="center"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/corners_primary_background"
         android:textSize="14sp"
         android:visibility="gone"
         />

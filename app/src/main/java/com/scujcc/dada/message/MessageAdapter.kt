@@ -26,9 +26,9 @@ class MessageAdapter(private val mMessageItems: List<MessageItem>) : RecyclerVie
 
         }
         override fun onClick(v: View) {
-            val Intentent = Intent(v.context, ContentDetailActivity::class.java)
-//            intent.putExtra("CHAT", mMessageItems[adapterPosition])
-//            v.context.startActivity(intent)
+            val intent = Intent(v.context, ContentDetailActivity::class.java)
+            intent.putExtra("CHAT", mMessageItems[adapterPosition])
+            v.context.startActivity(intent)
         }
     }
 
